@@ -1,10 +1,6 @@
 import mongoose  from 'mongoose'
-const Schema =  mongoose.Schema
 
-
-
-
-const categorySchema = new Schema({
+const categorySchema = new mongoose.Schema({
     title: { type: String, required: true },
     blogs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Blog' }],
 });

@@ -8,9 +8,9 @@ dotenv.config()
 const connectDB = ()=>{
     mongoose.connect(process.env.MONGO_URL)
     .then(()=>{
-        console.log('database is connected')
+        console.log('Database is connected')
     }).catch(err=>{
-        console.log('error while connecting')
+        console.error('Error while connecting', err)
     })
 }
 export default connectDB
