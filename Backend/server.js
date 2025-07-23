@@ -17,8 +17,7 @@ app.use(cors({
 
 // accept form data
 app.use(express.urlencoded({ extended: true }));
-
-
+app.use(express.static('public'));
 
 
 app.get('/',(req,res)=>{
@@ -32,6 +31,5 @@ app.use('/api/category',categoryRoutes)
 
 
 app.listen(process.env.PORT, ()=>{
-    
     console.log(`Server is running on port ${process.env.PORT}`);
 })

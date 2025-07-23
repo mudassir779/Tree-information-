@@ -1,48 +1,52 @@
 import Blog from "../Model/BlogModel.js";
 import Category from "../Model/CategoryModel.js";
-
-
-
-
+import fs from 'fs';
+import path from 'path';
 
 export const addBlog = async (req, res) => {
-    try {
-        const { title, description, category } = req.body;
-        
+  try {
+    const { title, description, category } = req.body;
 
-        if (!title || !description || !category) {
-            return res.status(400).json({ message: 'All fields are required' });
+
+    if (!title || !description || !category) {
+      const oldFilePath = path.join(__dirname, '../public/images', file.filename);
+      fs.unlink(oldFilePath, (err) => {
+        if (err) {
+          console.error('Error deleting old file:', err);
         }
-
-        if (!req.file) {
-            return res.status(400).json({ message: 'Image is required' });
-        }
-
-        const existingCat = await Category.findOne({ title: category });
-        if (!existingCat) {
-            return res.status(400).json({ message: 'Category does not exist' });
-        }
-
-        // Ensure the blogs array exists
-        if (!existingCat.blogs) {
-            existingCat.blogs = [];
-        }
-
-        const newBlog = new Blog({
-            title,
-            description,
-            image: req.file.filename,
-        });
-
-        await newBlog.save();
-        existingCat.blogs.push(newBlog._id);
-        await existingCat.save();
-
-        return res.status(201).json({ message: 'Blog added successfully', blog: newBlog });
-    } catch (error) {
-        console.error('Error adding blog:', error);
-        return res.status(500).json({ message: 'Internal server error' });
+      })
+      return res.status(400).json({ message: 'All fields are required' });
     }
+
+    if (!req.file) {
+      return res.status(400).json({ message: 'Image is required' });
+    }
+
+    const existingCat = await Category.findOne({ title: category });
+    if (!existingCat) {
+      return res.status(400).json({ message: 'Category does not exist' });
+    }
+
+    // Ensure the blogs array exists
+    if (!existingCat.blogs) {
+      existingCat.blogs = [];
+    }
+
+    const newBlog = new Blog({
+      title,
+      description,
+      image: req.file.filename,
+    });
+
+    await newBlog.save();
+    existingCat.blogs.push(newBlog._id);
+    await existingCat.save();
+
+    return res.status(201).json({ message: 'Blog added successfully', blog: newBlog });
+  } catch (error) {
+    console.error('Error adding blog:', error);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
 };
 
 

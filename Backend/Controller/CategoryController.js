@@ -31,26 +31,26 @@ export const getCategory = async (req, res) => {
       category,
     });
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
 
 
 
-export const categoryById = async(req,res)=>{
-  try{
-    const {id} = req.params;
+export const categoryById = async (req, res) => {
+  try {
+    const { id } = req.params;
     const category = await Category.findById(id).populate("blogs");
     res.status(200).json({
       success: true,
       category,
-      blogs:category.blogs,
+      blogs: category.blogs,
 
     });
 
-  }catch(err){
-    console.log(err);
+  } catch (err) {
+    console.error(err);
   }
 
 }
@@ -62,7 +62,7 @@ export const deleteCategory = async (req, res) => {
   try {
     const { id } = req.params;
     const category_blogs = await Category.findById(id);
-    if(category_blogs.blogs.length>0){
+    if (category_blogs.blogs.length > 0) {
       return res.status(400).json({ message: "Category has blogs in it. Can't be deleted" });
     }
     const category = await Category.findByIdAndDelete(id);
@@ -77,18 +77,19 @@ export const deleteCategory = async (req, res) => {
 }
 
 
-export const updateCategory  =async (req,res)=>{
-  try{
-    const {id} = req.params
-    const {title} = req.body
-    const category = Category.findByIdAndUpdate(id,{title},{new:true})
+export const updateCategory = async (req, res) => {
+  try {
+    const { id } = req.params
+    const { title } = req.body
+    const category = Category.findByIdAndUpdate(id, { title }, { new: true }).lean();
+    console.log(category);
     res.status(200).json({
       success: true,
-      category,
+      category: category
     });
 
-  }catch(err){
-    console.log(err)
+  } catch (err) {
+    console.error(err)
 
   }
 

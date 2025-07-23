@@ -1,5 +1,5 @@
 import User from '../Model/UserModel.js';
-import bcrypt, { hash } from 'bcrypt';
+import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
@@ -7,7 +7,7 @@ dotenv.config();
 
 export const registerUser = async (req, res) => {
     try {
-        const { username, email, password } = req.body;
+        const { username, email, password, role } = req.body;
 
         if (!username || !email || !password) {
             return res.status(400).json({ message: 'All fields are required' });
@@ -22,11 +22,12 @@ export const registerUser = async (req, res) => {
         const newUser = new User({
             username,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            role
         });
 
         await newUser.save();
-        console.log('User registered successfully:', newUser); // Moved above return
+        // console.log('User registered successfully:', newUser);
 
         return res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
@@ -98,7 +99,7 @@ export const loginUser = async (req, res) => {
 
 export const logoutUser = (req, res) => {
     try {
-        res.clearCookie('EssaRaza', {
+        res.clearCookie('Tree-Project', {
             httpOnly: true,
             secure: true,
             sameSite: 'None',
