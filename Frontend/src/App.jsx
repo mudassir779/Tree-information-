@@ -1,9 +1,11 @@
+import Blogs from "./components/Blogs.jsx"
 import { Route, Routes } from "react-router-dom"
 import Header from "./components/Header.jsx"
 function App() {
   return (
       <div className="">
         <Header />
+        <Blogs/>
         Welcome to Tree Project
         <Routes>
           <Route path="/" element={<h1>Home</h1>}></Route>
