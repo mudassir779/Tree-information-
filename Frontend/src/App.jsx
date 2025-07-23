@@ -1,6 +1,7 @@
 import Blogs from "./components/Blogs.jsx"
 import { Route, Routes } from "react-router-dom"
 import Header from "./components/Header.jsx"
+import Footer from "./components/Footer.jsx"
 function App() {
   return (
       <div className="">
@@ -15,6 +16,7 @@ function App() {
           <Route path="/contact-us" element={<h1>Contact Us</h1>}></Route>
           <Route path="/blog" element={<Blogs/>}></Route>
         </Routes>
+        <Footer/>
       </div>
   )
 }
