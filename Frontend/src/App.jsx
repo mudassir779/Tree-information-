@@ -5,7 +5,6 @@ function App() {
   return (
       <div className="">
         <Header />
-        <Blogs/>
         Welcome to Tree Project
         <Routes>
           <Route path="/" element={<h1>Home</h1>}></Route>
@@ -14,7 +13,7 @@ function App() {
           <Route path="/service-areas" element={<h1>Service Areas</h1>}></Route>
           <Route path="/photo-gallery" element={<h1>Photo Gallery</h1>}></Route>
           <Route path="/contact-us" element={<h1>Contact Us</h1>}></Route>
-          <Route path="/blog" element={<h1>Blogs</h1>}></Route>
+          <Route path="/blog" element={<Blogs/>}></Route>
         </Routes>
       </div>
   )
