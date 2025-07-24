@@ -220,67 +220,67 @@ const Footer = () => {
                 </div>
             </div>
             <div className="bg-gray-600 text-white">
-      <div className="max-w-7xl mx-auto px-8 py-6">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          
-          {/* Left Section - Copyright and Links */}
-          <div className="text-sm space-y-2">
-            <div>
-              <p>© 2025 <span className="font-medium">Ken's Tree Service</span>. All Rights Reserved.</p>
+                <div className="max-w-7xl mx-auto px-8 py-6">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+
+                        {/* Left Section - Copyright and Links */}
+                        <div className="text-sm space-y-2">
+                            <div>
+                                <p>© 2025 <span className="font-medium">Ken's Tree Service</span>. All Rights Reserved.</p>
+                            </div>
+                            <div className="flex flex-wrap items-center gap-1">
+                                <Link to="/" className="text-white hover:text-green-400 transition-colors">
+                                    Home
+                                </Link>
+                                <span className="text-white mx-1">|</span>
+                                <Link to="/blog" className="text-white hover:text-green-400 transition-colors">
+                                    Blog
+                                </Link>
+                                <span className="text-white mx-1">|</span>
+                                <Link to="/privacy-policy" className="text-white hover:text-green-400 transition-colors">
+                                    Privacy Policy
+                                </Link>
+                                <span className="text-white mx-1">|</span>
+                                <Link to="/sitemap" className="text-white hover:text-green-400 transition-colors">
+                                    Sitemap
+                                </Link>
+                                <span className="text-white mx-1">|</span>
+                                <Link to="/contact-us" className="text-white hover:text-green-400 transition-colors">
+                                    Contact Us
+                                </Link>
+                            </div>
+                        </div>
+
+                        {/* Center Section - Payment Methods */}
+                        <div className="flex-shrink-0">
+                            <img
+                                src="/ss-pm.png"
+                                alt="Accepted payment methods - Mastercard, Visa, American Express, Discover, and more"
+                                className="h-12 w-auto"
+                                loading="lazy"
+                            />
+                        </div>
+
+                        {/* Right Section - Powered by Tree Service Digital */}
+                        <div className="flex items-center gap-2 text-sm">
+                            <a
+                                href="https://treeservicedigital.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:opacity-80 transition-opacity"
+                            >
+                                <img
+                                    src="/treeservicedigital-logo.png"
+                                    alt="Tree Service Digital"
+                                    className="h-10 w-auto"
+                                    loading="lazy"
+                                />
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <div className="flex flex-wrap items-center gap-1">
-              <Link to="/" className="text-white hover:text-green-400 transition-colors">
-                Home
-              </Link>
-              <span className="text-white mx-1">|</span>
-              <Link to="/blog" className="text-white hover:text-green-400 transition-colors">
-                Blog
-              </Link>
-              <span className="text-white mx-1">|</span>
-              <Link to="/privacy-policy" className="text-white hover:text-green-400 transition-colors">
-                Privacy Policy
-              </Link>
-              <span className="text-white mx-1">|</span>
-              <Link to="/sitemap" className="text-white hover:text-green-400 transition-colors">
-                Sitemap
-              </Link>
-              <span className="text-white mx-1">|</span>
-              <Link to="/contact-us" className="text-white hover:text-green-400 transition-colors">
-                Contact Us
-              </Link>
-            </div>
-          </div>
-
-          {/* Center Section - Payment Methods */}
-          <div className="flex-shrink-0">
-            <img 
-              src="/ss-pm.png" 
-              alt="Accepted payment methods - Mastercard, Visa, American Express, Discover, and more"
-              className="h-12 w-auto"
-              loading="lazy"
-            />
-          </div>
-
-          {/* Right Section - Powered by Tree Service Digital */}
-          <div className="flex items-center gap-2 text-sm">
-            <a 
-              href="https://treeservicedigital.com/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80 transition-opacity"
-            >
-              <img 
-                src="/treeservicedigital-logo.png" 
-                alt="Tree Service Digital"
-                className="h-10 w-auto"
-                loading="lazy"
-              />
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </div>
         </div>
     )
 }
