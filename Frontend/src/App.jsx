@@ -1,8 +1,9 @@
 import Blogs from "./components/Blogs.jsx"
 import { Route, Routes } from "react-router-dom"
 import Header from "./components/Header.jsx"
-import ContactUS from "./Pages/ContactUs.jsx"
+import Footer from "./components/Footer.jsx"
 import Home from "./Pages/Home.jsx"
+import ContactUS from "./Pages/ContactUs.jsx"
 function App() {
   return (
       <div className="">
@@ -17,6 +18,7 @@ function App() {
           <Route path="/contact-us" element={<ContactUS/>}></Route>
           <Route path="/blog" element={<Blogs/>}></Route>
         </Routes>
+        <Footer/>
       </div>
   )
 }
