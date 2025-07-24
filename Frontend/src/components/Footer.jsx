@@ -94,7 +94,7 @@ const Footer = () => {
                             <div className="border-t-2 border-gray-300 w-16 mb-4"></div>
                             <ul className="space-y-2 text-sm list-disc list-inside">
                                 <li>
-                                    <Link to="/services/tree-removal-tarpon-springs-fl" className="text-gray-700 hover:text-green-600 transition-colors">
+                                    <Link to="/services/tree-removal"  className="text-gray-700 hover:text-green-600 transition-colors">
                                         Tree Removal
                                     </Link>
                                 </li>
