@@ -13,15 +13,17 @@ import StructuralPruning from "./Pages/StructuralPruning.jsx"
 import LandClearing from "./Pages/LandClearing.jsx"
 import StormCleanUp from "./Pages/StormCleanUp.jsx"
 import CommercialTreeServices from "./Pages/CommercialTreeServices.jsx"
+import ScrolltoTop from "./components/ScrolltoTop.jsx"
+
 function App() {
   return (
       <div className="">
         <Header />
-        
+        <ScrolltoTop/>
         <Routes>
           <Route path="/" element={<Home/>}></Route>
           <Route path="/about-us" element={<AboutUs/>}></Route>
-          <Route index element={<h1>Services</h1>}></Route>
+          <Route path="/services" element={<h1>Services</h1>}></Route>
           <Route path="/services/tree-removal" element={<TreeRemoval/>}></Route>
           <Route path="/services/tree-trimming-pruning" element={<TreeTrimming/>}></Route>
           <Route path="/services/deep-root-fertilization" element={<DeepRootFertilization/>}></Route>
