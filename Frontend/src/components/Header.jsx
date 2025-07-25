@@ -101,7 +101,7 @@ const Header = () => {
             </div>
 
             {/* Navigation */}
-            <nav className="bg-green-800 relative">
+            <nav className="bg-green-700 relative">
                 <ul className="flex w-full justify-center space-x-8 py-3 text-white font-medium">
                     <li className="hover:underline cursor-pointer">
                         <Link to="/" className="flex items-center">HOME</Link>
