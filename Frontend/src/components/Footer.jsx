@@ -23,8 +23,8 @@ const Footer = () => {
                             <h4 className="text-sm md:text-sm font-semibold mb-4 text-gray-300">
                                 CONTACT US FOR MORE INFORMATION
                             </h4>
-                            <a href='tel:+17279345804' className="text-5xl md:text-5xl font-bold mb-6 text-white">
-                                (727) 934-5804
+                            <a href='tel:812-213-5997' className="text-5xl md:text-5xl font-bold mb-6 text-white">
+                                812-213-5997
                             </a>
                         </div>
                         <div>
@@ -219,14 +219,14 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-gray-600 text-white">
+            <div className="bg-[#B0B694] text-white">
                 <div className="max-w-7xl mx-auto px-8 py-6">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-6">
 
                         {/* Left Section - Copyright and Links */}
                         <div className="text-sm space-y-2">
                             <div>
-                                <p>© 2025 <span className="font-medium">Ken's Tree Service</span>. All Rights Reserved.</p>
+                                <p>© 2025 <span className="font-medium">American Tree Experts, Land LLC</span>. All Rights Reserved.</p>
                             </div>
                             <div className="flex flex-wrap items-center gap-1">
                                 <Link to="/" className="text-white hover:text-green-400 transition-colors">

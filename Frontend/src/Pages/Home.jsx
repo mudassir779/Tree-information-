@@ -11,7 +11,7 @@ const Home = () => {
       initial: "C",
       color: "bg-purple-600",
       rating: 5,
-      text: "Ken's Tree Service came by yesterday to prune my grand live oak. The Arborist is familiar with HOA and and County pruning requirements and planned the project accordingly. Job done... read more"
+      text: "American Tree Experts came by yesterday to prune my grand live oak. The Arborist is familiar with HOA and and County pruning requirements and planned the project accordingly. Job done... read more"
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ const Home = () => {
       initial: "M",
       color: "bg-orange-600",
       rating: 5,
-      text: "Another great experience with Ken's Tree Service. We had a limb that failed and it took out our fence panel. Vince came out the next day to give us an... read more"
+      text: "Another great experience with American Tree Experts. We had a limb that failed and it took out our fence panel. Vince came out the next day to give us an... read more"
     },
     {
       id: 3,
@@ -27,7 +27,7 @@ const Home = () => {
       initial: "C",
       color: "bg-teal-600",
       rating: 5,
-      text: "The entire experience with Ken's was simple, fast, and effective. Vincent shared his experience and knowledge with us to ensure we understood the job at hand. The day-of crew and... read more",
+      text: "The entire experience with American Tree Experts was simple, fast, and effective. Vincent shared his experience and knowledge with us to ensure we understood the job at hand. The day-of crew and... read more",
       hasProfileImage: true
     },
     {
@@ -36,7 +36,7 @@ const Home = () => {
       initial: "D",
       color: "bg-blue-600",
       rating: 5,
-      text: "Ken's tree service did a fantastic job. They were punctual and efficient."
+      text: "American Tree Experts did a fantastic job. They were punctual and efficient."
     },
     {
       id: 5,
@@ -52,7 +52,7 @@ const Home = () => {
       initial: "E",
       color: "bg-gray-500",
       rating: 5,
-      text: "Professional and prompt with service. I will be using Ken's Tree service again."
+      text: "Professional and prompt with service. I will be using American Tree Experts again."
     }
   ];
 
@@ -142,7 +142,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div><img loading="lazy" decoding="async" src="/ZigZag.png" alt="" className='w-full' /></div>
 
       {/* Our Services Section */}
       <div className="py-25 mx-4 sm:px-6 lg:px-8 bg-gray-50">
@@ -248,7 +247,7 @@ const Home = () => {
             <h4 className="text-sm md:text-sm font-semibold px-4 text-gray-300">
               CONTACT US FOR MORE INFORMATION
             </h4>
-            <a href="tel:+17279345804" className='font-extrabold text-5xl'>(727) 934-5804</a>
+            <a href="tel:812-213-5997" className='font-extrabold text-5xl'>812-213-5997</a>
             <div className="mt-12">
               <button className="bg-lime-600 hover:bg-lime-700 hover:rounded text-white font-bold py-3 px-6 mb-20 rounded-3xl transition duration-300">
                 REQUEST A FREE ESTIMATE
@@ -256,29 +255,6 @@ const Home = () => {
             </div>
           </div>
         </section>
-
-        {/* Zigzag pattern at the bottom */}
-        <div className="relative w-full h-8 bg-white">
-          <div className="absolute inset-0 bg-[url('/tree-bg.jpg')] bg-cover bg-center">
-            <div className="absolute inset-0 bg-green-900 bg-opacity-70 mix-blend-multiply"></div>
-          </div>
-          <svg
-            className="absolute top-0 left-0 w-full h-full"
-            viewBox="0 0 1200 40"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <mask id="zigzag-mask">
-                <rect width="100%" height="100%" fill="black" />
-                <polygon
-                  points="0,40 30,0 60,40 90,0 120,40 150,0 180,40 210,0 240,40 270,0 300,40 330,0 360,40 390,0 420,40 450,0 480,40 510,0 540,40 570,0 600,40 630,0 660,40 690,0 720,40 750,0 780,40 810,0 840,40 870,0 900,40 930,0 960,40 990,0 1020,40 1050,0 1080,40 1110,0 1140,40 1170,0 1200,40 1200,40 0,40"
-                  fill="white"
-                />
-              </mask>
-            </defs>
-            <rect width="100%" height="100%" fill="white" mask="url(#zigzag-mask)" />
-          </svg>
-        </div>
       </div>
 
       {/* About Us Section */}
@@ -289,7 +265,7 @@ const Home = () => {
             <div className='mb-8'>
               <h3 className='text-green-700 text-md font-bold tracking-wider uppercase mb-4'>About Us</h3>
               <h2 className='text-3xl md:text-4xl font-bold text-gray-800 leading-tight'>
-                Arborists From Ken's Tree Service are All Highly<br />
+                Arborists From American Tree Experts' Services are All Highly<br />
                 Trained Professionals.
               </h2>
             </div>
@@ -314,10 +290,10 @@ const Home = () => {
             {/* Content paragraphs */}
             <div className='max-w-4xl mx-auto mb-8'>
               <p className='text-gray-600 text-base leading-relaxed mb-6'>
-                At Ken's Tree Service, our team is committed to providing excellent customer service, and we are always here to answer any questions you may have. We take pride in our work and your satisfaction is our top priority. We understand that every situation is unique and requires individual attention to detail. We will take the time to understand your needs and create a plan of action that is both cost-effective and provides you with a safe, attractive result.
+                At American Tree Experts, our team is committed to providing excellent customer service, and we are always here to answer any questions you may have. We take pride in our work and your satisfaction is our top priority. We understand that every situation is unique and requires individual attention to detail. We will take the time to understand your needs and create a plan of action that is both cost-effective and provides you with a safe, attractive result.
               </p>
               <p className='text-gray-600 text-base leading-relaxed'>
-                Our experienced staff of Arborists brings expertise and professionalism to our services that are unmatched in the industry. From your initial call to the completion of your job, we strive for customer satisfaction every step of the way. At Ken's Tree Service, we take great pride in our work and look forward to serving you soon.
+                Our experienced staff of Arborists brings expertise and professionalism to our services that are unmatched in the industry. From your initial call to the completion of your job, we strive for customer satisfaction every step of the way. At American Tree Experts, we take great pride in our work and look forward to serving you soon.
               </p>
             </div>
 
@@ -548,7 +524,7 @@ const Home = () => {
                 <img loading="lazy" decoding="async" src="/divider-l.png" alt="divider" title="divider-l" />
               </div>
               <div>
-                <p className='text-white'>At Ken's Tree Service, We Bring Expertise and Professionalism to Your Neighborhood. We proudly serve the following <br />areas:</p>
+                <p className='text-white'>At American Tree Experts, We Bring Expertise and Professionalism to Your Neighborhood. We proudly serve the following <br />areas:</p>
               </div>
 
               {/* Locations */}
@@ -729,14 +705,14 @@ const Home = () => {
 
               {/* Phone */}
               <a
-                href="tel:+17279345804"
+                href="tel:+812-213-5997"
                 className="flex items-center bg-[#b0b694] rounded-sm overflow-hidden"
               >
                 <div className="bg-green-900 w-12 h-12 flex items-center justify-center">
                   <img src="/phone-w.png" alt="Phone Icon" className="w-5 h-5" />
                 </div>
                 <span className="text-white text-[15px] font-bold ml-3">
-                  (727) 934–5804
+                  812-213-5997
                 </span>
               </a>
 

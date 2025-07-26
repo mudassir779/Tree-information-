@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaFacebookF, FaPhoneVolume, FaEnvelope, FaInstagram, FaLocationDot, FaGoogle, FaAngleDown, FaAngleUp } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 
@@ -88,9 +88,9 @@ const Header = () => {
                     <div className="flex items-center space-x-2">
                         <FaPhoneVolume className="text-green-600 text-xl" />
                         <div>
-                            <a href="tel:+17279345804">
+                            <a href="tel:812-213-5997">
                                 <p className="text-sm">CALL FOR MORE INFORMATION</p>
-                                <p className="text-lg font-bold">(727) 934-5804</p>
+                                <p className="text-lg font-bold">812-213-5997</p>
                             </a>
                         </div>
                     </div>
