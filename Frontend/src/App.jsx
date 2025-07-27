@@ -1,7 +1,6 @@
 import Blogs from "./components/Blogs.jsx"
 import { Route, Routes } from "react-router-dom"
-import Header from "./components/Header.jsx"
-import Footer from "./components/Footer.jsx"
+
 import Home from "./Pages/Home.jsx"
 import ContactUS from "./Pages/ContactUs.jsx"
 import AboutUs from "./Pages/AboutUs.jsx"
@@ -23,24 +22,41 @@ import NewPortRichey from "./Pages/NewPortRichey.JSX"
 import Oldsmar from "./Pages/Oldsmar.jsx"
 import PalmHarbor from "./Pages/PalmHarbor.jsx"
 import SafetyHarbor from "./Pages/SafetyHarbor.JSX"
+import AdminLogin from "./Pages/AdminPanel/AdminLogin.jsx"
+import MainLayout from "./layouts/MainLayout.jsx"
+import AdminLayout from "./layouts/AdminLayouts.jsx"
+import AdminDashboard from "./components/AdminComponents/AdminDashboard.jsx"
+import Dashboard from "./components/AdminComponents/Dashboard.jsx"
+import AddBlog from "./components/AdminComponents/AddBlog.jsx"
+import EditBlogs from "./components/AdminComponents/EditBlogs.jsx"
+import UpdateBlog from "./components/AdminComponents/UpdateBlog.jsx"
+import DeleteCategory from "./components/AdminComponents/DeleteCategory.jsx"
+import AddCategory from "./components/AdminComponents/AddCategory.jsx"
 
 function App() {
   return (
       <div className="">
-        <Header />
+        
         <ScrolltoTop/>
         <Routes>
-          <Route path="/" element={<Home/>}></Route>
-          <Route path="/about-us" element={<AboutUs/>}></Route>
-          <Route path="/services" element={<Services/>}>
-            <Route index element={<TreeRemoval/>}/>
-            <Route path="/services/tree-removal" element={<TreeRemoval/>}/>
-            <Route path="/services/tree-trimming-pruning" element={<TreeTrimming/>}/>
-            <Route path="/services/deep-root-fertilization" element={<DeepRootFertilization/>}/>
-            <Route path="/services/structural-pruning" element={<StructuralPruning/>}/>
-            <Route path="/services/land-clearing" element={<LandClearing/>}/>
-            <Route path="/services/storm-clean-up" element={<StormCleanUp/>}/>
-            <Route path="/services/commercial-tree-services" element={<CommercialTreeServices/>}/>
+          <Route path="/" element={<MainLayout/>}>
+            <Route index element={<Home/>}/>
+            <Route path="/about" element={<AboutUs/>}/>
+            <Route path="/" element={<Home/>}></Route>
+            <Route path="/about-us" element={<AboutUs/>}/>
+            <Route path="/services" element={<Services/>}>
+              <Route index element={<TreeRemoval/>}/>
+              <Route path="/services/tree-removal" element={<TreeRemoval/>}/>
+              <Route path="/services/tree-trimming-pruning" element={<TreeTrimming/>}/>
+              <Route path="/services/deep-root-fertilization" element={<DeepRootFertilization/>}/>
+              <Route path="/services/structural-pruning" element={<StructuralPruning/>}/>
+              <Route path="/services/land-clearing" element={<LandClearing/>}/>
+              <Route path="/services/storm-clean-up" element={<StormCleanUp/>}/>
+              <Route path="/services/commercial-tree-services" element={<CommercialTreeServices/>}/>
+            </Route>
+          
+
+
           </Route>
           
           
@@ -60,8 +76,21 @@ function App() {
           <Route path="/contact-us" element={<ContactUS/>}></Route>
           <Route path="/blog" element={<Blogs/>}></Route>
           <Route path="/privacy-policy" element={<PrivacyPolicies/>}></Route>
-        </Routes>
-        <Footer/>
+
+
+          <Route element={<AdminLayout/>}>
+            <Route path="/admin-login" element={<AdminLogin/>}/>
+            <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
+              <Route index element={<Dashboard/>}/>
+              <Route path="/admin-dashboard/add-blogs" element={<AddBlog />} />
+              <Route path="/admin-dashboard/edit-blogs" element={<EditBlogs />} />
+              <Route path="/admin-dashboard/update-blogs/:id" element={<UpdateBlog />} />
+              <Route path="/admin-dashboard/delete-category" element={<DeleteCategory/>}/>
+              <Route path="/admin-dashboard/add-category" element={<AddCategory/>}/>
+            </Route>
+        
+          </Routes>
+        
       </div>
   )
 }

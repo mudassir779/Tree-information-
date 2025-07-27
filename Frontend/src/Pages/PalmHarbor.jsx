@@ -16,8 +16,8 @@ const PalmHarbor = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const images = [
-    { src: "/27.jpg", alt: "Tree service example" },
-    { src: "/20.jpg", alt: "Tree trimming example" }
+    { src: "/28.jpg", alt: "Tree service example" },
+    { src: "/30.jpg", alt: "Tree trimming example" }
   ];
 
   const openLightbox = (index) => {
@@ -136,54 +136,54 @@ const PalmHarbor = () => {
 
           <div className="mt-12">
             <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">
-              Tree Services in OldSmar, FL
+              Tree Services in Palm Harbor, FL
             </h2>
 
             <div className="space-y-8">
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">Tree Trimming & Pruning in Oldsmar, FL</h3>
+                <h3 className="text-xl font-semibold mb-3 text-gray-800">Tree Trimming & Pruning in Palm Harbor, FL</h3>
                 <p className="text-gray-600">
                   Tree pruning and trimming are essential practices to keep trees healthy and looking good. Our arborists will assess your tree’s condition and carefully prune branches to shape or train them for optimal growth. We use ANSI A300 industry standards to ensure safe and beautiful results.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">Structural Pruning in Oldsmar, FL</h3>
+                <h3 className="text-xl font-semibold mb-3 text-gray-800">Structural Pruning in Palm Harbor, FL</h3>
                 <p className="text-gray-600">
-                 Structural pruning is the process of removing or reducing the length of branches competing with the leader and shaping the tree for optimal growth. We understand how to properly perform this service properly, ensuring that your trees stay healthy and look their best.
+                Structural pruning is the process of removing or reducing the length of branches competing with the leader and shaping the tree for optimal growth. We understand how to properly perform this service properly, ensuring that your trees stay healthy and look their best.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">Tree Removal in Oldsmar, FL</h3>
+                <h3 className="text-xl font-semibold mb-3 text-gray-800">Tree Removal in Palm Harbor, FL</h3>
                 <p className="text-gray-600">
                   Tree removal can be a tricky process requiring specialized techniques and equipment. At Ken’s Tree Service, our team of arborists has the necessary training and experience to remove trees safely without damaging your property or surrounding features. 
                 </p>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">Land Clearing in Oldsmar, FL</h3>
+                <h3 className="text-xl font-semibold mb-3 text-gray-800">Land Clearing in Palm Harbor, FL</h3>
                 <p className="text-gray-600">
                  Whether you’re looking to clear land for construction or need a whole area cleared of vegetation, our team of arborists is an expert in land clearing. We have the necessary equipment and expertise to quickly and safely remove trees, stumps, brushes, and other debris. 
                 </p>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">Storm Clean Up in Oldsmar, FL</h3>
+                <h3 className="text-xl font-semibold mb-3 text-gray-800">Storm Clean Up in Palm Harbor, FL</h3>
                 <p className="text-gray-600">
                   After severe weather events such as thunderstorms or hurricanes, your property may become littered with debris or downed branches from nearby trees. Ken’s Tree Service is experienced in safely removing storm debris and can help you restore your property to its original condition.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">Deep Root Fertilization in Oldsmar, FL</h3>
+                <h3 className="text-xl font-semibold mb-3 text-gray-800">Deep Root Fertilization in Palm Harbor, FL</h3>
                 <p className="text-gray-600">
                  Deep root fertilization is an important part of tree maintenance and health. Our team of arborists will carefully inject fertilizer into your trees’ roots to ensure that they remain healthy and grow properly for years to come.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">Commercial Tree Services in Oldsmar, FL</h3>
+                <h3 className="text-xl font-semibold mb-3 text-gray-800">Commercial Tree Services in Palm Harbor, FL</h3>
                 <p className="text-gray-600">
                   Our team of arborists is experienced in providing commercial tree services, such as tree trimming and pruning, land clearing, and deep root fertilization. We understand the safety protocols necessary for commercial properties, ensuring that your trees are healthy and aesthetically pleasing. 
                 </p>
@@ -191,9 +191,9 @@ const PalmHarbor = () => {
             </div>
 
             <div className="mt-10 bg-blue-50 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-4 text-gray-800">Trust Ken’s Tree Service for Professional Tree Care Services in Oldsmar, FL</h3>
+              <h3 className="text-xl font-bold mb-4 text-gray-800">Trust Ken’s Tree Service for Professional Tree Care Services in Palm Harbor, FL</h3>
               <p className="text-gray-600">
-                At Ken’s Tree Service, our professional arborists have been providing top-notch services in Oldsmar, FL for over two decades. With unmatched expertise and a passion for delivering outstanding results every single time, we are the team to call when you require quality tree care services. 
+                At Ken’s Tree Service, our professional arborists have been providing top-notch services in Palm Harbor, FL for over two decades. With unmatched expertise and a passion for delivering outstanding results every single time, we are the team to call when you require quality tree care services.  
               </p>
               <p className="text-gray-600 ">We understand that your trees are a valuable investment and pride ourselves in providing reliable and cost-effective services. Don’t hesitate to contact us at (727) 934-5804 to learn more about how we can help keep your property looking its best.</p>
             </div>
