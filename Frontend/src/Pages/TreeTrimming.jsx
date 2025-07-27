@@ -113,10 +113,10 @@ const TreeTrimming = () => {
 
           {/* Right Sidebar */}
           <div className="lg:w-1/4 lg-h-full space-y-6">
-            <div className="bg-white shadow-md overflow-hidden transform hover:shadow-xl transition-shadow duration-300">
-              <div className="relative h-70 w-full">
+            <div className="bg-white shadow-md shadow-[#0000004d] overflow-hidden transform hover:shadow-xl transition-shadow duration-300">
+              <div className="relative h-60 w-full">
                 <div className="absolute inset-0 bg-[url('/map-bg.jpg')] bg-cover bg-center">
-                  <div className="absolute inset-0 bg-green-900 bg-opacity-40 mix-blend-multiply">
+                  <div className="absolute inset-0 bg-[#1e4d32e6]">
                   </div>
                 </div>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -139,7 +139,7 @@ const TreeTrimming = () => {
                   <li key={index}>
                     <a
                       href={service.path}
-                      className={`block px-3 py-2 rounded transition ${location.pathname === service.path
+                      className={`block px-3 rounded transition ${location.pathname === service.path
                         ? "bg-green-100 text-green-700 font-medium"
                         : "text-gray-700 hover:bg-green-50 hover:text-green-600"
                         }`}
