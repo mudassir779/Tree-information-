@@ -4,7 +4,7 @@ import connectDB from './Config/Database.js';
 import userRoutes from './Router/UserRoutes.js';
 import blogRoutes from './Router/BlogRoutes.js';
 import categoryRoutes from './Router/CategoryRoutes.js';
-
+import adminRoutes from './Router/AdminRoutes.js';
 
 let app = express();
 connectDB();
@@ -28,6 +28,7 @@ app.get('/',(req,res)=>{
 app.use('/api/user',userRoutes)
 app.use('/api/blog',blogRoutes)
 app.use('/api/category',categoryRoutes)
+app.use('api/admin',adminRoutes)
 
 
 app.listen(process.env.PORT, ()=>{
