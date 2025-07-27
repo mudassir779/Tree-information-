@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { 
-  FaFacebookF, 
-  FaPhoneVolume, 
-  FaEnvelope, 
-  FaInstagram, 
-  FaLocationDot, 
-  FaGoogle, 
-  FaAngleDown, 
-  FaAngleUp,
-  FaXmark 
+import {
+    FaFacebookF,
+    FaPhoneVolume,
+    FaEnvelope,
+    FaInstagram,
+    FaLocationDot,
+    FaGoogle,
+    FaAngleDown,
+    FaAngleUp,
+    FaXmark
 } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 
@@ -83,7 +83,7 @@ const Header = () => {
     return (
         <header className="bg-white relative">
             {/* Top contact/social bar */}
-            <div className='mx-10 py-2 items-center flex justify-between text-sm'>
+            <div className='mx-10 py-4 items-center flex justify-between text-sm'>
                 <div className='flex space-x-4'>
                     <a
                         href="https://www.facebook.com/kenstrees"
@@ -111,16 +111,16 @@ const Header = () => {
                     </a>
                 </div>
                 <div className='flex space-x-6'>
-                    <a 
-                        href="https://www.google.com/maps/place/Ken's+Tree+Service/@28.1114504,-82.749315,11z/data=!4m2!3m1!1s0x0:0xb5b559b2b13495d4?sa=X&hl=en-US&gl=us&ved=2ahUKEwi607afwKf9AhUcg2oFHfvYCqoQ_BJ6BAh5EAg" 
+                    <a
+                        href="https://www.google.com/maps/place/Ken's+Tree+Service/@28.1114504,-82.749315,11z/data=!4m2!3m1!1s0x0:0xb5b559b2b13495d4?sa=X&hl=en-US&gl=us&ved=2ahUKEwi607afwKf9AhUcg2oFHfvYCqoQ_BJ6BAh5EAg"
                         className="flex items-center space-x-1 hover:text-green-600 transition-colors duration-200"
                     >
                         <FaLocationDot className="text-green-600" />
                         <p>Tarpon Springs, Florida 34688</p>
                     </a>
 
-                    <a 
-                        href="mailto:support@kens-tree-service.com" 
+                    <a
+                        href="mailto:support@kens-tree-service.com"
                         className="flex items-center space-x-1 hover:text-green-600 transition-colors duration-200"
                     >
                         <FaEnvelope className="text-green-600" />
@@ -130,7 +130,7 @@ const Header = () => {
             </div>
 
             {/* Main header with logo and phone */}
-            <div className='flex justify-between items-center border-t-3 border-b border-gray-200 px-10 py-4'>
+            <div className='flex justify-between items-center border-t-3 border-b border-gray-200 px-10 py-8'>
                 <div className="flex items-center">
                     <a href="/">
                         <img src="/logo.png" alt="Ken's Tree Service" className="h-16" />
@@ -147,9 +147,9 @@ const Header = () => {
                             </a>
                         </div>
                     </div>
-                    <button 
+                    <button
                         onClick={toggleEstimateForm}
-                        className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-3xl font-bold transition-colors duration-200"
+                        className="bg-[#afb236] hover:bg-[#908927]  text-white px-6 py-3 rounded-3xl font-bold transition-colors duration-200"
                     >
                         REQUEST A FREE ESTIMATE
                     </button>
@@ -157,17 +157,17 @@ const Header = () => {
             </div>
 
             {/* Navigation */}
-            <nav className="bg-green-700 relative">
-                <ul className="flex w-full justify-center space-x-8 py-3 text-white font-medium">
-                    <li className="hover:underline">
+            <nav className="bg-[#245B3C] relative">
+                <ul className="flex w-full justify-center space-x-8 text-white font-medium">
+                    <li className="hover:bg-[#afb236] px-4">
                         <Link to="/" className="flex items-center py-2">HOME</Link>
                     </li>
-                    
+
                     <li className="relative group">
                         <div className="flex items-center">
-                            <Link 
-                                to="/about-us" 
-                                className="flex items-center py-2 hover:underline"
+                            <Link
+                                to="/about-us"
+                                className="flex items-center py-2 hover:bg-[#afb236] px-4"
                                 onMouseEnter={() => handleMouseEnter('about')}
                                 onMouseLeave={handleMouseLeave}
                             >
@@ -176,14 +176,14 @@ const Header = () => {
                             </Link>
                         </div>
                         {activeDropdown === 'about' && (
-                            <ul 
-                                className="absolute left-0 mt-0 w-48 bg-white text-green-800 shadow-lg rounded-b z-50"
+                            <ul
+                                className="absolute left-0 mt-0 w-48  bg-[#245B3C] text-white shadow-lg z-50 py-5 border-t-[#90A995] border-t-2"
                                 onMouseEnter={() => handleMouseEnter('about')}
                                 onMouseLeave={handleMouseLeave}
                             >
                                 {aboutUsItems.map((item, index) => (
-                                    <li key={index} className="hover:bg-green-100 transition-colors duration-200">
-                                        <Link to={item.path} className="block px-4 py-2">
+                                    <li key={index} className="">
+                                        <Link to={item.path} className="hover:bg-[#afb236] transition-colors duration-200 block px-4 py-1">
                                             {item.name}
                                         </Link>
                                     </li>
@@ -194,9 +194,9 @@ const Header = () => {
 
                     <li className="relative group">
                         <div className="flex items-center">
-                            <Link 
-                                to="/services" 
-                                className="flex items-center py-2 hover:underline"
+                            <Link
+                                to="/services"
+                                className="flex items-center py-2 hover:bg-[#afb236] px-4"
                                 onMouseEnter={() => handleMouseEnter('services')}
                                 onMouseLeave={handleMouseLeave}
                             >
@@ -205,14 +205,14 @@ const Header = () => {
                             </Link>
                         </div>
                         {activeDropdown === 'services' && (
-                            <ul 
-                                className="absolute left-0 mt-0 w-64 bg-white text-green-800 shadow-lg rounded-b z-50"
+                            <ul
+                                className="absolute left-0 mt-0 w-64 bg-[#245B3C] text-white shadow-lg z-50 py-5 border-t-[#90A995] border-t-2"
                                 onMouseEnter={() => handleMouseEnter('services')}
                                 onMouseLeave={handleMouseLeave}
                             >
                                 {servicesItems.map((item, index) => (
-                                    <li key={index} className="hover:bg-green-100 transition-colors duration-200">
-                                        <Link to={item.path} className="block px-4 py-2">
+                                    <li key={index} className="">
+                                        <Link to={item.path} className="hover:bg-[#afb236] transition-colors duration-200 block px-4 py-1">
                                             {item.name}
                                         </Link>
                                     </li>
@@ -223,9 +223,9 @@ const Header = () => {
 
                     <li className="relative group">
                         <div className="flex items-center">
-                            <Link 
-                                to="/service-areas" 
-                                className="flex items-center py-2 hover:underline"
+                            <Link
+                                to="/service-areas"
+                                className="flex items-center py-2 hover:bg-[#afb236] px-4"
                                 onMouseEnter={() => handleMouseEnter('areas')}
                                 onMouseLeave={handleMouseLeave}
                             >
@@ -234,14 +234,14 @@ const Header = () => {
                             </Link>
                         </div>
                         {activeDropdown === 'areas' && (
-                            <ul 
-                                className="absolute left-0 mt-0 w-64 bg-white text-green-800 shadow-lg rounded-b z-50"
+                            <ul
+                                className="absolute left-0 mt-0 w-64 bg-[#245B3C] text-white shadow-lg z-50 py-5 border-t-[#90A995] border-t-2"
                                 onMouseEnter={() => handleMouseEnter('areas')}
                                 onMouseLeave={handleMouseLeave}
                             >
                                 {serviceAreasItems.map((item, index) => (
-                                    <li key={index} className="hover:bg-green-100 transition-colors duration-200">
-                                        <Link to={item.path} className="block px-4 py-2">
+                                    <li key={index} className="">
+                                        <Link to={item.path} className="hover:bg-[#afb236] transition-colors duration-200 block px-4 py-1">
                                             {item.name}
                                         </Link>
                                     </li>
@@ -250,13 +250,13 @@ const Header = () => {
                         )}
                     </li>
 
-                    <li className="hover:underline">
+                    <li className="hover:bg-[#afb236] px-4">
                         <Link to="/photo-gallery" className="flex items-center py-2">PHOTO GALLERY</Link>
                     </li>
-                    <li className="hover:underline">
+                    <li className="hover:bg-[#afb236] px-4">
                         <Link to="/contact-us" className="flex items-center py-2">CONTACT US</Link>
                     </li>
-                    <li className="hover:underline">
+                    <li className="hover:bg-[#afb236] px-4">
                         <Link to="/blog" className="flex items-center py-2">BLOG</Link>
                     </li>
                 </ul>
@@ -266,18 +266,18 @@ const Header = () => {
             {showEstimateForm && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
                     <div className="bg-white rounded-lg shadow-xl max-w-md w-full relative">
-                        <button 
+                        <button
                             onClick={toggleEstimateForm}
                             className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
                         >
                             <FaXmark className="text-xl" />
                         </button>
-                        
+
                         <div className="p-8">
                             <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
                                 Get a Free Estimate
                             </h2>
-                            
+
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-4">
                                     <label htmlFor="fullName" className="block text-gray-700 font-medium mb-2">
@@ -293,7 +293,7 @@ const Header = () => {
                                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                                     />
                                 </div>
-                                
+
                                 <div className="mb-4">
                                     <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
                                         Email*
@@ -308,7 +308,7 @@ const Header = () => {
                                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                                     />
                                 </div>
-                                
+
                                 <div className="mb-4">
                                     <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
                                         Phone*
@@ -323,7 +323,7 @@ const Header = () => {
                                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                                     />
                                 </div>
-                                
+
                                 <div className="mb-4">
                                     <label htmlFor="serviceRequested" className="block text-gray-700 font-medium mb-2">
                                         Service Requested*
@@ -344,7 +344,7 @@ const Header = () => {
                                         ))}
                                     </select>
                                 </div>
-                                
+
                                 <div className="mb-6 flex items-center">
                                     <input
                                         type="checkbox"
@@ -358,7 +358,7 @@ const Header = () => {
                                         I confirm that I want to receive helpful info and discounted offers from this company
                                     </label>
                                 </div>
-                                
+
                                 <button
                                     type="submit"
                                     className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-md transition-colors duration-200"
