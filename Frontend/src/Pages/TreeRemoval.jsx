@@ -24,42 +24,41 @@ const TreeRemoval = () => {
     <div className="w-full mx-auto">
       {/* Hero Section - Full Width */}
       <section className="relative mb-12 w-full">
-        <div className="h-96 w-full">
-          <img
-            src="/images/truck.jpeg"
-            alt="Ken's Tree Services truck and equipment"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white text-center px-4">
-            Tree Removal Services
-          </h1>
+        <div className="h-70 w-full">
+          <div className="absolute inset-0 bg-[url('/hero-img.jpg')] bg-cover bg-center">
+            <div className="absolute inset-0 bg-gray-600 bg-opacity-40 mix-blend-multiply">
+            </div>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-white text-center px-4">
+              Tree Removal Services
+            </h1>
+          </div>
         </div>
       </section>
 
       {/* Main Content Container with side margins */}
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-10/12 mx-auto pt-10 px-4 sm:px-6 lg:px-8">
         {/* Main Content */}
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Content */}
           <div className="lg:w-2/3">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl font-extrabold text-gray-800 mb-6">
               Professional Tree Services in Tarpon Springs, FL
             </h2>
 
-            <p className="text-lg font-semibold text-gray-700 mb-6">
+            <p className="text-lg font-bold text-gray-700 mb-6">
               For high-quality tree removal services in the Tarpon Springs, FL
               area, look no further than Ken's Tree Services. Our experienced
               arborists use the latest tree removal techniques to ensure your
               property is safe and secure. Call us at{" "}
-              <span className="text-green-600 hover:text-green-800 transition-colors duration-300">
-                (727) 934-5804
-              </span>{" "}
+              <a href="tel:812-213-5997" className="text-green-800 hover:text-black transition-colors duration-300">
+                812-213-5997
+              </a>{" "}
               for a free estimate today.
             </p>
 
-            <div className="space-y-4 mb-8 text-gray-700">
+            <div className="space-y-4 mb-8 font-semibold text-gray-700">
               <p>
                 Tree removal can be a tricky process and requires an experienced
                 eye to do it correctly. Multiple variables such as the size,
@@ -118,11 +117,11 @@ const TreeRemoval = () => {
                 </ul>
               </div>
 
-              <div className="md:w-1/2 group overflow-hidden rounded-lg shadow-lg">
+              <div className="md:w-1/2 group overflow-hidden">
                 <img
-                  src="/public/disease.jpg"
+                  src="/disease.jpg"
                   alt="Signs of tree disease"
-                  className="w-full h-auto rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
+                  className="w-1/2 h-auto shadow-md transform group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </div>
@@ -164,20 +163,21 @@ const TreeRemoval = () => {
           </div>
 
           {/* Right Sidebar */}
-          <div className="lg:w-1/3 space-y-6">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden transform hover:shadow-xl transition-shadow duration-300">
-              <div className="h-48 overflow-hidden group">
-                <img
-                  src="/public/tree-removal.jpg"
-                  alt="Tree removal process"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6 bg-green-700 hover:bg-green-800 transition-colors duration-300 text-white text-center">
-                <p className="text-lg font-medium mb-2">
-                  Contact Us Today for More Info!
-                </p>
-                <p className="text-2xl font-bold">(727) 934-5804</p>
+          <div className="lg:w-1/4 lg-h-full space-y-6">
+            <div className="bg-white shadow-md overflow-hidden transform hover:shadow-xl transition-shadow duration-300">
+              <div className="relative h-70 w-full">
+                <div className="absolute inset-0 bg-[url('/map-bg.jpg')] bg-cover bg-center">
+                  <div className="absolute inset-0 bg-green-900 bg-opacity-40 mix-blend-multiply">
+                  </div>
+                </div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <h1 className="text-md md:text-lg font-bold text-white text-center px-4">
+                    Contact Us Today for More Info!
+                  </h1>
+                  <a href="tel:812-213-5997" className="text-white text-2xl md:text-3xl font-bold mb-4">
+                    812-213-5997
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -190,11 +190,10 @@ const TreeRemoval = () => {
                   <li key={index}>
                     <a
                       href={service.path}
-                      className={`block px-3 py-2 rounded transition ${
-                        location.pathname === service.path
-                          ? "bg-green-100 text-green-700 font-medium"
-                          : "text-gray-700 hover:bg-green-50 hover:text-green-600"
-                      }`}
+                      className={`block px-3 py-2 rounded transition ${location.pathname === service.path
+                        ? "bg-green-100 text-green-700 font-medium"
+                        : "text-gray-700 hover:bg-green-50 hover:text-green-600"
+                        }`}
                     >
                       {service.name}
                     </a>
@@ -276,20 +275,20 @@ const TreeRemoval = () => {
       </div>
 
       {/* Bottom Section with side margins */}
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-8 mt-16 mb-16">
-          <div className="lg:w-1/2 group overflow-hidden rounded-lg shadow-lg">
+      <div className="w-10/12 mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row gap-20 mt-16 mb-16">
+          <div className="lg:w-1/3 group overflow-hidden rounded-lg shadow-lg">
             <img
               src="/tree.jpg"
               className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               alt="Professional tree removal"
             />
           </div>
-          <div className="lg:w-1/2">
-            <h1 className="text-3xl lg:text-4xl font-bold text-gray-800">
+          <div className="lg:w-1/2 mb-auto h-9/12">
+            <h1 className="text-xl lg:text-2xl font-bold text-gray-800">
               Professional Tree Removal Services with Experienced Arborists in Tarpon Springs, FL.
             </h1>
-            <img src="/public/divider-l.png" className="mt-5 shadow-2xl" alt="" />
+            <img loading="lazy" decoding="async" src="/divider-d.png" alt="divider" title="divider-d" className="mt-5 shadow-2xl" />
             <div className="space-y-4 mt-5 text-gray-700">
               <p>
                 Tree removal is a process that requires professional knowledge and experience. That's why it's important to always hire a reputable tree service company for the job. DIY tree removal may appear to be a cheaper option, but it can quickly become expensive and dangerous if things don't go as planned.
@@ -312,7 +311,11 @@ const TreeRemoval = () => {
                 Our quality tree care services, excellent customer service, and competitive rates make us the top choice for tree removal services in Tarpon Springs, FL. We are fully licensed, insured, and bonded for your peace of mind. We always strive to exceed our client's expectations while providing the highest level of customer service.
               </p>
               <p>
-                Whether it is tree pruning, tree trimming, stump removal, or any other lawn services, you can trust Ken's Tree Services to take care of all your tree needs at a fair price. Call us at <span className="text-green-600 hover:text-green-800 transition-colors duration-300 font-semibold">(727) 934-5804</span> for a free quote.
+                Whether it is tree pruning, tree trimming, stump removal, or any other lawn services, you can trust Ken's Tree Services to take care of all your tree needs at a fair price. Call us at
+                {" "}
+                <a href="tel:812-213-5997" className="text-green-800 hover:text-black transition-colors duration-300">
+                  812-213-5997
+                </a>{" "} for a free quote.
               </p>
             </div>
           </div>
