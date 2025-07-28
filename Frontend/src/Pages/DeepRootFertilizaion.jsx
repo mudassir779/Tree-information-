@@ -1,20 +1,13 @@
-import React from "react";
 import { useLocation } from "react-router-dom";
 
 const services = [
-  { name: "Tree Removal", path: "/services/tree-removal" },
-  { name: "Tree Trimming & Pruning", path: "/services/tree-trimming-pruning" },
-  {
-    name: "Deep Root Fertilization",
-    path: "/services/deep-root-fertilization",
-  },
-  { name: "Structural Pruning", path: "/services/structural-pruning" },
-  { name: "Land Clearing", path: "/services/land-clearing" },
-  { name: "Storm Clean Up", path: "/services/storm-clean-up" },
-  {
-    name: "Commercial Tree Services",
-    path: "/services/commercial-tree-services",
-  },
+  { name: "Tree Removal", path: "/services/tree-removal-tarpon-springs-fl/" },
+  { name: "Tree Trimming & Pruning", path: "/services/tree-trimming-pruning-tarpon-springs-fl/" },
+  { name: "Deep Root Fertilization", path: "/services/deep-root-fertilization-tarpon-springs-fl/"},
+  { name: "Structural Pruning", path: "/services/structural-pruning-tarpon-springs-fl/" },
+  { name: "Land Clearing", path: "/services/land-clearing-tarpon-springs-fl/" },
+  { name: "Storm Clean Up", path: "/services/storm-clean-up-tarpon-springs-fl/" },
+  { name: "Commercial Tree Services", path: "/services/commercial-tree-services-tarpon-springs-fl/",},
 ];
 
 const DeepRootFertilization = () => {
@@ -25,7 +18,7 @@ const DeepRootFertilization = () => {
       {/* Hero Section - Full Width */}
       <section className="relative mb-12 w-full">
         <div className="h-70 w-full">
-          <div className="absolute inset-0 bg-[url('https://kens-tree-service.com/wp-content/uploads/hero-img.jpg')] bg-cover bg-center">
+          <div className="absolute inset-0 bg-[url('/hero-img.jpg')] bg-cover bg-center">
             <div className="absolute inset-0 bg-gradient-to-b from-[#000000b3] to-[#0000008c]"></div>
           </div>
           <div className="absolute inset-0 flex items-center justify-center">
@@ -41,15 +34,15 @@ const DeepRootFertilization = () => {
         {/* Main Content */}
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Content */}
-          <div className="lg:w-2/3">
+          <div className="lg:w-2/3 pr-10">
             <h2 className="text-3xl font-extrabold text-gray-800 mb-6">
               Your Top Choice for Tree Service in Tarpon Springs, FL
             </h2>
 
-            <p className="text-lg font-semibold text-gray-700 mb-6">
+            <p className="text-md text-justify font-semibold text-gray-700 mb-6">
               Let Ken's Tree Service take care of your lawn's health. Our deep root fertilization service in Tarpon Springs, FL will give you a lush and vibrant yard to enjoy. With years of experience and premium products, we guarantee you results.
               Call us at{" "}
-              <a href="tel:812-213-5997" className="text-green-800 hover:text-black transition-colors duration-300">
+              <a href="tel:812-213-5997" className="text-[#245b3c]">
                 812-213-5997
               </a>{" "}
               for your free estimate.
@@ -138,7 +131,7 @@ const DeepRootFertilization = () => {
           </div>
 
           {/* Right Sidebar */}
-          <div className="lg:w-1/4 lg-h-full space-y-6">
+          <div className="pt-10 lg:w-1/4 lg-h-full space-y-6">
             <div className="bg-white shadow-md shadow-[#0000004d] overflow-hidden transform hover:shadow-xl transition-shadow duration-300">
               <div className="relative h-60 w-full">
                 <div className="absolute inset-0 bg-[url('/map-bg.jpg')] bg-cover bg-center">
@@ -200,7 +193,7 @@ const DeepRootFertilization = () => {
             {/* Row 1 */}
             <div className="h-full bg-white border-2 border-[#B0B694] p-4 hover:shadow-xl transition-shadow duration-300">
               <img
-                src="/electricity.PNG"
+                src="/yellow_leaves.PNG"
                 alt="Yellowing leaves"
                 className="rounded-full h-24 w-24 border-6 border-black shadow-sm shadow-black mx-auto mt-4 object-cover"
               />
@@ -212,7 +205,7 @@ const DeepRootFertilization = () => {
 
             <div className="h-full bg-white border-2 border-[#B0B694] p-4 hover:shadow-xl transition-shadow duration-300">
               <img
-                src="/wind.PNG"
+                src="/twigs.PNG"
                 alt="Weakened branches"
                 className="rounded-full h-24 w-24 border-6 border-black shadow-sm shadow-black mx-auto mt-4 object-cover"
               />
@@ -224,7 +217,7 @@ const DeepRootFertilization = () => {
 
             <div className="h-full bg-white border-2 border-[#B0B694] p-4 hover:shadow-xl transition-shadow duration-300">
               <img
-                src="/plug.PNG"
+                src="/development.PNG"
                 alt="Stunted growth"
                 className="rounded-full h-24 w-24 border-6 border-black shadow-sm shadow-black mx-auto mt-4 object-cover"
               />
@@ -237,7 +230,7 @@ const DeepRootFertilization = () => {
             {/* Row 2 */}
             <div className="h-full bg-white border-2 border-[#B0B694] p-4 hover:shadow-xl transition-shadow duration-300">
               <img
-                src="/electricity.PNG"
+                src="/leaf_drop.PNG"
                 alt="Early leaf drop"
                 className="rounded-full h-24 w-24 border-6 border-black shadow-sm shadow-black mx-auto mt-4 object-cover"
               />
@@ -249,7 +242,7 @@ const DeepRootFertilization = () => {
 
             <div className="h-full bg-white border-2 border-[#B0B694] p-4 hover:shadow-xl transition-shadow duration-300">
               <img
-                src="/wind.PNG"
+                src="/pests.PNG"
                 alt="Pest infestation"
                 className="rounded-full h-24 w-24 border-6 border-black shadow-sm shadow-black mx-auto mt-4 object-cover"
               />
@@ -261,7 +254,7 @@ const DeepRootFertilization = () => {
 
             <div className="h-full bg-white border-2 border-[#B0B694] p-4 hover:shadow-xl transition-shadow duration-300">
               <img
-                src="/plug.PNG"
+                src="/star.PNG"
                 alt="Disease signs"
                 className="rounded-full h-24 w-24 border-6 border-black shadow-sm shadow-black mx-auto mt-4 object-cover"
               />
@@ -312,7 +305,7 @@ const DeepRootFertilization = () => {
       {/* CTA Section */}
       <div className="w-full bg-[#90a99557] py-16">
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <div className=" rounded-lg max-w-8/12 mx-auto text-center">
+          <div className="rounded-lg max-w-8/12 mx-auto text-center">
             <h1 className="text-3xl font-extrabold text-gray-800 mb-4">
               Choose Ken's Tree Service for Professional Deep Root Fertilization Services in Tarpon Springs, FL
             </h1>

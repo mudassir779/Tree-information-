@@ -57,13 +57,13 @@ const Header = () => {
     };
 
     const servicesItems = [
-        { name: "TREE REMOVAL", path: "/services/tree-removal" },
-        { name: "TREE TRIMMING & PRUNING", path: "/services/tree-trimming-pruning" },
-        { name: "DEEP ROOT FERTILIZATION", path: "/services/deep-root-fertilization" },
-        { name: "STRUCTURAL PRUNING", path: "/services/structural-pruning" },
-        { name: "LAND CLEARING", path: "/services/land-clearing" },
-        { name: "STORM CLEAN UP", path: "/services/storm-clean-up" },
-        { name: "COMMERCIAL TREE SERVICES", path: "/services/commercial-tree-services" }
+        { name: "TREE REMOVAL", path: "/services/tree-removal-tarpon-springs-fl/" },
+        { name: "TREE TRIMMING & PRUNING", path: "/services/tree-trimming-pruning-tarpon-springs-fl/" },
+        { name: "DEEP ROOT FERTILIZATION", path: "/services/deep-root-fertilization-tarpon-springs-fl/" },
+        { name: "STRUCTURAL PRUNING", path: "/services/structural-pruning-tarpon-springs-fl/" },
+        { name: "LAND CLEARING", path: "/services/land-clearing-tarpon-springs-fl/" },
+        { name: "STORM CLEAN UP", path: "/services/storm-clean-up-tarpon-springs-fl/" },
+        { name: "COMMERCIAL TREE SERVICES", path: "/services/commercial-tree-services-tarpon-springs-fl/" }
     ];
 
     const serviceAreasItems = [
