@@ -54,36 +54,27 @@ function App() {
             <Route path="/services/storm-clean-up-tarpon-springs-fl/" element={<StormCleanUp />} />
             <Route path="/services/commercial-tree-services-tarpon-springs-fl/" element={<CommercialTreeServices />} />
           </Route>
-          <Route path="/service-areas" element={<ServiceArea />}>
-            <Route index element={<TarponSpring />} />
-            <Route path="/service-areas/tarpon-springs" element={<TarponSpring />} />
-            <Route path="/service-areas/clearwater" element={<ClearWater />} />
-            <Route path="/service-areas/dunedin" element={<Dunedin />} />
-            <Route path="/service-areas/new-port-richey" element={<NewPortRichey />} />
-            <Route path="/service-areas/oldsmar" element={<Oldsmar />} />
-            <Route path="/service-areas/palm-harbor" element={<PalmHarbor />} />
-            <Route path="/service-areas/safety-harbor" element={<SafetyHarbor />} />
-          </Route>
+          
           <Route path="/photo-gallery" element={<h1>Photo Gallery</h1>}></Route>
-          <Route path="/contact-us" element={<ContactUS />}></Route>
-          <Route path="/blog" element={<Blogs />}></Route>
-          <Route path="/privacy-policy" element={<PrivacyPolicies />}></Route>
-        </Route>
+          <Route path="/contact-us" element={<ContactUS/>}></Route>
+          <Route path="/blog" element={<Blogs/>}></Route>
+          <Route path="/privacy-policy" element={<PrivacyPolicies/>}></Route>
 
-        <Route element={<AdminLayout />}>
-          <Route path="/admin-login" element={<AdminLogin />} />
-          <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          <Route index element={<Dashboard />} />
-          <Route path="/admin-dashboard/add-blogs" element={<AddBlog />} />
-          <Route path="/admin-dashboard/edit-blogs" element={<EditBlogs />} />
-          <Route path="/admin-dashboard/update-blogs/:id" element={<UpdateBlog />} />
-          <Route path="/admin-dashboard/delete-category" element={<DeleteCategory />} />
-          <Route path="/admin-dashboard/add-category" element={<AddCategory />} />
-        </Route>
 
-      </Routes>
-
-    </div>
+          <Route element={<AdminLayout/>}>
+            <Route path="/admin-login" element={<AdminLogin/>}/>
+            <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
+              <Route index element={<Dashboard/>}/>
+              <Route path="/admin-dashboard/add-blogs" element={<AddBlog />} />
+              <Route path="/admin-dashboard/edit-blogs" element={<EditBlogs />} />
+              <Route path="/admin-dashboard/update-blogs/:id" element={<UpdateBlog />} />
+              <Route path="/admin-dashboard/delete-category" element={<DeleteCategory/>}/>
+              <Route path="/admin-dashboard/add-category" element={<AddCategory/>}/>
+            </Route>
+        
+          </Routes>
+        
+      </div>
   )
 }
 
