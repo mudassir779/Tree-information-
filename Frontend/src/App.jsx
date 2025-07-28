@@ -65,26 +65,17 @@ function App() {
               <Route path="/service-areas/safety-harbor" element={<SafetyHarbor/>}/>
           </Route>
           
-
-
-          </Route>
-          
-          
-          <Route path="/service-areas" element={<ServiceArea/>}>
-            <Route index element={<TarponSpring/>}/>
-            <Route path="/service-areas/tarpon-springs" element={<TarponSpring/>}/>
-            <Route path="/service-areas/clearwater" element={<ClearWater/>}/>
-            <Route path="/service-areas/dunedin" element={<Dunedin/>}/>
-            <Route path="/service-areas/new-port-richey" element={<NewPortRichey/>}/>
-            <Route path="/service-areas/oldsmar" element={<Oldsmar/>}/>
-            <Route path="/service-areas/palm-harbor" element={<PalmHarbor/>}/>
-            <Route path="/service-areas/safety-harbor" element={<SafetyHarbor/>}/>
-          </Route>
           <Route path="/photo-gallery" element={<h1>Photo Gallery</h1>}></Route>
           <Route path="/contact-us" element={<ContactUS/>}></Route>
           <Route path="/blog" element={<Blogs/>}></Route>
           <Route path="/privacy-policy" element={<PrivacyPolicies/>}></Route>
 
+
+          </Route>
+          
+          
+          
+          
 
           <Route element={<AdminLayout/>}>
             <Route path="/admin-login" element={<AdminLogin/>}/>
