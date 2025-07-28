@@ -57,27 +57,27 @@ const Header = () => {
     };
 
     const servicesItems = [
-        { name: "TREE REMOVAL", path: "/services/tree-removal" },
-        { name: "TREE TRIMMING & PRUNING", path: "/services/tree-trimming-pruning" },
-        { name: "DEEP ROOT FERTILIZATION", path: "/services/deep-root-fertilization" },
-        { name: "STRUCTURAL PRUNING", path: "/services/structural-pruning" },
-        { name: "LAND CLEARING", path: "/services/land-clearing" },
-        { name: "STORM CLEAN UP", path: "/services/storm-clean-up" },
-        { name: "COMMERCIAL TREE SERVICES", path: "/services/commercial-tree-services" }
+        { name: "TREE REMOVAL", path: "/services/tree-removal-tarpon-springs-fl/" },
+        { name: "TREE TRIMMING & PRUNING", path: "/services/tree-trimming-pruning-tarpon-springs-fl/" },
+        { name: "DEEP ROOT FERTILIZATION", path: "/services/deep-root-fertilization-tarpon-springs-fl/" },
+        { name: "STRUCTURAL PRUNING", path: "/services/structural-pruning-tarpon-springs-fl/" },
+        { name: "LAND CLEARING", path: "/services/land-clearing-tarpon-springs-fl/" },
+        { name: "STORM CLEAN UP", path: "/services/storm-clean-up-tarpon-springs-fl/" },
+        { name: "COMMERCIAL TREE SERVICES", path: "/services/commercial-tree-services-tarpon-springs-fl/" }
     ];
 
     const serviceAreasItems = [
-        { name: "TARPON SPRINGS, FL", path: "/service-areas/tarpon-springs" },
-        { name: "CLEARWATER, FL", path: "/service-areas/clearwater" },
-        { name: "DUNEDIN, FL", path: "/service-areas/dunedin" },
-        { name: "NEW PORT RICHEY, FL", path: "/service-areas/new-port-richey" },
-        { name: "OLDSMAR, FL", path: "/service-areas/oldsmar" },
-        { name: "PALM HARBOR, FL", path: "/service-areas/palm-harbor" },
-        { name: "SAFETY HARBOR, FL", path: "/service-areas/safety-harbor" }
+        { name: "TARPON SPRINGS, FL", path: "/service-areas/" },
+        { name: "CLEARWATER, FL", path: "/service-areas/tree-service-clearwater-fl/" },
+        { name: "DUNEDIN, FL", path: "/service-areas/tree-service-dunedin-fl/" },
+        { name: "NEW PORT RICHEY, FL", path: "/service-areas/tree-service-new-port-richey-fl/" },
+        { name: "OLDSMAR, FL", path: "/service-areas/tree-service-oldsmar-fl/" },
+        { name: "PALM HARBOR, FL", path: "/service-areas/tree-service-palm-harbor-fl/" },
+        { name: "SAFETY HARBOR, FL", path: "/service-areas/tree-service-safety-harbor-fl/" }
     ];
 
     const aboutUsItems = [
-        { name: "TESTIMONIALS", path: "/about-us/testimonials" }
+        { name: "TESTIMONIALS", path: "/testimonials" }
     ];
 
     return (
@@ -133,7 +133,7 @@ const Header = () => {
             <div className='flex justify-between items-center border-t-3 border-b border-gray-200 px-10 py-8'>
                 <div className="flex items-center">
                     <a href="/">
-                        <img src="/logo.png" alt="Ken's Tree Service" className="h-16" />
+                        <img src="/logo.png" alt="Ken's Tree Service" className="h-30 w-fit object-contain" />
                     </a>
                 </div>
 
