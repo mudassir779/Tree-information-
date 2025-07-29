@@ -1,4 +1,3 @@
-import React from 'react'
 import { FaFacebookF, FaGoogle, FaInstagram } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 
@@ -7,8 +6,7 @@ const Footer = () => {
         <div>
             <div className="relative">
                 {/* Background image with green tint overlay */}
-                <div className="absolute inset-0 bg-[url('/cta2.jpg')] bg-cover bg-center">
-                    <div className="absolute inset-0 bg-green-800 bg-opacity-40 mix-blend-multiply"></div>
+                <div className="absolute inset-0 [background-image:linear-gradient(180deg,rgba(27,71,48,0.87)_0%,rgba(27,71,48,0.93)_99%),url('/cta2.jpg')] bg-cover bg-center">
                 </div>
 
                 {/* Content */}
