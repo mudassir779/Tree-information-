@@ -122,7 +122,7 @@ const ClearWater = () => {
                   onClick={() => openLightbox(index)}
                 >
                   <img
-                    fetchPriority="high"
+                    fetchpriority="high"
                     decoding="async"
                     src={image.src}
                     alt={image.alt}

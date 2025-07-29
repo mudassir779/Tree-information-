@@ -243,7 +243,7 @@ const PrivacyPolicy = () => {
             If you have any questions about this Privacy Policy, You can contact us:
           </p>
           <ul className="space-y-2">
-            <li><strong>By email:</strong> support@kens-tree-service.com</li>
+            <li><strong>By email:</strong> Thetreexperts@gmail.com</li>
             <li><strong>By visiting this page on our website:</strong> https://kens-tree-service.com/</li>
             <li><strong>By phone number:</strong> (727) 934-5804</li>
             <li><strong>By mail:</strong> Tarpon Springs, Florida 34688</li>

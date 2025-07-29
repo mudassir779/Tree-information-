@@ -3,12 +3,19 @@ import React from "react";
 const ContactUs = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section with Image and Title */}
-      <div className="relative h-96 w-full overflow-hidden">
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-wide">CONTACT US</h1>
+      {/* Hero Section */}
+      <section className="relative w-full mb-12">
+        <div className="h-70 w-full">
+          <div className="absolute inset-0 bg-[url('/hero-img.jpg')] bg-cover bg-center">
+            <div className="absolute inset-0 bg-gradient-to-b from-[#000000b3] to-[#0000008c]"></div>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-white text-center px-4 uppercase">
+              Contact Us
+            </h1>
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -28,7 +35,7 @@ const ContactUs = () => {
                 <svg className="h-6 w-6 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                support@kens-tree-service.com
+                Thetreexperts@gmail.com
               </li>
               <li className="flex items-start">
                 <svg className="h-6 w-6 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">

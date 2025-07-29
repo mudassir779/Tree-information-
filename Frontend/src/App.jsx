@@ -32,6 +32,7 @@ import EditBlogs from "./components/AdminComponents/EditBlogs.jsx"
 import UpdateBlog from "./components/AdminComponents/UpdateBlog.jsx"
 import DeleteCategory from "./components/AdminComponents/DeleteCategory.jsx"
 import AddCategory from "./components/AdminComponents/AddCategory.jsx"
+import PhotoGallery from "./Pages/PhotoGallery.jsx"
 
 function App() {
   return (
@@ -63,7 +64,7 @@ function App() {
             <Route path="/service-areas/tree-service-palm-harbor-fl/" element={<PalmHarbor />} />
             <Route path="/service-areas/tree-service-safety-harbor-fl/" element={<SafetyHarbor />} />
           </Route>
-          <Route path="/photo-gallery" element={<h1>Photo Gallery</h1>} />
+          <Route path="/photo-gallery" element={<PhotoGallery/>} />
           <Route path="/contact-us" element={<ContactUS />} />
           <Route path="/blog" element={<Blogs />} />
           <Route path="/privacy-policy" element={<PrivacyPolicies />} />

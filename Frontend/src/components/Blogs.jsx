@@ -1,6 +1,7 @@
-import React from 'react';
+import { useLocation } from "react-router-dom";
 
 const Blogs = () => {
+  const location = useLocation();
   const blogPosts = [
     {
       id: 1,
@@ -59,50 +60,132 @@ const Blogs = () => {
       image: "/importance-of-trees-1080x600.jpg"
     }
   ];
+  const posts = [
+  { name: "Hurricane Season Safety: Protecting Your Property Beyond Trees", path: "/" },
+  { name: "Benefits of Live Oak Trees in Tarpon Springs, FL", path: "/" },
+  { name: "The Benefits of Professional Tree Care: Why DIY Tree Maintenance Can Be Risky", path: "/"},
+  { name: "Spring Is Just Around the Corner! Are Your Trees Ready?", path: "/" },
+  { name: "How Do You Know When It's Time to Remove a Tree?", path: "/" },
+];
+
+  const categories = [
+    { name: "General Tree-Related Tips", path: "/" },
+    { name: "Tree Care Services", path: "/" },
+    { name: "Tree Removal Guide", path: "/" },
+    { name: "Uncategorized", path: "/" },
+  ]
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">Latest Blog Posts</h1>
-      
-      <div className="space-y-12">
-        {blogPosts.map((post) => (
-          <article key={post.id} className="border-b border-gray-200 pb-8 last:border-0 last:pb-0">
-            <div className="mb-6 overflow-hidden rounded-lg">
-              <img 
-                src={post.image} 
-                alt={post.title} 
-                className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-              />
+    // <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="w-full">
+      {/* Main Content Container with side margins */}
+      <div className="w-10/12 mx-auto pt-10 px-4 sm:px-6 lg:px-8">
+        {/* Main Content */}
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Left Content */}
+          <div className="lg:w-2/3">
+            <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">Latest Blog Posts</h1>
+
+            <div className="space-y-12">
+              {blogPosts.map((post) => (
+                <article key={post.id} className="border-b border-gray-200 pb-8 last:border-0 last:pb-0">
+                  <div className="mb-6 overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+
+                  <h2 className="text-2xl font-semibold text-gray-800 mb-2 hover:text-green-600 transition-colors">
+                    {post.title}
+                  </h2>
+
+                  <div className="flex items-center text-sm text-gray-500 mb-4">
+                    <span>{post.date}</span>
+                    <span className="mx-2">|</span>
+                    <div className="flex flex-wrap gap-2">
+                      {post.categories.map((category, index) => (
+                        <span
+                          key={index}
+                          className="px-2 py-1 bg-gray-100 rounded-md text-gray-600 hover:bg-green-100 hover:text-green-700 transition-colors"
+                        >
+                          {category}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                </article>
+              ))}
             </div>
-            
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2 hover:text-green-600 transition-colors">
-              {post.title}
-            </h2>
-            
-            <div className="flex items-center text-sm text-gray-500 mb-4">
-              <span>{post.date}</span>
-              <span className="mx-2">|</span>
-              <div className="flex flex-wrap gap-2">
-                {post.categories.map((category, index) => (
-                  <span 
-                    key={index} 
-                    className="px-2 py-1 bg-gray-100 rounded-md text-gray-600 hover:bg-green-100 hover:text-green-700 transition-colors"
-                  >
-                    {category}
-                  </span>
-                ))}
+          </div>
+
+          {/* Right Sidebar */}
+          <div className="pt-10 ml-10 lg:w-1/4 lg-h-full space-y-6">
+            <div className="bg-white shadow-md shadow-[#0000004d] overflow-hidden transform hover:shadow-xl transition-shadow duration-300">
+              <div className="relative h-60 w-full">
+                <div className="absolute inset-0 bg-[url('/map-bg.jpg')] bg-cover bg-center">
+                  <div className="absolute inset-0 bg-[#1e4d32e6]">
+                  </div>
+                </div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <h1 className="text-md md:text-lg font-bold text-white text-center px-4">
+                    Contact Us Today for More Info!
+                  </h1>
+                  <a href="tel:812-213-5997" className="text-white text-xl md:text-3xl font-bold mb-4">
+                    (812) 213-5997
+                  </a>
+                </div>
               </div>
             </div>
-            
-            <p className="text-gray-600 mb-4 leading-relaxed">
-              {post.excerpt}
-            </p>
-            
-            <button className="text-green-600 font-medium hover:text-green-800 transition-colors">
-              Read More →
-            </button>
-          </article>
-        ))}
+
+            <div className="bg-white rounded-lg shadow-md  hover:shadow-lg transition-shadow duration-300">
+              <h3 className="text-md font-bold bg-[#1e4d32] w-full text-white mb-4 px-5 py-2">
+                Recent Posts
+              </h3>
+              <ul className="space-y-2">
+                {posts.map((post, index) => (
+                  <li key={index}>
+                    <a
+                      href={post.path}
+                      className={`block px-3 font-semibold rounded transition ${location.pathname === post.path
+                        ? "bg-green-100 text-green-700 font-medium"
+                        : "text-gray-700 hover:bg-green-50 hover:text-green-600"
+                        }`}
+                    >
+                      {post.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md  hover:shadow-lg transition-shadow duration-300">
+              <h3 className="text-md font-bold bg-[#1e4d32] w-full text-white mb-4 px-5 py-2">
+                Categories
+              </h3>
+              <ul className="space-y-2">
+                {categories.map((category, index) => (
+                  <li key={index}>
+                    <a
+                      href={category.path}
+                      className={`block px-3 font-semibold rounded transition ${location.pathname === category.path
+                        ? "bg-green-100 text-green-700 font-medium"
+                        : "text-gray-700 hover:bg-green-50 hover:text-green-600"
+                        }`}
+                    >
+                      {category.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
