@@ -12,7 +12,7 @@ const services = [
 
 const TreeRemoval = () => {
   const location = useLocation();
-
+ 
   return (
     <div className="w-full">
       {/* Hero Section */}

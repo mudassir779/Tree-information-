@@ -185,8 +185,8 @@ const Footer = () => {
                             <div className="space-y-2 text-sm text-gray-700">
                                 <p>Tarpon Springs, Florida 34688</p>
                                 <p>
-                                    <a href="mailto:support@kens-tree-service.com" className="hover:text-green-600 transition-colors">
-                                        support@kens-tree-service.com
+                                    <a href="mailto:Thetreexperts@gmail.com" className="hover:text-green-600 transition-colors">
+                                        Thetreexperts@gmail.com
                                     </a>
                                 </p>
                                 <p>

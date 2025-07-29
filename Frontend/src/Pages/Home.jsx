@@ -718,14 +718,14 @@ const Home = () => {
 
               {/* Email */}
               <a
-                href="mailto:support@kens-tree-service.com"
+                href="mailto:Thetreexperts@gmail.com"
                 className="flex items-center bg-[#b0b694] rounded-sm overflow-hidden"
               >
                 <div className="bg-green-900 w-12 h-12 flex items-center justify-center">
                   <img src="/email-w.png" alt="Email Icon" className="w-5 h-5" />
                 </div>
                 <span className="text-white text-[15px] font-bold ml-3">
-                  support@kens-tree-service.com
+                  Thetreexperts@gmail.com
                 </span>
               </a>
             </div>

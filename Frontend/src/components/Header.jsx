@@ -120,11 +120,11 @@ const Header = () => {
                     </a>
 
                     <a
-                        href="mailto:support@kens-tree-service.com"
+                        href="mailto:Thetreexperts@gmail.com"
                         className="flex items-center space-x-1 hover:text-green-600 transition-colors duration-200"
                     >
                         <FaEnvelope className="text-green-600" />
-                        <p>support@kens-tree-service.com</p>
+                        <p>Thetreexperts@gmail.com</p>
                     </a>
                 </div>
             </div>
