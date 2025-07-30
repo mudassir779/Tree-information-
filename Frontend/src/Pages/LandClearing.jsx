@@ -1,13 +1,12 @@
 import React from "react";
 
 const services = [
-  { name: "Tree Removal", path: "/services/tree-removal-tarpon-springs-fl/" },
-  { name: "Tree Trimming & Pruning", path: "/services/tree-trimming-pruning-tarpon-springs-fl/" },
-  { name: "Deep Root Fertilization", path: "/services/deep-root-fertilization-tarpon-springs-fl/" },
-  { name: "Structural Pruning", path: "/services/structural-pruning-tarpon-springs-fl/" },
-  { name: "Land Clearing", path: "/services/land-clearing-tarpon-springs-fl/" },
-  { name: "Storm Clean Up", path: "/services/storm-clean-up-tarpon-springs-fl/" },
-  { name: "Commercial Tree Services", path: "/services/commercial-tree-services-tarpon-springs-fl/" },
+  { name: "Tree Removal", path: "/services/tree-removal/" },
+  { name: "Tree Trimming & Pruning", path: "/services/tree-trimming-pruning/" },
+  { name: "Structural Pruning", path: "/services/structural-pruning/" },
+  { name: "Land Clearing", path: "/services/land-clearing/" },
+  { name: "Storm Clean Up", path: "/services/storm-clean-up/" },
+  { name: "Commercial Tree Services", path: "/services/commercial-tree-services/" },
 ];
 
 const LandClearing = () => { 
@@ -34,16 +33,16 @@ const LandClearing = () => {
           {/* Left Side - Main Content */}
           <div className="lg:w-2/3">
             <h1 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-3">
-              Providing Professional Tree Services in Tarpon Springs, FL
+              Providing Professional Tree Services in Evansville, IN
             </h1>
 
             <p className="text-md font-bold text-gray-700 mb-6">
-              Trust Ken's Tree Service for Tree removal and land clearing services
-              in Tarpon Springs, Florida. With 20 years of experience and
+              Trust American Tree Experts Land for Tree removal and land clearing services
+              in Evansville, INorida. With 20 years of experience and
               expertise in delivering quality tree care, you can trust us to get
               the job done quickly and safely. Call us at{" "}
-              <a href="tel:812-213-5997" className="text-[#245b3c] hover:underline">
-                812-213-5997
+              <a href="tel:812-457-3433" className="text-[#245b3c] hover:underline">
+                812-457-3433
               </a>{" "}
               for a free quote.
             </p>
@@ -51,7 +50,7 @@ const LandClearing = () => {
             <p className="text-gray-600 mb-6 md:mb-8">
               The process of preparing your land for construction or home
               improvement projects can be a difficult, hazardous job. By getting
-              expert help from Ken's Tree Service with plantation disposal, stump
+              expert help from American Tree Experts Land with plantation disposal, stump
               grinding, and tree removal service, you'll have the assurance that
               it will be done correctly and securely.
             </p>
@@ -78,7 +77,7 @@ const LandClearing = () => {
 
             <div className="mt-8 md:mt-12">
               <h1 className="text-xl md:text-2xl font-bold mb-4">
-                Experienced Land Clearing Services, Tarpon Springs, FL
+                Experienced Land Clearing Services, Evansville, IN
               </h1>
               <p className="mb-4">
                 Land clearing is the process of removing trees, stumps, rocks, and
@@ -107,7 +106,7 @@ const LandClearing = () => {
               <div className="w-full h-64 md:h-96 mt-6 md:mt-8 overflow-hidden rounded">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d112577.66100994803!2d-82.772991!3d28.144908!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c28cfd6f0942df%3A0xf4297f0ce0bf24b7!2sTarpon%20Springs%2C%20FL!5e0!3m2!1sen!2sus!4v1753449185853!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100613.45388092705!2d-87.69936316810865!3d37.996484913892644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8871d5133156772d%3A0xb52e4939112ac99d!2sEvansville%2C%20IN!5e0!3m2!1sen!2sus!4v1753881151623!5m2!1sen!2sus"
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -127,8 +126,8 @@ const LandClearing = () => {
                   <h1 className="text-md md:text-lg font-bold text-white text-center">
                     Contact Us Today for More Info!
                   </h1>
-                  <a href="tel:812-213-5997" className="text-white text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 hover:underline">
-                    (812) 213-5997
+                  <a href="tel:812-457-3433" className="text-white text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 hover:underline">
+                    812-457-3433
                   </a>
                 </div>
               </div>
@@ -171,9 +170,9 @@ const LandClearing = () => {
             <img loading="lazy" decoding="async" src="/divider.png" alt="divider" className="h-3 md:h-4" />
           </div>
           <p className="text-center max-w-4xl mx-auto font-semibold text-sm md:text-base">
-            Ken's Tree Service offers a comprehensive suite of land clearing
+            American Tree Experts Land offers a comprehensive suite of land clearing
             solutions tailored for residential and commercial properties in
-            Tarpon Springs, Florida. Our expert services include tree removal,
+            Evansville, INorida. Our expert services include tree removal,
             stump grinding, tree trimming, storm damage cleanup, and ongoing
             landscape maintenance.
           </p>
@@ -323,8 +322,7 @@ const LandClearing = () => {
           </div>
           <div className="lg:w-7/12">
             <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4">
-              Professional Tree Service Company for Land Clearing in Tarpon
-              Springs, FL
+              Professional Tree Service Company for Land Clearing in Evansville, IN
             </h2>
             <img 
               loading="lazy"
@@ -382,9 +380,9 @@ const LandClearing = () => {
       <div className="w-full bg-[#90a99557] py-12 md:py-16">
         <div className="w-full px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
           <div className="rounded-lg text-center">
-            <h1 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-2 md:mb-4">Trust Ken's Tree Service</h1>
+            <h1 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-2 md:mb-4">Trust American Tree Experts Land</h1>
             <h1 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-3 md:mb-4">
-              for All Your Tree Maintenance Needs in Tarpon Springs, FL
+              for All Your Tree Maintenance Needs in Evansville, IN
             </h1>
             <img
               loading="lazy"
@@ -394,7 +392,7 @@ const LandClearing = () => {
             />
             <div className="space-y-3 md:space-y-4 text-gray-700 mx-auto text-sm md:text-base">
               <p>
-                Ken's Tree Service is the go-to arborist in Tarpon Springs, FL for all
+                American Tree Experts Land is the go-to arborist in Evansville, IN for all
                 of your tree maintenance needs. From simple land clearing and tree
                 trimming to complex tree pruning goals, our qualified team of
                 arborists can provide customized solutions for all your tree-related
@@ -409,8 +407,8 @@ const LandClearing = () => {
               </p>
               <p className="font-semibold mt-2 md:mt-3">
                 Contact us today at{" "}
-                <a href="tel:812-213-5997" className="text-[#245b3c] hover:underline">
-                  812-213-5997
+                <a href="tel:812-457-3433" className="text-[#245b3c] hover:underline">
+                  812-457-3433
                 </a>{" "}
                 to learn more about our land
                 clearing services and how we can help make your property look its

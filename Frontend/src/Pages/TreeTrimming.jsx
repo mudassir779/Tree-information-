@@ -1,13 +1,12 @@
 import { useLocation } from "react-router-dom";
 
 const services = [
-  { name: "Tree Removal", path: "/services/tree-removal-tarpon-springs-fl/" },
-  { name: "Tree Trimming & Pruning", path: "/services/tree-trimming-pruning-tarpon-springs-fl/" },
-  { name: "Deep Root Fertilization", path: "/services/deep-root-fertilization-tarpon-springs-fl/"},
-  { name: "Structural Pruning", path: "/services/structural-pruning-tarpon-springs-fl/" },
-  { name: "Land Clearing", path: "/services/land-clearing-tarpon-springs-fl/" },
-  { name: "Storm Clean Up", path: "/services/storm-clean-up-tarpon-springs-fl/" },
-  { name: "Commercial Tree Services", path: "/services/commercial-tree-services-tarpon-springs-fl/",},
+  { name: "Tree Removal", path: "/services/tree-removal/" },
+  { name: "Tree Trimming & Pruning", path: "/services/tree-trimming-pruning/" },
+  { name: "Structural Pruning", path: "/services/structural-pruning/" },
+  { name: "Land Clearing", path: "/services/land-clearing/" },
+  { name: "Storm Clean Up", path: "/services/storm-clean-up/" },
+  { name: "Commercial Tree Services", path: "/services/commercial-tree-services/",},
 ];
 
 const TreeTrimming = () => {
@@ -36,14 +35,14 @@ const TreeTrimming = () => {
           {/* Left Content */}
           <div className="lg:w-2/3">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-800 mb-4 sm:mb-6">
-              Experienced Tree Services Professionals in Tarpon Springs, FL
+              Experienced Tree Services Professionals in Evansville, IN
             </h2>
 
             <p className="text-sm sm:text-md font-bold text-gray-700 mb-4 sm:mb-6">
-              Looking for a tree trimming and pruning specialist in Tarpon Springs, Florida? Look no further! Our arborists have the technical know-how and latest tools to ensure your trees are healthy, robust, and visually appealing. Give us a call at
+              Looking for a tree trimming and pruning specialist in Evansville, Indiana? Look no further! Our arborists have the technical know-how and latest tools to ensure your trees are healthy, robust, and visually appealing. Give us a call at
               {" "}
-              <a href="tel:812-213-5997" className="text-[#245b3c] hover:underline">
-                812-213-5997
+              <a href="tel:812-457-3433" className="text-[#245b3c] hover:underline">
+                812-457-3433
               </a>{" "}
               for a free quote.
             </p>
@@ -98,11 +97,11 @@ const TreeTrimming = () => {
             <div className="w-full h-64 sm:h-80 md:h-96 mt-6 sm:mt-8 overflow-hidden shadow-lg">
               <iframe
                 className="w-full h-full"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d112577.66100994803!2d-82.772991!3d28.144908!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c28cfd6f0942df%3A0xf4297f0ce0bf24b7!2sTarpon%20Springs%2C%20FL!5e0!3m2!1sen!2sus!4v1753449185853!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100613.45388092705!2d-87.69936316810865!3d37.996484913892644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8871d5133156772d%3A0xb52e4939112ac99d!2sEvansville%2C%20IN!5e0!3m2!1sen!2sus!4v1753881151623!5m2!1sen!2sus"
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Tarpon Springs Location Map"
+                title="Evansville Location Map"
               ></iframe>
             </div>
           </div>
@@ -118,8 +117,8 @@ const TreeTrimming = () => {
                   <h1 className="text-sm sm:text-md md:text-lg font-bold text-white text-center">
                     Contact Us Today for More Info!
                   </h1>
-                  <a href="tel:812-213-5997" className="text-white text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-4 hover:underline">
-                    (812) 213-5997
+                  <a href="tel:812-457-3433" className="text-white text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-4 hover:underline">
+                    812-457-3433
                   </a>
                 </div>
               </div>
@@ -224,7 +223,7 @@ const TreeTrimming = () => {
             <p className="text-gray-700 text-sm sm:text-base mb-3 sm:mb-4">
               Trees are living things and require regular maintenance to remain
               healthy. If you notice any of the following signs, it's time to
-              call in a professional tree service in Tarpon Springs, FL.
+              call in a professional tree service in Evansville, IN.
             </p>
             <ul className="list-disc pl-6 sm:pl-8 space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base">
               {[
@@ -292,7 +291,7 @@ const TreeTrimming = () => {
         <div className="w-full py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
           <div className="rounded-lg py-6 sm:py-10 max-w-6xl mx-auto text-center">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">
-              American Tree Experts, Tarpon Springs: Your Trusted Tree Care Partner
+              American Tree Experts, Evansville: Your Trusted Tree Care Partner
             </h1>
             <div className="flex justify-center mb-3 sm:mb-4">
               <img loading="lazy" decoding="async" src="/divider.png" alt="divider" width="100" height="10" />
@@ -302,12 +301,12 @@ const TreeTrimming = () => {
                 At American Tree Experts, we are passionate about delivering our customers the highest standards for tree trimming and removal, fertilization, and consulting services. Whether it is tree removal services, tree pruning services, or stump removal, our arborists are dedicated to providing quality work at competitive rates.
               </p>
               <p>
-                We are confident that you will be satisfied with the results and we look forward to becoming your trusted tree care partner in Tarpon Springs, FL. We offer free estimates and would be happy to discuss your tree care needs so you can make an informed decision.
+                We are confident that you will be satisfied with the results and we look forward to becoming your trusted tree care partner in Evansville, IN. We offer free estimates and would be happy to discuss your tree care needs so you can make an informed decision.
               </p>
               <p className="font-bold">
                 Contact us today at {" "}
-                <a href="tel:812-213-5997" className="text-[#245b3c] hover:underline">
-                  812-213-5997
+                <a href="tel:812-457-3433" className="text-[#245b3c] hover:underline">
+                  812-457-3433
                 </a>{" "}
                 to learn more about our services and how we can help you maintain the health of your trees for years to come.
               </p>

@@ -8,15 +8,15 @@ const Blogs = () => {
       title: "Hurricane Season Safety: Protecting Your Property Beyond Trees",
       date: "Aug 8, 2024",
       categories: ["Tree Care Services", "Uncategorized"],
-      excerpt: "As the July heat sizzles in Tarpon Springs, we're reminded that hurricane season is in full swing. At Ken's Tree Service, Inc., we've already discussed tree care for storm preparedness. Still, there's more to consider when safeguarding your...",
+      excerpt: "As the July heat sizzles in Evansville, we're reminded that hurricane season is in full swing. At American Tree Experts Land, LLC., we've already discussed tree care for storm preparedness. Still, there's more to consider when safeguarding your...",
       image: "/blog-main.jpg"
     },
     {
       id: 2,
-      title: "Benefits of Live Oak Trees in Tarpon Springs, FL",
+      title: "Benefits of Live Oak Trees in Evansville, IN",
       date: "May 3, 2024",
       categories: ["Tree Care Services"],
-      excerpt: "The Unmatched Beauty and Benefits of Live Oak Trees in Your Florida Landscape Spring has sprung in Tarpon Springs, and the magnificent live oak trees are stealing the show! In this blog we dive into the benefits of live oak trees in your Florida landscape. At...",
+      excerpt: "The Unmatched Beauty and Benefits of Live Oak Trees in Your Florida Landscape Spring has sprung in Evansville, and the magnificent live oak trees are stealing the show! In this blog we dive into the benefits of live oak trees in your Florida landscape. At...",
       image: "/Benefits-of-Live-Oak-Trees.jpg"
     },
     {
@@ -24,7 +24,7 @@ const Blogs = () => {
       title: "The Benefits of Professional Tree Care: Why DIY Tree Maintenance Can Be Risky",
       date: "Mar 26, 2024",
       categories: ["Tree Care Services", "Uncategorized"],
-      excerpt: "As a property owner in Tarpon Springs, you take pride in the beautiful trees that grace your landscape. While it might be tempting to tackle tree maintenance tasks on your own, there are several compelling reasons to entrust your tree care to the professionals at...",
+      excerpt: "As a property owner in Evansville, you take pride in the beautiful trees that grace your landscape. While it might be tempting to tackle tree maintenance tasks on your own, there are several compelling reasons to entrust your tree care to the professionals at...",
       image: "/Tree-Trimming-Matt-2-980x735.jpg"
     },
     {
@@ -32,7 +32,7 @@ const Blogs = () => {
       title: "Spring Is Just Around the Corner! Are Your Trees Ready?",
       date: "Feb 29, 2024",
       categories: ["Tree Care Services", "Uncategorized"],
-      excerpt: "With March just around the corner, it's time to ask: Are your trees ready for Spring? At Ken's Tree Service, we're preparing for the season ahead. As temperatures rise, your property's beautiful trees are poised to spring back to life. But are...",
+      excerpt: "With March just around the corner, it's time to ask: Are your trees ready for Spring? At American Tree Experts Land, we're preparing for the season ahead. As temperatures rise, your property's beautiful trees are poised to spring back to life. But are...",
       image: "/shutterstock_1093891613-980x735.jpg"
     },
     {
@@ -48,7 +48,7 @@ const Blogs = () => {
       title: "What to Know When Watering a Newly Planted Tree",
       date: "Dec 17, 2023",
       categories: ["General Tree-Related Tips", "Uncategorized"],
-      excerpt: "What should you know when you're watering a newly planted tree? In this post, Ken's Tree Service, your trusted tree service company in Dunedin, FL, explains more about this topic. How Long Will It Take for a New Tree to Establish Itself? If you have...",
+      excerpt: "What should you know when you're watering a newly planted tree? In this post, American Tree Experts Land, your trusted tree service company in Dunedin, FL, explains more about this topic. How Long Will It Take for a New Tree to Establish Itself? If you have...",
       image: "/watering-a-newly-planted-tree-1080x600.jpg"
     },
     {
@@ -62,7 +62,7 @@ const Blogs = () => {
   ];
   const posts = [
   { name: "Hurricane Season Safety: Protecting Your Property Beyond Trees", path: "/" },
-  { name: "Benefits of Live Oak Trees in Tarpon Springs, FL", path: "/" },
+  { name: "Benefits of Live Oak Trees in Evansville, IN", path: "/" },
   { name: "The Benefits of Professional Tree Care: Why DIY Tree Maintenance Can Be Risky", path: "/"},
   { name: "Spring Is Just Around the Corner! Are Your Trees Ready?", path: "/" },
   { name: "How Do You Know When It's Time to Remove a Tree?", path: "/" },
@@ -136,8 +136,8 @@ const Blogs = () => {
                   <h1 className="text-md md:text-lg font-bold text-white text-center px-4">
                     Contact Us Today for More Info!
                   </h1>
-                  <a href="tel:812-213-5997" className="text-white text-xl md:text-3xl font-bold mb-4">
-                    (812) 213-5997
+                  <a href="tel:812-457-3433" className="text-white text-xl md:text-3xl font-bold mb-4">
+                    812-457-3433
                   </a>
                 </div>
               </div>

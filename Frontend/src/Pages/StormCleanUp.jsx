@@ -1,13 +1,12 @@
 import React from "react";
 
 const services = [
-  { name: "Tree Removal", path: "/services/tree-removal-tarpon-springs-fl/" },
-  { name: "Tree Trimming & Pruning", path: "/services/tree-trimming-pruning-tarpon-springs-fl/" },
-  { name: "Deep Root Fertilization", path: "/services/deep-root-fertilization-tarpon-springs-fl/"},
-  { name: "Structural Pruning", path: "/services/structural-pruning-tarpon-springs-fl/" },
-  { name: "Land Clearing", path: "/services/land-clearing-tarpon-springs-fl/" },
-  { name: "Storm Clean Up", path: "/services/storm-clean-up-tarpon-springs-fl/" },
-  { name: "Commercial Tree Services", path: "/services/commercial-tree-services-tarpon-springs-fl/",},
+  { name: "Tree Removal", path: "/services/tree-removal/" },
+  { name: "Tree Trimming & Pruning", path: "/services/tree-trimming-pruning/" },
+  { name: "Structural Pruning", path: "/services/structural-pruning/" },
+  { name: "Land Clearing", path: "/services/land-clearing/" },
+  { name: "Storm Clean Up", path: "/services/storm-clean-up/" },
+  { name: "Commercial Tree Services", path: "/services/commercial-tree-services/",},
 ];
 
 const StormCleanUp = () => {
@@ -34,18 +33,18 @@ const StormCleanUp = () => {
           {/* Left Side*/}
           <div className="lg:w-2/3">
             <h1 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-3">
-              Your Trusted Tree Service Company in Tarpon Springs, FL
+              Your Trusted Tree Service Company in Evansville, IN
             </h1>
 
             <p className="text-sm md:text-md font-bold text-gray-700 mb-4 md:mb-6">
-              If you're looking for professional storm cleanup services in Tarpon
-              Spring, FL, look no further! Our experienced arborists have the
+              If you're looking for professional storm cleanup services in Evansville, IN,
+              don't look no further! Our experienced arborists have the
               expertise and equipment needed to keep your property safe after a
               storm. With our friendly team on the job, you can rest assured that
               your landscape will be restored to its former glory in no time. Call
               us at{" "}
-              <a href="tel:812-213-5997" className="text-[#245b3c]">
-                812-213-5997
+              <a href="tel:812-457-3433" className="text-[#245b3c]">
+                812-457-3433
               </a>{" "}
               for a free estimate.
             </p>
@@ -87,7 +86,7 @@ const StormCleanUp = () => {
                 efficiently.
               </p>
               <p className="mb-3 md:mb-4">
-                When you enlist Ken's Tree Service for storm clean up, here are
+                When you enlist American Tree Experts Land for storm clean up, here are
                 the services we provide:
               </p>
               <ul className="list-disc list-inside text-sm md:text-md pl-4 md:pl-5 mb-4">
@@ -97,7 +96,7 @@ const StormCleanUp = () => {
                 <li>Protecting Your Property from Future Damage </li>
                 <li>Expert Advice from Experienced Arborists </li>
                 <li>
-                  Free Estimates for Storm Cleanup Services in Tarpon Springs, FL,
+                  Free Estimates for Storm Cleanup Services in Evansville, IN,
                   and surrounding areas.
                 </li>
               </ul>
@@ -110,7 +109,7 @@ const StormCleanUp = () => {
               <div className="w-full h-64 sm:h-80 md:h-96 mt-6 md:mt-8 overflow-hidden shadow-lg">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d112577.66100994803!2d-82.772991!3d28.144908!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c28cfd6f0942df%3A0xf4297f0ce0bf24b7!2sTarpon%20Springs%2C%20FL!5e0!3m2!1sen!2sus!4v1753449185853!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100613.45388092705!2d-87.69936316810865!3d37.996484913892644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8871d5133156772d%3A0xb52e4939112ac99d!2sEvansville%2C%20IN!5e0!3m2!1sen!2sus!4v1753881151623!5m2!1sen!2sus"
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -131,8 +130,8 @@ const StormCleanUp = () => {
                   <h1 className="text-sm sm:text-md md:text-lg font-bold text-white text-center">
                     Contact Us Today for More Info!
                   </h1>
-                  <a href="tel:812-213-5997" className="text-white text-xl sm:text-2xl md:text-3xl font-bold mt-2">
-                    (812) 213-5997
+                  <a href="tel:812-457-3433" className="text-white text-xl sm:text-2xl md:text-3xl font-bold mt-2">
+                    812-457-3433
                   </a>
                 </div>
               </div>
@@ -246,7 +245,7 @@ const StormCleanUp = () => {
           <div className="lg:w-7/12 pb-5">
             <h1 className="text-[#245B3C] text-sm md:text-md font-bold uppercase">24/7 Availability</h1>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mt-1">
-              Emergency Response Storm Cleanup in Tarpon Springs, FL
+              Emergency Response Storm Cleanup in Evansville, IN
             </h2>
             <img src="/divider.png" alt="Divider" className="my-3 md:my-5 h-2 w-24 md:w-32" />
             <div className="space-y-3 md:space-y-4 text-gray-700 text-sm md:text-md">
@@ -254,7 +253,7 @@ const StormCleanUp = () => {
                 Fallen trees can cause a lot of damage to your property and should be dealt with as soon as possible. Our team offers 24/7 emergency response services to help you get your property back on track. We understand that time is of the essence in these cases, so we will work quickly and efficiently to restore your property.
               </p>
               <h3 className="text-lg md:text-xl font-bold text-gray-800 mt-4 md:mt-6">
-                Why Choose Professional Storm Cleanup Services in Tarpon Spring, FL
+                Why Choose Professional Storm Cleanup Services in Evansville, IN
               </h3>
               <p className="leading-relaxed">Storm cleanup is a job for the professionals. Owing to the complexity, safety risks, and potential for damage, it's not something that should be attempted by an untrained individual. From debris removal to tree trimming and assessment, professionals have the training and experience needed to get the job done right.</p>
               <p className="leading-relaxed">Heavy winds, lightning, and excessive rain can wreak havoc on your property. Our team of experienced arborists is trained to safely remove fallen trees, branches, and debris without risking further damage. We will make sure any hanging or broken limbs are cleared away from power lines and other structures.
@@ -269,20 +268,20 @@ const StormCleanUp = () => {
           Experience You Can Trust:
         </h1>
         <h1 className="text-2xl md:text-3xl font-extrabold text-gray-800 text-center">
-          Ken's Professional Storm Cleanup Services
+          American Tree Experts' Professional Storm Cleanup Services
         </h1>
         <img src="/divider.png" alt="Divider" className="my-6 md:my-8 h-2 w-24 md:w-32" />
         <div className="w-11/12 mx-auto">
           <p className="text-gray-700 text-sm md:text-md text-center">
-            At Ken's Tree Service, we stand by our commitment to providing top-quality storm cleanup services. Our experienced arborists are here to make sure that your property is taken care of quickly and correctly after a storm.
+            At American Tree Experts Land, we stand by our commitment to providing top-quality storm cleanup services. Our experienced arborists are here to make sure that your property is taken care of quickly and correctly after a storm.
           </p>
           <p className="text-gray-700 text-sm md:text-md text-center font-semibold mt-2 md:mt-3">
             With over 20 years of experience, we understand the complexity and potential risks associated with storm damage cleanup. That's why our team is trained and equipped with the latest tools and safety gear to ensure that your property is restored on time.
           </p>
           <p className="text-gray-700 text-sm md:text-md font-bold text-center mt-2 md:mt-3">
-            If you're looking for professional storm cleanup services in Tarpon Springs, Palm Harbor, New Port Richey, or the surrounding areas, contact us at{" "}
-            <a href="tel:812-213-5997" className="text-[#245b3c]">
-              812-213-5997
+            If you're looking for professional storm cleanup services in Evansville, Henderson, Newburgh, or the surrounding areas, contact us at{" "}
+            <a href="tel:812-457-3433" className="text-[#245b3c]">
+              812-457-3433
             </a>.
           </p>
         </div>

@@ -24,7 +24,7 @@ const AboutUs = () => {
           <div className="w-full lg:w-8/12 mb-6 lg:mr-4 lg:pr-5 text-justify">
             <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">A FAMILY BUSINESS OF ETHICAL VALUES & EXPERIENCE:</h2>
             <p className="mb-3 sm:mb-4 text-sm sm:text-base">
-              Ken's Tree Service has been serving the Tampa Bay area for over 22 years.
+              American Tree Experts Land has been serving the Warrick County area for many years.
               We are a family-owned and operated business that is passionate about providing
               our customers with superior tree care services including removal, pruning,
               fertilization, consulting, and more. Our team of certified arborists is committed
@@ -33,7 +33,7 @@ const AboutUs = () => {
 
             <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">OUR MISSION</h2>
             <p className="mb-3 sm:mb-4 text-sm sm:text-base">
-              At Ken's Tree Service, our mission is to cultivate a team of high-performing
+              At American Tree Experts Land, our mission is to cultivate a team of high-performing
               professionals and create an environment that focuses on positive attitudes
               and shares this positive energy with our clients. We are dedicated to servicing
               our clients and their trees to the highest standards.
@@ -74,15 +74,15 @@ const AboutUs = () => {
 
           <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">COMMITMENT TO QUALITY</h2>
           <p className="mb-3 sm:mb-4 text-sm sm:text-base">
-            At Ken's Tree Service, we're committed to quality and excellence in everything we do. We use the most innovative tools and techniques to ensure that your trees are healthy, vibrant, and safe. We guarantee a job well done on every project, so you can rest assured that your trees will be taken care of by professionals who know what they're doing. Adhering to the ANSI A300 standard, Ken's Tree Service is dedicated to providing industry-leading tree care services tailored to meet your individual needs. We are committed to creating a safe and healthy environment for you and your trees.
+            At American Tree Experts, we're committed to quality and excellence in everything we do. We use the most innovative tools and techniques to ensure that your trees are healthy, vibrant, and safe. We guarantee a job well done on every project, so you can rest assured that your trees will be taken care of by professionals who know what they're doing. Adhering to the ANSI A300 standard, American Tree Experts is dedicated to providing industry-leading tree care services tailored to meet your individual needs. We are committed to creating a safe and healthy environment for you and your trees.
           </p>
 
-          <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Get Professional Tree Care Services – Trust Ken's Tree Service.</h2>
+          <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Get Professional Tree Care Services - Trust American Tree Experts.</h2>
           <p className="text-sm sm:text-base">
             We understand that taking care of your trees can be a daunting task. That's why we're here. We can handle any job for you so you can focus on other things. From tree pruning to removal, our team is equipped to tackle any project with professionalism and ease. From our friendly office staff to our professionals who complete the job, we guarantee a 5-star service experience. Contact us at
             {" "}
-            <a href="tel:812-213-5997" className="text-[#245b3c] hover:underline font-medium">
-              812-213-5997
+            <a href="tel:812-457-3433" className="text-[#245b3c] hover:underline font-medium">
+              812-457-3433
             </a>
             {" "}
             to learn more about how we can help you care for your trees.

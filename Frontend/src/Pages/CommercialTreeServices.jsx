@@ -1,13 +1,12 @@
 import React from "react";
 
 const services = [
-  { name: "Tree Removal", path: "/services/tree-removal-tarpon-springs-fl/" },
-  { name: "Tree Trimming & Pruning", path: "/services/tree-trimming-pruning-tarpon-springs-fl/" },
-  { name: "Deep Root Fertilization", path: "/services/deep-root-fertilization-tarpon-springs-fl/" },
-  { name: "Structural Pruning", path: "/services/structural-pruning-tarpon-springs-fl/" },
-  { name: "Land Clearing", path: "/services/land-clearing-tarpon-springs-fl/" },
-  { name: "Storm Clean Up", path: "/services/storm-clean-up-tarpon-springs-fl/" },
-  { name: "Commercial Tree Services", path: "/services/commercial-tree-services-tarpon-springs-fl/" },
+  { name: "Tree Removal", path: "/services/tree-removal/" },
+  { name: "Tree Trimming & Pruning", path: "/services/tree-trimming-pruning/" },
+  { name: "Structural Pruning", path: "/services/structural-pruning/" },
+  { name: "Land Clearing", path: "/services/land-clearing/" },
+  { name: "Storm Clean Up", path: "/services/storm-clean-up/" },
+  { name: "Commercial Tree Services", path: "/services/commercial-tree-services/" },
 ];
 
 const CommercialTreeServices = () => {
@@ -34,18 +33,18 @@ const CommercialTreeServices = () => {
           {/* Left Side - Main Content */}
           <div className="lg:w-2/3">
             <h1 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-3">
-              Expert Tree Service by Certified Arborists in Tarpon Springs, FL
+              Expert Tree Service by Certified Arborists in Evansville, IN
             </h1>
 
             <p className="text-sm md:text-md font-bold text-gray-700 mb-6">
-              Ken's Tree Service provides professional commercial tree services to
-              Tarpon Springs, FL, and surrounding areas. From pruning to complete
+              American Tree Experts Land provides professional commercial tree services to
+              Evansville, IN, and surrounding areas. From pruning to complete
               removal with expert advice and care, our team of arborists works
               safely and efficiently to take your project from start to finish.
               Call us at
               {" "}
-              <a href="tel:812-213-5997" className="text-[#245b3c] hover:underline">
-                812-213-5997
+              <a href="tel:812-457-3433" className="text-[#245b3c] hover:underline">
+                812-457-3433
               </a>{" "}
               to get started today.
             </p>
@@ -57,7 +56,7 @@ const CommercialTreeServices = () => {
               sufficient tree maintenance which can lead to sickness and damage.
             </p>
             <p className="text-gray-600 mb-6 md:mb-8">
-              That's why Ken's Tree Service is here to help. We specialize in
+              That's why American Tree Experts Land is here to help. We specialize in
               commercial tree services, ensuring the trees on your property are
               well-maintained and assessed for safety risks. Whether you are
               looking to make a positive brand impression, boost curb appeal, or
@@ -92,7 +91,7 @@ const CommercialTreeServices = () => {
                 Assessments
               </h1>
               <p className="mb-4 text-gray-600">
-                At Ken's Tree Service, we understand the challenges associated
+                At American Tree Experts Land, we understand the challenges associated
                 with managing trees in homeowners' and business associations. We
                 know that it can be difficult to determine the correct time for
                 tree trimming and care, as well as how much should be invested in
@@ -124,11 +123,11 @@ const CommercialTreeServices = () => {
               <div className="w-full h-64 sm:h-80 md:h-96 mt-6 md:mt-8 rounded-lg overflow-hidden shadow-lg">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d112577.66100994803!2d-82.772991!3d28.144908!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c28cfd6f0942df%3A0xf4297f0ce0bf24b7!2sTarpon%20Springs%2C%20FL!5e0!3m2!1sen!2sus!4v1753449185853!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100613.45388092705!2d-87.69936316810865!3d37.996484913892644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8871d5133156772d%3A0xb52e4939112ac99d!2sEvansville%2C%20IN!5e0!3m2!1sen!2sus!4v1753881151623!5m2!1sen!2sus"
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Tarpon Springs Location Map"
+                  title="Evansville Location Map"
                 ></iframe>
               </div>
             </div>
@@ -145,8 +144,8 @@ const CommercialTreeServices = () => {
                   <h1 className="text-md md:text-lg font-bold text-white text-center">
                     Contact Us Today for More Info!
                   </h1>
-                  <a href="tel:812-213-5997" className="text-white text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 hover:underline">
-                    (812) 213-5997
+                  <a href="tel:812-457-3433" className="text-white text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 hover:underline">
+                    812-457-3433
                   </a>
                 </div>
               </div>
@@ -183,7 +182,7 @@ const CommercialTreeServices = () => {
               Our Services
             </p>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 mt-2">
-              Professional Commercial Tree Services in Tarpon Springs, FL, and
+              Professional Commercial Tree Services in Evansville, IN, and
               Surrounding Areas
             </h1>
             <div className="flex justify-center my-4 md:my-5">
@@ -191,7 +190,7 @@ const CommercialTreeServices = () => {
             </div>
             <p className="max-w-3xl mx-auto text-center text-gray-700 leading-relaxed text-sm md:text-base">
               When it comes to quality tree care services, there is no better
-              choice than Ken's Tree Service. We are dedicated to providing
+              choice than American Tree Experts Land. We are dedicated to providing
               excellent customer service with a focus on safety and quality
               results for all types of residential and commercial properties.
             </p>
@@ -212,7 +211,7 @@ const CommercialTreeServices = () => {
                   of proper trimming and pruning to maintain the desired shape.
                 </p>
                 <div className="mt-4 md:mt-6 text-center">
-                  <a href="/services/tree-trimming-pruning-tarpon-springs-fl/" className="inline-block my-4 md:my-6 bg-[#afb236] hover:bg-[#908927] text-white font-bold py-2 px-6 md:py-3 md:px-8 rounded-3xl shadow-md transition-colors duration-300 transform hover:scale-105 text-sm md:text-base">
+                  <a href="/services/tree-trimming-pruning/" className="inline-block my-4 md:my-6 bg-[#afb236] hover:bg-[#908927] text-white font-bold py-2 px-6 md:py-3 md:px-8 rounded-3xl shadow-md transition-colors duration-300 transform hover:scale-105 text-sm md:text-base">
                     Discover More
                   </a>
                 </div>
@@ -232,7 +231,7 @@ const CommercialTreeServices = () => {
                   problems and create a plan for how to best address them.
                 </p>
                 <div className="mt-4 md:mt-6 text-center">
-                  <a href="/services/structural-pruning-tarpon-springs-fl/" className="inline-block my-4 md:my-6 bg-[#afb236] hover:bg-[#908927] text-white font-bold py-2 px-6 md:py-3 md:px-8 rounded-3xl shadow-md transition-colors duration-300 transform hover:scale-105 text-sm md:text-base">
+                  <a href="/services/structural-pruning/" className="inline-block my-4 md:my-6 bg-[#afb236] hover:bg-[#908927] text-white font-bold py-2 px-6 md:py-3 md:px-8 rounded-3xl shadow-md transition-colors duration-300 transform hover:scale-105 text-sm md:text-base">
                     Discover More
                   </a>
                 </div>
@@ -252,7 +251,7 @@ const CommercialTreeServices = () => {
                   set to safely remove trees from any commercial property.
                 </p>
                 <div className="mt-4 md:mt-6 text-center">
-                  <a href="/services/tree-removal-tarpon-springs-fl/" className="inline-block my-4 md:my-6 bg-[#afb236] hover:bg-[#908927] text-white font-bold py-2 px-6 md:py-3 md:px-8 rounded-3xl shadow-md transition-colors duration-300 transform hover:scale-105 text-sm md:text-base">
+                  <a href="/services/tree-removal/" className="inline-block my-4 md:my-6 bg-[#afb236] hover:bg-[#908927] text-white font-bold py-2 px-6 md:py-3 md:px-8 rounded-3xl shadow-md transition-colors duration-300 transform hover:scale-105 text-sm md:text-base">
                     Discover More
                   </a>
                 </div>
@@ -275,7 +274,7 @@ const CommercialTreeServices = () => {
                   expertise to clear away any debris or vegetation.
                 </p>
                 <div className="mt-4 md:mt-6 text-center">
-                  <a href="/services/land-clearing-tarpon-springs-fl/" className="inline-block my-4 md:my-6 bg-[#afb236] hover:bg-[#908927] text-white font-bold py-2 px-6 md:py-3 md:px-8 rounded-3xl shadow-md transition-colors duration-300 transform hover:scale-105 text-sm md:text-base">
+                  <a href="/services/land-clearing/" className="inline-block my-4 md:my-6 bg-[#afb236] hover:bg-[#908927] text-white font-bold py-2 px-6 md:py-3 md:px-8 rounded-3xl shadow-md transition-colors duration-300 transform hover:scale-105 text-sm md:text-base">
                     Discover More
                   </a>
                 </div>
@@ -295,7 +294,7 @@ const CommercialTreeServices = () => {
                   safety, and efficiency.
                 </p>
                 <div className="mt-4 md:mt-6 text-center">
-                  <a href="/services/storm-clean-up-tarpon-springs-fl/" className="inline-block my-4 md:my-6 bg-[#afb236] hover:bg-[#908927] text-white font-bold py-2 px-6 md:py-3 md:px-8 rounded-3xl shadow-md transition-colors duration-300 transform hover:scale-105 text-sm md:text-base">
+                  <a href="/services/storm-clean-up/" className="inline-block my-4 md:my-6 bg-[#afb236] hover:bg-[#908927] text-white font-bold py-2 px-6 md:py-3 md:px-8 rounded-3xl shadow-md transition-colors duration-300 transform hover:scale-105 text-sm md:text-base">
                     Discover More
                   </a>
                 </div>
@@ -315,7 +314,7 @@ const CommercialTreeServices = () => {
                   their environment while delivering significant visual appeal.
                 </p>
                 <div className="mt-4 md:mt-6 text-center">
-                  <a href="/services/commercial-tree-services-tarpon-springs-fl/" className="inline-block my-4 md:my-6 bg-[#afb236] hover:bg-[#908927] text-white font-bold py-2 px-6 md:py-3 md:px-8 rounded-3xl shadow-md transition-colors duration-300 transform hover:scale-105 text-sm md:text-base">
+                  <a href="/services/commercial-tree-services/" className="inline-block my-4 md:my-6 bg-[#afb236] hover:bg-[#908927] text-white font-bold py-2 px-6 md:py-3 md:px-8 rounded-3xl shadow-md transition-colors duration-300 transform hover:scale-105 text-sm md:text-base">
                     Discover More
                   </a>
                 </div>
@@ -342,7 +341,7 @@ const CommercialTreeServices = () => {
               24/7 Availability
             </h1>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mt-1 md:mt-2">
-              Emergency Tree Services in Tarpon Springs
+              Emergency Tree Services in Evansville
             </h2>
             <img src="/divider.png" alt="Divider" className="my-3 md:my-5 h-1 w-20 md:w-24" />
             <div className="space-y-3 md:space-y-4 text-gray-700 text-sm md:text-base">
@@ -350,14 +349,14 @@ const CommercialTreeServices = () => {
                 In the event of an emergency, timing is of the essence! Our team is available 24/7 to handle any emergency tree services. We understand the importance of acting quickly and efficiently to avoid further damage or disruption.
               </p>
               <p className="leading-relaxed">
-                Any large tree project requires a team of professionals who know what they are doing, and we at Ken's Tree Service have the experience to provide quality tree care services that you can trust.
+                Any large tree project requires a team of professionals who know what they are doing, and we at American Tree Experts Land have the experience to provide quality tree care services that you can trust.
               </p>
 
               <h3 className="text-lg md:text-xl font-semibold text-gray-800 mt-4 md:mt-6">
-                Expert Advice & Care for Pruning to Removal from Ken's Commercial Tree Service
+                Expert Advice & Care from Pruning to Removal, from American Tree Experts' Commercial Tree Service
               </h3>
               <p className="leading-relaxed">
-                For commercial clients in the Tampa Bay area and Northern Pinellas County seeking professional tree service, look no further than Ken's Tree Service. With over two decades of experience in the industry, our insured team is dedicated to providing you with quality services that exceed your expectations.
+                For commercial clients in the Tampa Bay area and Northern Pinellas County seeking professional tree service, look no further than American Tree Experts Land. With over two decades of experience in the industry, our insured team is dedicated to providing you with quality services that exceed your expectations.
               </p>
               <p className="leading-relaxed">
                 We follow ANSI A300 standards and utilize our years of experience to give you the best advice on how to care for your trees. Rest assured that when it comes to tree care, we are the experts you can trust.
@@ -365,8 +364,8 @@ const CommercialTreeServices = () => {
               <p className="leading-relaxed">
                 Contact us today at
                 {" "}
-                <a href="tel:812-213-5997" className="text-[#245b3c] hover:underline font-medium">
-                  (812) 213-5997
+                <a href="tel:812-457-3433" className="text-[#245b3c] hover:underline font-medium">
+                  812-457-3433
                 </a>{" "}
                 for a free estimate and to learn more about the services we offer. We look forward to hearing from you.
               </p>

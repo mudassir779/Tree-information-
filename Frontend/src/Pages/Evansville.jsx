@@ -1,23 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaPlus, FaChevronLeft, FaChevronRight, FaTimes, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 
 const services = [
-  { name: "Tarpon Springs", path: "/service-areas/" },
-  { name: "Clear Water", path: "/service-areas/tree-service-clearwater-fl/" },
-  { name: "Dunedin", path: "/service-areas/tree-service-dunedin-fl/" },
-  { name: "New Port Richey", path: "/service-areas/tree-service-new-port-richey-fl/" },
-  { name: "Oldsmar", path: "/service-areas/tree-service-oldsmar-fl/" },
-  { name: "Palm Harbor", path: "/service-areas/tree-service-palm-harbor-fl/" },
-  { name: "Safety Harbor", path: "/service-areas/tree-service-safety-harbor-fl/" },
+  { name: "Evansville", path: "/service-areas/tree-service-evansville-in/" },
+  { name: "Newburgh", path: "/service-areas/tree-service-newburgh-in/" },
+  { name: "Oldsmar", path: "/service-areas/tree-service-boonville-in/" },
+  { name: "Henderson", path: "/service-areas/tree-service-henderson-ky/" },
+  { name: "Warrick County", path: "/service-areas/tree-service-warrick-county/" },
 ];
 
-const TarponSpring = () => {
+const Evansville = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const images = [
-    { src: "/Tree-Removal-Palm-Harbor-FL-400x284.jpg", alt: "Tree Removal Tarpon Springs FL", title: "Tree Services, Tarpon Springs, FL 1"},
-    { src: "/Tree-Services-Safety-Harbor-FL-400x284.jpg", alt: "Tree Services Tarpon Springs FL", title: "Tree Services, Tarpon Springs, FL 2" }
+    { src: "/Tree-Removal-Clearwater-FL-400x284.jpg", alt: "Tree Removal Evansville IN", title: "Tree Services, Evansville, IN  1" },
+    { src: "/Tree-Services-Clearwater-FL-400x284.jpg", alt: "Tree Services Evansville IN", title: "Tree Services, Evansville, IN  2" }
   ];
 
   const openLightbox = (index) => {
@@ -48,19 +57,21 @@ const TarponSpring = () => {
         <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition-colors"
+            className="absolute top-4 right-4 text-white text-2xl sm:text-3xl hover:text-gray-300 transition-colors"
+            aria-label="Close lightbox"
           >
             <FaTimes />
           </button>
 
           <button
             onClick={() => navigate('prev')}
-            className="absolute left-4 text-white text-3xl hover:text-gray-300 transition-colors md:left-8"
+            className="absolute left-2 sm:left-4 text-white text-2xl sm:text-3xl hover:text-gray-300 transition-colors"
+            aria-label="Previous image"
           >
-            <FaChevronLeft className="text-2xl md:text-4xl" />
+            <FaChevronLeft size={isMobile ? 30 : 40} />
           </button>
 
-          <div className="max-w-4xl w-full mx-4 md:mx-16">
+          <div className="max-w-4xl w-full mx-4 sm:mx-8 lg:mx-16">
             <img
               src={images[currentImageIndex].src}
               alt={images[currentImageIndex].alt}
@@ -70,53 +81,53 @@ const TarponSpring = () => {
 
           <button
             onClick={() => navigate('next')}
-            className="absolute right-4 text-white text-3xl hover:text-gray-300 transition-colors md:right-8"
+            className="absolute right-2 sm:right-4 text-white text-2xl sm:text-3xl hover:text-gray-300 transition-colors"
+            aria-label="Next image"
           >
-            <FaChevronRight className="text-2xl md:text-4xl" />
+            <FaChevronRight size={isMobile ? 30 : 40} />
           </button>
         </div>
       )}
 
       {/* Hero Section */}
-      <section className="relative w-full mb-8 md:mb-12">
-        <div className="h-48 sm:h-64 md:h-80 w-full">
+      <section className="relative w-full mb-8 sm:mb-12">
+        <div className="h-48 sm:h-60 md:h-70 w-full">
           <div className="absolute inset-0 bg-[url('/hero-img.jpg')] bg-cover bg-center">
             <div className="absolute inset-0 bg-gradient-to-b from-[#000000b3] to-[#0000008c]"></div>
           </div>
           <div className="absolute inset-0 flex items-center justify-center">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center px-4 uppercase">
-              TREE SERVICE Tarpon Springs FL
+              TREE SERVICE Evansville, IN 
             </h1>
           </div>
         </div>
       </section>
 
-      {/* Main Content Container with side margins */}
-      <div className="w-full px-4 sm:w-11/12 sm:px-6 lg:w-10/12 lg:px-8 mx-auto mb-12 md:mb-20">
+      {/* Main Content Container */}
+      <div className="w-full px-4 sm:px-6 lg:w-10/12 lg:mx-auto mb-12 lg:mb-20">
         {/* Main Content */}
-        <div className="mt-8 sm:mt-12 mx-0 sm:mx-4 md:mx-8 lg:mx-12 xl:mx-20 flex flex-col lg:flex-row gap-6 md:gap-8">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
           {/* Left Side - Main Content */}
           <div className="lg:w-2/3">
-            <h1 className="text-xl sm:text-2xl font-extrabold text-gray-800 mb-4 sm:mb-6">
-              Experienced Tree Services Professionals in Tarpon Springs, FL
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">
+              Your Trusted Tree Service Company in Evansville, IN 
+
             </h1>
 
-            <p className="text-sm sm:text-md font-bold text-gray-700 mb-4 sm:mb-6">
-              Ken's Tree Service has been a proud family tree care business for over two decades and counting! We are arborists, so you can trust us to provide excellent tree care services that will keep your trees looking healthy and beautiful. Additionally, our membership in ISA & TCIA demonstrates the commitment we have to provide reliable service. Get in touch with us today at
-              {" "}<a href="tel:(812) 213-5997" className="text-[#245b3c]">(812) 213-5997</a>{" "}
-              to receive a free estimate.
+            <p className="text-base sm:text-lg font-semibold text-gray-700 mb-4 sm:mb-6">
+              American Tree Experts Land has been a proud family tree care business for over two decades and counting! We are arborists, so you can trust us to provide excellent tree care services that will keep your trees looking healthy and beautiful. Additionally, our membership in ISA & TCIA demonstrates the commitment we have to provide reliable service. Get in touch with us today at (727) 934-5804 to receive a free estimate.
             </p>
 
-            <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
+            <p className="text-gray-600 mb-6 sm:mb-8">
               Trees are essential to the environment and can be a great source of beauty, shade, and oxygen. Properly caring for trees is essential in preventing potential hazards from occurring due to overgrowth or damaged branches. This is why professional tree care services are necessary to protect your property's value and safety.
             </p>
 
-            <p className="mb-6 sm:mb-8 text-sm sm:text-base">
-              Ken's Tree Service has been providing quality tree care services to the Tarpon Springs, FL area for over 22 years. Our team of experts are members of the International Society of Arboriculture and Tree Care Industry Association, so you can trust that your trees will receive excellent care.
+            <p className="mb-6 sm:mb-8">
+              American Tree Experts Land has been providing quality tree care services to the Evansville, IN  area for over 22 years. Our team of experts are members of the International Society of Arboriculture and Tree Care Industry Association, so you can trust that your trees will receive excellent care. We offer a range of services, such as:
             </p>
 
             {/* Image Gallery */}
-            <div className="relative flex flex-col sm:flex-row gap-4 md:gap-6 lg:gap-8 mt-2 mb-8 sm:mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 mt-2 mb-8 sm:mb-12">
               {images.map((image, index) => (
                 <div
                   key={index}
@@ -129,7 +140,7 @@ const TarponSpring = () => {
                     src={image.src}
                     alt={image.alt}
                     title={image.title}
-                    className="w-full h-48 sm:h-64 md:h-80 object-cover border-2 sm:border-4 border-black shadow-lg sm:shadow-xl shadow-[#333] group-hover:opacity-80 transition-opacity"
+                    className="w-full h-48 sm:h-56 md:h-64 lg:h-80 object-cover border-4 border-black shadow-lg sm:shadow-xl shadow-[#333] group-hover:opacity-80 transition-opacity"
                   />
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <div className="bg-[#afb236] bg-opacity-50 rounded-full p-2 sm:p-3">
@@ -142,7 +153,7 @@ const TarponSpring = () => {
 
             <div className="mt-8 sm:mt-12">
               <h2 className="text-xl sm:text-2xl font-extrabold mb-4 sm:mb-6 text-gray-800 border-b pb-2">
-                Tree Services in Tarpon Springs, FL
+                Tree Services in Evansville, IN 
               </h2>
 
               <div className="space-y-6 sm:space-y-8">
@@ -182,13 +193,6 @@ const TarponSpring = () => {
                 </div>
 
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-800">Deep Root Fertilization</h3>
-                  <p className="text-gray-600 text-sm sm:text-base">
-                    Our deep root fertilization promotes healthy growth by delivering nutrients directly to the root zone. This essential service helps trees resist disease and environmental stress.
-                  </p>
-                </div>
-
-                <div>
                   <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-800">Commercial Tree Services</h3>
                   <p className="text-gray-600 text-sm sm:text-base">
                     From routine maintenance to emergency services, we provide comprehensive tree care for commercial properties with minimal business disruption.
@@ -197,17 +201,16 @@ const TarponSpring = () => {
               </div>
 
               <div className="mt-8 sm:mt-10 bg-blue-50 p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-800">Trust Ken's Tree Service</h3>
-                <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">
-                  At Ken's Tree Service, our professional arborists have been providing top-notch services in Tarpon Springs, FL for over two decades. With unmatched expertise and a passion for delivering outstanding results every single time, we are the team to call when you require quality tree care services. 
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-800">Trust American Tree Experts Land for Professional Tree Care Services</h3>
+                <p className="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4">
+                  At American Tree Experts Land, our professional arborists have been providing top-notch services in Evansville, IN  for over two decades. With unmatched expertise and a passion for delivering outstanding results every single time, we are the team to call when you require quality tree care services. 
                 </p>
                 <p className="text-gray-600 text-sm sm:text-base">
                   We understand that your trees are a valuable investment and pride ourselves in providing reliable and cost-effective services. Don't hesitate to contact us at
                   {" "}
-                  <a href="tel:812-213-5997" className="text-[#245b3c]">
-                    (812) 213-5997
-                  </a>
-                  {" "}
+                  <a href="tel:812-457-3433" className="text-[#245b3c] font-medium hover:underline">
+                    812-457-3433
+                  </a>{" "}
                   to learn more about how we can help keep your property looking its best.
                 </p>
               </div>
@@ -215,17 +218,18 @@ const TarponSpring = () => {
               <div className="w-full h-64 sm:h-80 md:h-96 mt-6 sm:mt-8 overflow-hidden shadow-lg">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56288.802577753515!2d-82.85093050795753!3d28.144961138354184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c28cfd6f0942df%3A0xf4297f0ce0bf24b7!2sTarpon%20Springs%2C%20FL!5e0!3m2!1sen!2sus!4v1753736459901!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100613.45388092705!2d-87.69936316810865!3d37.996484913892644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8871d5133156772d%3A0xb52e4939112ac99d!2sEvansville%2C%20IN!5e0!3m2!1sen!2sus!4v1753881151623!5m2!1sen!2sus"
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
+                  title="Evansville, IN Location Map"
                 ></iframe>
               </div>
             </div>
           </div>
 
           {/* Right Side - Sidebar */}
-          <div className="pt-6 sm:pt-8 lg:pt-10 lg:w-1/3 xl:w-1/4 space-y-4 sm:space-y-6">
+          <div className="pt-6 lg:pt-10 lg:w-1/3 lg:pl-4 space-y-6">
             <div className="bg-white shadow-md sm:shadow-lg shadow-[#0000004d] overflow-hidden transform hover:shadow-xl transition-shadow duration-300">
               <div className="relative h-48 sm:h-56 md:h-60 w-full">
                 <div className="absolute inset-0 bg-[url('/map-bg.jpg')] bg-cover bg-center">
@@ -233,27 +237,27 @@ const TarponSpring = () => {
                   </div>
                 </div>
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-                  <h1 className="text-sm sm:text-md md:text-lg font-bold text-white text-center">
+                  <h1 className="text-sm sm:text-base md:text-lg font-bold text-white text-center">
                     Contact Us Today for More Info!
                   </h1>
-                  <a href="tel:812-213-5997" className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4">
-                    (812) 213-5997
+                  <a href="tel:812-457-3433" className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4 hover:underline">
+                    812-457-3433
                   </a>
                 </div>
               </div>
             </div>
 
             <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 className="text-sm sm:text-md flex items-center font-bold bg-[#1e4d32] w-full text-white mb-3 px-4 py-2">
+              <h3 className="text-sm sm:text-base flex items-center font-bold bg-[#1e4d32] w-full text-white mb-3 px-4 py-2">
                 <FaMapMarkerAlt className="mr-2 text-green-600" />
                 Service Areas
               </h3>
-              <ul className="space-y-1 sm:space-y-2 p-2 sm:p-3">
+              <ul className="space-y-1 px-2 pb-2">
                 {services.map((service, index) => (
                   <li key={index}>
                     <a
                       href={service.path}
-                      className={`block px-2 sm:px-3 py-1 sm:py-1.5 rounded transition text-sm sm:text-base ${location.pathname === service.path
+                      className={`block px-3 py-2 rounded transition text-sm sm:text-base ${window.location.pathname === service.path
                         ? "bg-green-100 text-green-700 font-medium"
                         : "text-gray-700 hover:bg-green-50 hover:text-green-600"
                         }`}
@@ -271,4 +275,4 @@ const TarponSpring = () => {
   );
 };
 
-export default TarponSpring;
+export default Evansville;

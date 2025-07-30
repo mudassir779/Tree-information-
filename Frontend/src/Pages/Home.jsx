@@ -1,9 +1,10 @@
-import React from "react";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   const reviews = [
     {
@@ -253,7 +254,9 @@ const Home = () => {
               proper growth and optimal tree health
             </p>
             <div className="flex justify-center">
-              <button className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base">
+              <button 
+              className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
+              onClick={() => navigate("/services/tree-trimming-pruning/")}>
                 DISCOVER MORE
               </button>
             </div>
@@ -277,7 +280,9 @@ const Home = () => {
               wires or buildings.
             </p>
             <div className="flex justify-center">
-              <button className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base">
+              <button 
+              className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
+              onClick={() => navigate("/services/structural-pruning/")}>
                 DISCOVER MORE
               </button>
             </div>
@@ -300,7 +305,9 @@ const Home = () => {
               efficiently.
             </p>
             <div className="flex justify-center">
-              <button className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base">
+              <button 
+              className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
+              onClick={() => navigate("/services/tree-removal/")}>
                 DISCOVER MORE
               </button>
             </div>
@@ -308,7 +315,7 @@ const Home = () => {
         </div>
 
         {/* Second Row with 4 Boxes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 pb-12">
           <div className="p-4 md:p-6 rounded-lg shadow-lg bg-white">
             <img
               src="/land-clearing.jpg"
@@ -326,7 +333,9 @@ const Home = () => {
               or construction projects.
             </p>
             <div className="flex justify-center">
-              <button className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base">
+              <button 
+              className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
+              onClick={() => navigate("/services/land-clearing/")}>
                 DISCOVER MORE
               </button>
             </div>
@@ -348,34 +357,14 @@ const Home = () => {
               difficult jobs quickly and safely.
             </p>
             <div className="flex justify-center">
-              <button className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base">
+              <button 
+              className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
+              onClick={() => navigate("/services/storm-clean-up/")}>
                 DISCOVER MORE
               </button>
             </div>
           </div>
 
-          <div className="p-4 md:p-6 rounded-lg shadow-lg bg-white">
-            <img
-              src="/deep-root-fertilization.jpg"
-              alt="Deep Root Fertilization"
-              title="deep-root-fertilization"
-              className="w-full h-48 md:h-56 object-cover rounded-t-lg"
-            />
-            <h1 className="text-lg md:text-xl font-bold mt-4 text-center">
-              Deep Root Fertilization
-            </h1>
-            <p className="px-2 md:px-3 text-sm md:text-base text-center">
-              Deep root fertilization is an important part of maintaining
-              healthy trees. Our certified arborists can inject nutrients
-              directly into the roots of your trees to improve their health and
-              vigor.
-            </p>
-            <div className="flex justify-center">
-              <button className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base">
-                DISCOVER MORE
-              </button>
-            </div>
-          </div>
           <div className="p-4 md:p-6 rounded-lg shadow-lg bg-white">
             <img
               src="/commercial-tree-services.jpg"
@@ -393,7 +382,9 @@ const Home = () => {
               your trees while also protecting your bottom line.
             </p>
             <div className="flex justify-center">
-              <button className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base">
+              <button 
+              className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
+              onClick={() => navigate("/services/commercial-tree-services/")}>
                 DISCOVER MORE
               </button>
             </div>
@@ -403,8 +394,8 @@ const Home = () => {
 
       {/* Request Section */}
       <div className="relative">
-        <div className="absolute inset-0 bg-[url('/tree-bg.jpg')] bg-cover bg-center">
-          <div className="absolute inset-0 bg-green-900 bg-opacity-70 mix-blend-multiply"></div>
+        {/* Background image with green tint overlay */}
+        <div className="absolute inset-0 [background-image:linear-gradient(180deg,rgba(21,58,38,0.94)_1%,rgba(21,58,38,0.9)_100%),url(/tree-bg.jpg)] bg-cover bg-center">
         </div>
         <section className="relative py-12 md:py-20 px-4 sm:px-6 lg:px-8 text-white">
           <div className="max-w-4xl mx-auto text-center">
@@ -412,14 +403,14 @@ const Home = () => {
               The Safety of Our Customers' Families, Homes, Businesses, and
               Assets Is Our Number One Priority.
             </blockquote>
-            <h4 className="text-xs md:text-sm font-semibold px-4 text-gray-300 mb-4">
+            <h4 className="text-lg md:text-sm font-semibold px-4 text-[#B0B694] mb-4">
               CONTACT US FOR MORE INFORMATION
             </h4>
             <a
-              href="tel:812-213-5997"
+              href="tel:812-457-3433"
               className="font-extrabold text-3xl sm:text-4xl md:text-5xl block mb-6"
             >
-              812-213-5997
+              812-457-3433
             </a>
             <div className="mt-6 md:mt-12">
               <button className="bg-lime-600 hover:bg-lime-700 hover:rounded text-white font-bold py-3 px-6 rounded-3xl transition duration-300">
@@ -464,8 +455,8 @@ const Home = () => {
                 loading="lazy"
                 decoding="async"
                 src="/about-img.jpg"
-                alt="KEN'S TREE SERVICES"
-                title="KEN'S TREE SERVICES"
+                alt="American Tree Experts Land"
+                title="American Tree Experts Land"
                 className="w-full rounded-lg shadow-lg"
               />
             </div>
@@ -494,7 +485,9 @@ const Home = () => {
 
             {/* CTA Button */}
             <div className="flex justify-center">
-              <button className="bg-lime-600 hover:bg-lime-700 hover:rounded text-white font-bold py-2 md:py-3 px-6 md:px-8 rounded-full transition duration-300 tracking-wide text-sm md:text-base">
+              <button 
+              className="bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 md:py-3 px-6 md:px-8 rounded-full transition duration-300 tracking-wide text-sm md:text-base"
+              onClick={() => navigate('/about-us')}>
                 DISCOVER MORE
               </button>
             </div>
@@ -635,11 +628,10 @@ const Home = () => {
                       <button
                         key={index}
                         onClick={() => setCurrentIndex(index * itemsToShow)}
-                        className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${
-                          Math.floor(currentIndex / itemsToShow) === index
-                            ? "bg-gray-600"
-                            : "bg-gray-300 hover:bg-gray-400"
-                        }`}
+                        className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${Math.floor(currentIndex / itemsToShow) === index
+                          ? "bg-gray-600"
+                          : "bg-gray-300 hover:bg-gray-400"
+                          }`}
                       />
                     )
                   )}
@@ -821,8 +813,7 @@ const Home = () => {
       {/* Service Areas and Map */}
       <div className="relative">
         {/* Background with map image and overlay */}
-        <div className="absolute inset-0 bg-fixed bg-[url('/map-bg.jpg')] bg-cover bg-center">
-          <div className="absolute inset-0 bg-green-900 bg-opacity-70 mix-blend-multiply"></div>
+        <div className="absolute inset-0 [background-image:linear-gradient(180deg,rgba(21,58,38,0.92)_0%,rgba(21,58,38,0.89)_100%),url(/tree-bg.jpg)] bg-cover bg-center">
         </div>
 
         {/* Content container */}
@@ -874,7 +865,7 @@ const Home = () => {
                       </div>
                       <div className="pl-3">
                         <h4 className="pb-2 font-semibold text-white">
-                          Tarpon Springs FL
+                          Evansville IN
                         </h4>
                       </div>
                     </div>
@@ -893,7 +884,7 @@ const Home = () => {
                       </div>
                       <div className="pl-3">
                         <h4 className="pb-2 font-semibold text-white">
-                          Palm Harbor FL
+                          Newburgh, IN
                         </h4>
                       </div>
                     </div>
@@ -912,26 +903,7 @@ const Home = () => {
                       </div>
                       <div className="pl-3">
                         <h4 className="pb-2 font-semibold text-white">
-                          Dunedin FL
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="ml-5">
-                    <div className="mb-3 flex">
-                      <div>
-                        <img
-                          loading="lazy"
-                          decoding="async"
-                          src="/loc.png"
-                          alt="location pin"
-                          title="Home 22"
-                        />
-                      </div>
-                      <div className="pl-3">
-                        <h4 className="pb-2 font-semibold text-white">
-                          Safety Harbor FL
+                          Boonville, IN
                         </h4>
                       </div>
                     </div>
@@ -952,7 +924,7 @@ const Home = () => {
                       </div>
                       <div className="pl-3">
                         <h4 className="pb-2 font-semibold text-white">
-                          Clearwater FL
+                          Henderson, KY
                         </h4>
                       </div>
                     </div>
@@ -971,26 +943,7 @@ const Home = () => {
                       </div>
                       <div className="pl-3">
                         <h4 className="pb-2 font-semibold text-white">
-                          Oldsmar FL
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="ml-5">
-                    <div className="mb-3 flex">
-                      <div>
-                        <img
-                          loading="lazy"
-                          decoding="async"
-                          src="/loc.png"
-                          alt="location pin"
-                          title="Home 22"
-                        />
-                      </div>
-                      <div className="pl-3">
-                        <h4 className="pb-2 font-semibold text-white">
-                          New Port Richey FL
+                          Warrick County
                         </h4>
                       </div>
                     </div>
@@ -1113,13 +1066,13 @@ const Home = () => {
                     />
                   </div>
                   <span className="text-white text-[15px] font-bold ml-3">
-                    Tarpon Springs, Florida 34688
+                    Evansville, IN
                   </span>
                 </a>
 
                 {/* Phone */}
                 <a
-                  href="tel:+812-213-5997"
+                  href="tel:+812-457-3433"
                   className="flex items-center bg-[#b0b694] rounded-sm overflow-hidden"
                 >
                   <div className="bg-green-900 w-12 h-12 flex items-center justify-center">
@@ -1130,7 +1083,7 @@ const Home = () => {
                     />
                   </div>
                   <span className="text-white text-[15px] font-bold ml-3">
-                    812-213-5997
+                    812-457-3433
                   </span>
                 </a>
 
