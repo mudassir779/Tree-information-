@@ -2,22 +2,20 @@ import { useState } from "react";
 import { FaPlus, FaChevronLeft, FaChevronRight, FaTimes, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 
 const services = [
-  { name: "Tarpon Springs", path: "/service-areas/" },
-  { name: "Clear Water", path: "/service-areas/tree-service-clearwater-fl/" },
-  { name: "Dunedin", path: "/service-areas/tree-service-dunedin-fl/" },
-  { name: "New Port Richey", path: "/service-areas/tree-service-new-port-richey-fl/" },
-  { name: "Oldsmar", path: "/service-areas/tree-service-oldsmar-fl/" },
-  { name: "Palm Harbor", path: "/service-areas/tree-service-palm-harbor-fl/" },
-  { name: "Safety Harbor", path: "/service-areas/tree-service-safety-harbor-fl/" },
+  { name: "Evansville", path: "/service-areas/tree-service-evansville-in/" },
+  { name: "Newburgh", path: "/service-areas/tree-service-newburgh-in/" },
+  { name: "Oldsmar", path: "/service-areas/tree-service-boonville-in/" },
+  { name: "Henderson", path: "/service-areas/tree-service-henderson-ky/" },
+  { name: "Warrick County", path: "/service-areas/tree-service-warrick-county/" }
 ];
 
-const PalmHarbor = () => {
+const Henderson = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [
-    { src: "/Tree-Removal-Palm-Harbor-FL-400x284.jpg", alt: "Tree Removal Palm Harbor FL", title: "Tree Services, Palm Harbor, FL 1" },
-    { src: "/Tree-Services-Palm-Harbor-FL-400x284.jpg", alt: "Tree Services Palm Harbor FL", title: "Tree Services, Palm Harbor, FL 2" }
+    { src: "/Tree-Removal-Palm-Harbor-FL-400x284.jpg", alt: "Tree Removal Henderson KY", title: "Tree Services, Henderson, KY 1" },
+    { src: "/Tree-Services-Dunedin-FL.jpg", alt: "Tree Services Henderson KY", title: "Tree Services, Henderson, KY 2" }
   ];
 
   const openLightbox = (index) => {
@@ -85,7 +83,7 @@ const PalmHarbor = () => {
           </div>
           <div className="absolute inset-0 flex items-center justify-center">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center px-4 uppercase">
-              TREE SERVICE palm harbor FL
+              TREE SERVICE Henderson KY
             </h1>
           </div>
         </div>
@@ -98,12 +96,12 @@ const PalmHarbor = () => {
           {/* Left Side - Main Content */}
           <div className="lg:w-2/3">
             <h1 className="text-xl sm:text-2xl font-extrabold text-gray-800 mb-4 sm:mb-6">
-              Expert Tree Service by Certified Arborists in Palm Harbor, FL
+              Expert Tree Service by Certified Arborists in Henderson, KY
             </h1>
 
             <p className="text-base sm:text-lg font-bold text-gray-700 mb-4 sm:mb-6">
-              Ken's Tree Service has been a proud family tree care business for over two decades and counting! We are arborists, so you can trust us to provide excellent tree care services that will keep your trees looking healthy and beautiful. Additionally, our membership in ISA & TCIA demonstrates the commitment we have to provide reliable service. Get in touch with us today at
-              {" "}<a href="tel:(812) 213-5997" className="text-[#245b3c] hover:underline">(812) 213-5997</a>{" "}
+              American Tree Experts Land has been a proud family tree care business for over two decades and counting! We are arborists, so you can trust us to provide excellent tree care services that will keep your trees looking healthy and beautiful. Additionally, our membership in ISA & TCIA demonstrates the commitment we have to provide reliable service. Get in touch with us today at
+              {" "}<a href="tel:812-457-3433" className="text-[#245b3c] hover:underline">812-457-3433</a>{" "}
               to receive a free estimate.
             </p>
 
@@ -112,7 +110,7 @@ const PalmHarbor = () => {
             </p>
 
             <p className="mb-6 sm:mb-8 text-sm sm:text-base">
-              Ken's Tree Service has been providing quality tree care services to the Palm Harbor, FL area for over 22 years. Our team of experts are members of the International Society of Arboriculture and Tree Care Industry Association, so you can trust that your trees will receive excellent care. We offer a range of services, such as:
+              American Tree Experts Land has been providing quality tree care services to the Henderson, KY area for over 22 years. Our team of experts are members of the International Society of Arboriculture and Tree Care Industry Association, so you can trust that your trees will receive excellent care. We offer a range of services, such as:
             </p>
 
             {/* Image Gallery - Stack on small screens */}
@@ -142,38 +140,34 @@ const PalmHarbor = () => {
 
             <div className="mt-8 sm:mt-12">
               <h2 className="text-xl sm:text-2xl font-extrabold mb-4 sm:mb-6 text-gray-800 border-b pb-2">
-                Tree Services in Palm Harbor, FL
+                Tree Services in Henderson, KY
               </h2>
 
               <div className="space-y-6 sm:space-y-8">
                 {[
                   {
-                    title: "Tree Trimming & Pruning in Palm Harbor, FL",
+                    title: "Tree Trimming & Pruning in Henderson, KY",
                     content: "Tree pruning and trimming are essential practices to keep trees healthy and looking good. Our arborists will assess your tree's condition and carefully prune branches to shape or train them for optimal growth. We use ANSI A300 industry standards to ensure safe and beautiful results."
                   },
                   {
-                    title: "Structural Pruning in Palm Harbor, FL",
+                    title: "Structural Pruning in Henderson, KY",
                     content: "Structural pruning is the process of removing or reducing the length of branches competing with the leader and shaping the tree for optimal growth. We understand how to properly perform this service properly, ensuring that your trees stay healthy and look their best."
                   },
                   {
-                    title: "Tree Removal in Palm Harbor, FL",
-                    content: "Tree removal can be a tricky process requiring specialized techniques and equipment. At Ken's Tree Service, our team of arborists has the necessary training and experience to remove trees safely without damaging your property or surrounding features."
+                    title: "Tree Removal in Henderson, KY",
+                    content: "Tree removal can be a tricky process requiring specialized techniques and equipment. At American Tree Experts Land, our team of arborists has the necessary training and experience to remove trees safely without damaging your property or surrounding features."
                   },
                   {
-                    title: "Land Clearing in Palm Harbor, FL",
+                    title: "Land Clearing in Henderson, KY",
                     content: "Whether you're looking to clear land for construction or need a whole area cleared of vegetation, our team of arborists is an expert in land clearing. We have the necessary equipment and expertise to quickly and safely remove trees, stumps, brushes, and other debris."
                   },
                   {
-                    title: "Storm Clean Up in Palm Harbor, FL",
-                    content: "After severe weather events such as thunderstorms or hurricanes, your property may become littered with debris or downed branches from nearby trees. Ken's Tree Service is experienced in safely removing storm debris and can help you restore your property to its original condition."
+                    title: "Storm Clean Up in Henderson, KY",
+                    content: "After severe weather events such as thunderstorms or hurricanes, your property may become littered with debris or downed branches from nearby trees. American Tree Experts Land is experienced in safely removing storm debris and can help you restore your property to its original condition."
                   },
                   {
-                    title: "Deep Root Fertilization in Palm Harbor, FL",
-                    content: "Deep root fertilization is an important part of tree maintenance and health. Our team of arborists will carefully inject fertilizer into your trees' roots to ensure that they remain healthy and grow properly for years to come."
-                  },
-                  {
-                    title: "Commercial Tree Services in Palm Harbor, FL",
-                    content: "Our team of arborists is experienced in providing commercial tree services, such as tree trimming and pruning, land clearing, and deep root fertilization. We understand the safety protocols necessary for commercial properties, ensuring that your trees are healthy and aesthetically pleasing."
+                    title: "Commercial Tree Services in Henderson, KY",
+                    content: "Our team of arborists is experienced in providing commercial tree services, such as tree trimming and pruning, and land clearing. We understand the safety protocols necessary for commercial properties, ensuring that your trees are healthy and aesthetically pleasing."
                   }
                 ].map((service, index) => (
                   <div key={index}>
@@ -184,15 +178,15 @@ const PalmHarbor = () => {
               </div>
 
               <div className="mt-8 sm:mt-10 bg-blue-50 p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-800">Trust Ken's Tree Service for Professional Tree Care Services in Palm Harbor, FL</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-800">Trust American Tree Experts Land for Professional Tree Care Services in Henderson, KY</h3>
                 <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">
-                  At Ken's Tree Service, our professional arborists have been providing top-notch services in Palm Harbor, FL for over two decades. With unmatched expertise and a passion for delivering outstanding results every single time, we are the team to call when you require quality tree care services.
+                  At American Tree Experts Land, our professional arborists have been providing top-notch services in Henderson, KY for over two decades. With unmatched expertise and a passion for delivering outstanding results every single time, we are the team to call when you require quality tree care services.
                 </p>
                 <p className="text-gray-600 text-sm sm:text-base">
                   We understand that your trees are a valuable investment and pride ourselves in providing reliable and cost-effective services. Don't hesitate to contact us at
                   {" "}
-                  <a href="tel:812-213-5997" className="text-[#245b3c] hover:underline">
-                    (812) 213-5997
+                  <a href="tel:812-457-3433" className="text-[#245b3c] hover:underline">
+                    812-457-3433
                   </a>
                   {" "}
                   to learn more about how we can help keep your property looking its best.
@@ -202,7 +196,7 @@ const PalmHarbor = () => {
               <div className="w-full h-64 sm:h-80 md:h-96 mt-6 sm:mt-8 mb-8 sm:mb-10 overflow-hidden shadow-md sm:shadow-lg">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d112639.55925414668!2d-82.778351!3d28.085963!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2f1d307e6570d%3A0x40993b1f9b5af5fc!2sPalm%20Harbor%2C%20FL!5e0!3m2!1sen!2sus!4v1753732614366!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50413.40699442384!2d-87.6272264663644!3d37.84067970718303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88702827d1c4d369%3A0x9aa976ef3c352ce3!2sHenderson%2C%20KY%2042420!5e0!3m2!1sen!2sus!4v1753884599817!5m2!1sen!2sus"
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -222,8 +216,8 @@ const PalmHarbor = () => {
                   <h1 className="text-sm sm:text-base md:text-lg font-bold text-white text-center px-2 sm:px-4">
                     Contact Us Today for More Info!
                   </h1>
-                  <a href="tel:812-213-5997" className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4 hover:underline">
-                    (812) 213-5997
+                  <a href="tel:812-457-3433" className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4 hover:underline">
+                    812-457-3433
                   </a>
                 </div>
               </div>
@@ -257,4 +251,4 @@ const PalmHarbor = () => {
   );
 };
 
-export default PalmHarbor;
+export default Henderson;

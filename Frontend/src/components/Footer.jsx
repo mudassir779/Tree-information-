@@ -15,13 +15,13 @@ const Footer = () => {
                     <div className="container mx-auto px-4 sm:px-6 flex flex-col items-center text-center">
                         <div className="mb-6 md:mb-8 max-w-3xl">
                             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight text-white px-2">
-                                We Provide Residential and Commercial Tree Services in Tarpon Springs, FL & The Surrounding Areas
+                                We Provide Residential and Commercial Tree Services in Evansville, IN & The Surrounding Areas
                             </h3>
                             <h4 className="text-xs sm:text-sm font-semibold mt-2 mb-3 text-gray-300">
                                 CONTACT US FOR MORE INFORMATION
                             </h4>
-                            <a href='tel:812-213-5997' className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white hover:text-green-300 transition-colors">
-                                812-213-5997
+                            <a href='tel:812-457-3433' className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white hover:text-green-300 transition-colors">
+                                812-457-3433
                             </a>
                         </div>
                         <div>
@@ -42,7 +42,7 @@ const Footer = () => {
                             <div className="mb-4 md:mb-6">
                                 <img
                                     src="/logo.png"
-                                    alt="Ken's Tree Service"
+                                    alt="American Tree Experts Land Logo"
                                     className="h-16 md:h-20 w-auto mb-3"
                                     loading="lazy"
                                 />
@@ -99,32 +99,27 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/services/tree-trimming-pruning-tarpon-springs-fl" className="text-gray-700 hover:text-green-600 transition-colors">
+                                    <Link to="/services/tree-trimming-pruning/" className="text-gray-700 hover:text-green-600 transition-colors">
                                         Tree Trimming & Pruning
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/services/deep-root-fertilization-tarpon-springs-fl" className="text-gray-700 hover:text-green-600 transition-colors">
-                                        Deep Root Fertilization
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="/services/structural-pruning-tarpon-springs-fl" className="text-gray-700 hover:text-green-600 transition-colors">
+                                    <Link to="/services/structural-pruning/" className="text-gray-700 hover:text-green-600 transition-colors">
                                         Structural Pruning
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/services/land-clearing-tarpon-springs-fl" className="text-gray-700 hover:text-green-600 transition-colors">
+                                    <Link to="/services/land-clearing/" className="text-gray-700 hover:text-green-600 transition-colors">
                                         Land Clearing
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/services/storm-clean-up-tarpon-springs-fl" className="text-gray-700 hover:text-green-600 transition-colors">
+                                    <Link to="/services/storm-clean-up/" className="text-gray-700 hover:text-green-600 transition-colors">
                                         Storm Clean Up
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/services/commercial-tree-services-tarpon-springs-fl" className="text-gray-700 hover:text-green-600 transition-colors">
+                                    <Link to="/services/commercial-tree-services/" className="text-gray-700 hover:text-green-600 transition-colors">
                                         Commercial Tree Services
                                     </Link>
                                 </li>
@@ -139,38 +134,28 @@ const Footer = () => {
                             <div className="border-t-2 border-gray-300 w-12 md:w-16 mb-3 md:mb-4"></div>
                             <ul className="space-y-1 md:space-y-2 text-xs sm:text-sm list-disc list-inside">
                                 <li>
-                                    <Link to="/" className="text-gray-700 hover:text-green-600 transition-colors">
-                                        Tarpon Springs, FL
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="/services-areas/tree-service-clearwater-fl" className="text-gray-700 hover:text-green-600 transition-colors">
-                                        Clearwater, FL
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="/services-areas/tree-service-dunedin-fl" className="text-gray-700 hover:text-green-600 transition-colors">
-                                        Dunedin, FL
+                                    <Link to="/service-areas/tree-service-evansville-in" className="text-gray-700 hover:text-green-600 transition-colors">
+                                        Evansville, IN
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to="/services-areas/tree-service-new-port-richey-fl" className="text-gray-700 hover:text-green-600 transition-colors">
-                                        New Port Richey, FL
+                                        Newburgh, IN
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/services-areas/tree-service-oldsmar-fl" className="text-gray-700 hover:text-green-600 transition-colors">
-                                        Oldsmar, FL
+                                    <Link to="/service-areas/tree-service-boonville-in/" className="text-gray-700 hover:text-green-600 transition-colors">
+                                        Boonville, IN
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/services-areas/tree-service-palm-harbor-fl" className="text-gray-700 hover:text-green-600 transition-colors">
-                                        Palm Harbor, FL
+                                    <Link to="/service-areas/tree-service-henderson-ky/" className="text-gray-700 hover:text-green-600 transition-colors">
+                                        Henderson, KY
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/services-areas/tree-service-safety-harbor-fl" className="text-gray-700 hover:text-green-600 transition-colors">
-                                        Safety Harbor, FL
+                                    <Link to="/service-areas/tree-service-warrick-county/" className="text-gray-700 hover:text-green-600 transition-colors">
+                                        Warrick County
                                     </Link>
                                 </li>
                             </ul>
@@ -183,15 +168,15 @@ const Footer = () => {
                             </div>
                             <div className="border-t-2 border-gray-300 w-12 md:w-16 mb-3 md:mb-4"></div>
                             <div className="space-y-1 md:space-y-2 text-xs sm:text-sm text-gray-700">
-                                <p>Tarpon Springs, Florida 34688</p>
+                                <p>Evansville, IN</p>
                                 <p>
                                     <a href="mailto:Thetreexperts@gmail.com" className="hover:text-green-600 transition-colors">
                                         Thetreexperts@gmail.com
                                     </a>
                                 </p>
                                 <p>
-                                    <a href="tel:+17279345804" className="hover:text-green-600 transition-colors">
-                                        (727) 934-5804
+                                    <a href="tel:812-457-3433" className="hover:text-green-600 transition-colors">
+                                        812-457-3433
                                     </a>
                                 </p>
                             </div>

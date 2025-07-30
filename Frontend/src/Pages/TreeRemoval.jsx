@@ -1,13 +1,12 @@
 import { useLocation } from "react-router-dom";
 
 const services = [
-  { name: "Tree Removal", path: "/services/tree-removal-tarpon-springs-fl/" },
-  { name: "Tree Trimming & Pruning", path: "/services/tree-trimming-pruning-tarpon-springs-fl/" },
-  { name: "Deep Root Fertilization", path: "/services/deep-root-fertilization-tarpon-springs-fl/"},
-  { name: "Structural Pruning", path: "/services/structural-pruning-tarpon-springs-fl/" },
-  { name: "Land Clearing", path: "/services/land-clearing-tarpon-springs-fl/" },
-  { name: "Storm Clean Up", path: "/services/storm-clean-up-tarpon-springs-fl/" },
-  { name: "Commercial Tree Services", path: "/services/commercial-tree-services-tarpon-springs-fl/",},
+  { name: "Tree Removal", path: "/services/tree-removal/" },
+  { name: "Tree Trimming & Pruning", path: "/services/tree-trimming-pruning/" },
+  { name: "Structural Pruning", path: "/services/structural-pruning/" },
+  { name: "Land Clearing", path: "/services/land-clearing/" },
+  { name: "Storm Clean Up", path: "/services/storm-clean-up/" },
+  { name: "Commercial Tree Services", path: "/services/commercial-tree-services/",},
 ];
 
 const TreeRemoval = () => {
@@ -36,16 +35,16 @@ const TreeRemoval = () => {
           {/* Left Content */}
           <div className="lg:w-2/3">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-800 mb-4 sm:mb-6">
-              Professional Tree Services in Tarpon Springs, FL
+              Professional Tree Services in Evansville, IN
             </h2>
 
             <p className="text-base sm:text-lg font-bold text-gray-700 mb-4 sm:mb-6">
-              For high-quality tree removal services in the Tarpon Springs, FL
-              area, look no further than Ken's Tree Services. Our experienced
+              For high-quality tree removal services in the Evansville, IN
+              area, look no further than American Tree Experts Land. Our experienced
               arborists use the latest tree removal techniques to ensure your
               property is safe and secure. Call us at{" "}
-              <a href="tel:812-213-5997" className="text-green-800 hover:text-black transition-colors duration-300">
-                812-213-5997
+              <a href="tel:812-457-3433" className="text-green-800 hover:text-black transition-colors duration-300">
+                812-457-3433
               </a>{" "}
               for a free estimate today.
             </p>
@@ -61,8 +60,8 @@ const TreeRemoval = () => {
               </p>
 
               <p>
-                For the past 17 years, Ken's Tree Services has been proudly
-                serving Tarpon Springs and delivering remarkable tree service for
+                For the past 17 years, American Tree Experts Land has been proudly
+                serving Evansville and delivering remarkable tree service for
                 residential and commercial properties. Our team of professionals
                 has the essential skill set to tackle projects large and small
                 with care and precision.
@@ -76,12 +75,12 @@ const TreeRemoval = () => {
             </div>
 
             <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">
-              Experienced in Tree Removal Service in Tarpon Springs, FL
+              Experienced in Tree Removal Service in Evansville, IN
             </h2>
 
             <div className="space-y-4 mb-6 sm:mb-8 text-gray-700 text-sm sm:text-base">
               <p>
-                When it comes to tree removal in Tarpon Springs, FL, it's
+                When it comes to tree removal in Evansville, IN, it's
                 important to call a professional arborist. Trees that are diseased
                 or dead can cause damage to your property and also create unsafe
                 conditions.
@@ -123,7 +122,7 @@ const TreeRemoval = () => {
                 If your property has trees that are unhealthy or weakened trees,
                 it is critical that you remove them right away. Damaged and
                 diseased trees present a significant safety hazard to your home
-                and family. By calling an arborist from Ken's Tree Services for
+                and family. By calling an arborist from American Tree Experts Land for
                 tree removal, you can be confident that the job will be done
                 correctly and safely.
               </p>
@@ -145,7 +144,7 @@ const TreeRemoval = () => {
               <div className="w-full h-64 sm:h-80 md:h-96 mt-6 sm:mt-8 overflow-hidden shadow-lg">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d112577.66100994803!2d-82.772991!3d28.144908!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c28cfd6f0942df%3A0xf4297f0ce0bf24b7!2sTarpon%20Springs%2C%20FL!5e0!3m2!1sen!2sus!4v1753449185853!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100613.45388092705!2d-87.69936316810865!3d37.996484913892644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8871d5133156772d%3A0xb52e4939112ac99d!2sEvansville%2C%20IN!5e0!3m2!1sen!2sus!4v1753881151623!5m2!1sen!2sus"
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -166,8 +165,8 @@ const TreeRemoval = () => {
                   <h1 className="text-sm sm:text-md md:text-lg font-bold text-white text-center">
                     Contact Us Today for More Info!
                   </h1>
-                  <a href="tel:812-213-5997" className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4">
-                    (812) 213-5997
+                  <a href="tel:812-457-3433" className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4">
+                    812-457-3433
                   </a>
                 </div>
               </div>
@@ -202,13 +201,13 @@ const TreeRemoval = () => {
         <div className="w-full px-4 sm:w-11/12 sm:px-6 lg:w-10/12 lg:px-8 mx-auto">
           <p className="text-center text-[#245B3C] text-sm sm:text-base md:text-lg font-bold uppercase">24/7 Availability</p>
           <h1 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold">
-            Emergency Tree Removal Services in Tarpon Springs, FL
+            Emergency Tree Removal Services in Evansville, IN
           </h1>
           <div className="flex justify-center my-4 sm:my-5">
             <img decoding="async" src="/divider.png" alt="divider" title="divider" className="h-4 sm:h-6" />
           </div>
           <p className="text-center max-w-full mx-auto text-sm sm:text-base">
-            Emergencies can happen at any time, which is why Ken's Tree Services
+            Emergencies can happen at any time, which is why American Tree Experts Land
             provides 24/7 emergency services. When a tree is damaged or destroyed
             and could create an imminent danger to your home, you can count on us
             to be there when you need us most. We understand the urgency of these
@@ -279,7 +278,7 @@ const TreeRemoval = () => {
           </div>
           <div className="lg:w-full">
             <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">
-              Professional Tree Removal Services with Experienced Arborists in Tarpon Springs, FL.
+              Professional Tree Removal Services with Experienced Arborists in Evansville, IN.
             </h1>
             <img loading="lazy" decoding="async" src="/divider-d.png" alt="divider" title="divider-d" className="mt-3 sm:mt-5 shadow-2xl w-full" />
             <div className="space-y-3 sm:space-y-4 mt-3 sm:mt-5 text-gray-700 text-sm sm:text-base">
@@ -290,24 +289,24 @@ const TreeRemoval = () => {
                 Arborists and tree care experts have the skills and experience necessary to properly remove trees. They understand the unique needs of each tree, allowing them to safely and effectively remove it while minimizing the impact on surrounding vegetation.
               </p>
               <p>
-                Certain trees may be too close to power lines, buildings, or other structures. Proximity to these hazards is just one of the many factors that professional tree care experts take into consideration. The rules and regulations for tree removal in Tarpon Springs, FL can also be complex and you need an arborist to ensure your safety.
+                Certain trees may be too close to power lines, buildings, or other structures. Proximity to these hazards is just one of the many factors that professional tree care experts take into consideration. The rules and regulations for tree removal in Evansville, IN can also be complex and you need an arborist to ensure your safety.
               </p>
             </div>
             <h1 className="mt-6 sm:mt-8 text-xl sm:text-2xl font-bold text-gray-800">
-              Experience Peace of Mind with Tree Removal Services from Ken's Tree Services in Tarpon Springs, FL
+              Experience Peace of Mind with Tree Removal Services from American Tree Experts Land in Evansville, IN
             </h1>
             <div className="space-y-3 sm:space-y-4 mt-3 sm:mt-4 text-gray-700 text-sm sm:text-base">
               <p>
-                At Ken's Tree Services, we have years of experience dealing with all types of tree projects. Our arborists and tree care experts will safely and effectively remove your trees – large or small – with care and precision.
+                At American Tree Experts Land, we have years of experience dealing with all types of tree projects. Our arborists and tree care experts will safely and effectively remove your trees – large or small – with care and precision.
               </p>
               <p>
-                Our quality tree care services, excellent customer service, and competitive rates make us the top choice for tree removal services in Tarpon Springs, FL. We are fully licensed, insured, and bonded for your peace of mind. We always strive to exceed our client's expectations while providing the highest level of customer service.
+                Our quality tree care services, excellent customer service, and competitive rates make us the top choice for tree removal services in Evansville, IN. We are fully licensed, insured, and bonded for your peace of mind. We always strive to exceed our client's expectations while providing the highest level of customer service.
               </p>
               <p>
-                Whether it is tree pruning, tree trimming, stump removal, or any other lawn services, you can trust Ken's Tree Services to take care of all your tree needs at a fair price. Call us at
+                Whether it is tree pruning, tree trimming, stump removal, or any other lawn services, you can trust American Tree Experts Land to take care of all your tree needs at a fair price. Call us at
                 {" "}
-                <a href="812-213-5997" className="text-[#245b3c] hover:cursor-pointer">
-                  812-213-5997
+                <a href="812-457-3433" className="text-[#245b3c] hover:cursor-pointer">
+                  812-457-3433
                 </a>{" "}
                 for a free quote.
               </p>
