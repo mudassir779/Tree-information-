@@ -96,13 +96,7 @@ const Home = () => {
     <div className="overflow-x-hidden">
       {/* Hero Section */}
       <div className="relative h-screen min-h-[500px]">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/hero-img.jpg"
-            alt="Truck background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gray-700 bg-opacity-50 mix-blend-multiply"></div>
+        <div className="absolute inset-0 [background-image:linear-gradient(180deg,_rgba(0,0,0,0.74)_0%,rgba(0,0,0,0.69)_100%),url(/hero-img.jpg)] bg-cover bg-center">
         </div>
         <div className="relative z-10 flex items-center justify-center h-full px-4">
           <div className="text-center text-white max-w-6xl">
@@ -254,9 +248,9 @@ const Home = () => {
               proper growth and optimal tree health
             </p>
             <div className="flex justify-center">
-              <button 
-              className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
-              onClick={() => navigate("/services/tree-trimming-pruning/")}>
+              <button
+                className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
+                onClick={() => navigate("/services/tree-trimming-pruning/")}>
                 DISCOVER MORE
               </button>
             </div>
@@ -280,9 +274,9 @@ const Home = () => {
               wires or buildings.
             </p>
             <div className="flex justify-center">
-              <button 
-              className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
-              onClick={() => navigate("/services/structural-pruning/")}>
+              <button
+                className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
+                onClick={() => navigate("/services/structural-pruning/")}>
                 DISCOVER MORE
               </button>
             </div>
@@ -305,9 +299,9 @@ const Home = () => {
               efficiently.
             </p>
             <div className="flex justify-center">
-              <button 
-              className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
-              onClick={() => navigate("/services/tree-removal/")}>
+              <button
+                className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
+                onClick={() => navigate("/services/tree-removal/")}>
                 DISCOVER MORE
               </button>
             </div>
@@ -333,9 +327,9 @@ const Home = () => {
               or construction projects.
             </p>
             <div className="flex justify-center">
-              <button 
-              className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
-              onClick={() => navigate("/services/land-clearing/")}>
+              <button
+                className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
+                onClick={() => navigate("/services/land-clearing/")}>
                 DISCOVER MORE
               </button>
             </div>
@@ -357,9 +351,9 @@ const Home = () => {
               difficult jobs quickly and safely.
             </p>
             <div className="flex justify-center">
-              <button 
-              className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
-              onClick={() => navigate("/services/storm-clean-up/")}>
+              <button
+                className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
+                onClick={() => navigate("/services/storm-clean-up/")}>
                 DISCOVER MORE
               </button>
             </div>
@@ -382,9 +376,9 @@ const Home = () => {
               your trees while also protecting your bottom line.
             </p>
             <div className="flex justify-center">
-              <button 
-              className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
-              onClick={() => navigate("/services/commercial-tree-services/")}>
+              <button
+                className="mt-4 bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 px-4 rounded-3xl text-sm md:text-base"
+                onClick={() => navigate("/services/commercial-tree-services/")}>
                 DISCOVER MORE
               </button>
             </div>
@@ -485,9 +479,9 @@ const Home = () => {
 
             {/* CTA Button */}
             <div className="flex justify-center">
-              <button 
-              className="bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 md:py-3 px-6 md:px-8 rounded-full transition duration-300 tracking-wide text-sm md:text-base"
-              onClick={() => navigate('/about-us')}>
+              <button
+                className="bg-lime-600 hover:bg-lime-700 hover:rounded hover:cursor-pointer text-white font-bold py-2 md:py-3 px-6 md:px-8 rounded-full transition duration-300 tracking-wide text-sm md:text-base"
+                onClick={() => navigate('/about-us')}>
                 DISCOVER MORE
               </button>
             </div>
