@@ -7,9 +7,9 @@ const PrivacyPolicy = () => {
       <div className="relative h-48 sm:h-64 md:h-80 w-full">
         <div className="absolute inset-0 bg-gray-800 overflow-hidden">
           <img 
-            src="/public/truck.jpeg" 
+            src="/truck.jpeg" 
             className="w-full h-full object-cover opacity-70" 
-            alt="Ken's Tree Service Truck" 
+            alt="American Tree Experts Land Truck" 
           />
         </div>
         <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
@@ -63,7 +63,7 @@ const PrivacyPolicy = () => {
               
               <div>
                 <h4 className="font-medium text-gray-800">Company</h4>
-                <p className="leading-relaxed">(referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Ken's Tree Service, Tarpon Springs, Florida 34688.</p>
+                <p className="leading-relaxed">(referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to American Tree Experts Land, Evansville, IN.</p>
               </div>
               
               <div>
@@ -73,7 +73,7 @@ const PrivacyPolicy = () => {
               
               <div>
                 <h4 className="font-medium text-gray-800">Country</h4>
-                <p className="leading-relaxed">refers to: Florida, United States</p>
+                <p className="leading-relaxed">refers to: Indiana, United States</p>
               </div>
               
               <div>
@@ -108,7 +108,7 @@ const PrivacyPolicy = () => {
               
               <div>
                 <h4 className="font-medium text-gray-800">Website</h4>
-                <p className="leading-relaxed">refers to Ken's Tree Service, accessible from https://kens-tree-service.com/</p>
+                <p className="leading-relaxed">refers to American Tree Experts Land, accessible from http://www.americantreesexpert.com/</p>
               </div>
               
               <div>
@@ -245,9 +245,9 @@ const PrivacyPolicy = () => {
           </p>
           <ul className="space-y-2 leading-relaxed">
             <li><strong>By email:</strong> Thetreexperts@gmail.com</li>
-            <li><strong>By visiting this page on our website:</strong> https://kens-tree-service.com/</li>
+            <li><strong>By visiting this page on our website:</strong> http://www.americantreesexpert.com/</li>
             <li><strong>By phone number:</strong> (727) 934-5804</li>
-            <li><strong>By mail:</strong> Tarpon Springs, Florida 34688</li>
+            <li><strong>By mail:</strong> Evansville, IN</li>
           </ul>
         </section>
       </div>

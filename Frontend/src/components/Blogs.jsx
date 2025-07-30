@@ -73,7 +73,7 @@ const Blogs = () => {
       name: "Hurricane Season Safety: Protecting Your Property Beyond Trees",
       path: "/",
     },
-    { name: "Benefits of Live Oak Trees in Tarpon Springs, FL", path: "/" },
+    { name: "Benefits of Live Oak Trees in Evansville, IN", path: "/" },
     {
       name: "The Benefits of Professional Tree Care: Why DIY Tree Maintenance Can Be Risky",
       path: "/",
@@ -167,11 +167,8 @@ const Blogs = () => {
                   <h1 className="text-md md:text-lg font-bold text-white text-center px-4">
                     Contact Us Today for More Info!
                   </h1>
-                  <a
-                    href="tel:812-213-5997"
-                    className="text-white text-xl md:text-3xl font-bold mb-4"
-                  >
-                    (812) 213-5997
+                  <a href="tel:812-457-3433" className="text-white text-xl md:text-3xl font-bold mb-4">
+                    812-457-3433
                   </a>
                 </div>
               </div>

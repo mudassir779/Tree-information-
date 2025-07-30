@@ -1,13 +1,12 @@
 import { useLocation } from "react-router-dom";
 
 const services = [
-  { name: "Tree Removal", path: "/services/tree-removal-tarpon-springs-fl/" },
-  { name: "Tree Trimming & Pruning", path: "/services/tree-trimming-pruning-tarpon-springs-fl/" },
-  { name: "Deep Root Fertilization", path: "/services/deep-root-fertilization-tarpon-springs-fl/"},
-  { name: "Structural Pruning", path: "/services/structural-pruning-tarpon-springs-fl/" },
-  { name: "Land Clearing", path: "/services/land-clearing-tarpon-springs-fl/" },
-  { name: "Storm Clean Up", path: "/services/storm-clean-up-tarpon-springs-fl/" },
-  { name: "Commercial Tree Services", path: "/services/commercial-tree-services-tarpon-springs-fl/",},
+  { name: "Tree Removal", path: "/services/tree-removal/" },
+  { name: "Tree Trimming & Pruning", path: "/services/tree-trimming-pruning/" },
+  { name: "Structural Pruning", path: "/services/structural-pruning/" },
+  { name: "Land Clearing", path: "/services/land-clearing/" },
+  { name: "Storm Clean Up", path: "/services/storm-clean-up/" },
+  { name: "Commercial Tree Services", path: "/services/commercial-tree-services/",},
 ];
 
 const StructuralPruning = () => {
@@ -36,16 +35,16 @@ const StructuralPruning = () => {
           {/* Left Content */}
           <div className="lg:w-2/3 lg:pr-6 xl:pr-10">
             <h2 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-4 md:mb-6">
-              Expert Tree Care Services in Tarpon Springs, FL
+              Expert Tree Care Services in Evansville, IN
             </h2>
 
             <p className="text-sm md:text-md font-semibold text-gray-700 mb-4 md:mb-6">
-              Ken's Tree Service offers reliable and professional structural tree
-              pruning services to the local Tarpon Springs, FL area. We have the
+              American Tree Experts Land offers reliable and professional structural tree
+              pruning services to the local Evansville, IN area. We have the
               expertise and knowledge to safely remove branches, limbs, or foliage
               that can threaten the integrity of your trees. Call us today at{" "}
-              <a href="tel:812-213-5997" className="text-green-800 hover:text-black transition-colors duration-300">
-                812-213-5997
+              <a href="tel:812-457-3433" className="text-green-800 hover:text-black transition-colors duration-300">
+                812-457-3433
               </a>{" "}
               for a free estimate.
             </p>
@@ -55,7 +54,7 @@ const StructuralPruning = () => {
                 Trees are a gift of nature, providing us with incredible beauty,
                 valuable shade, and refreshingly crisp air. To preserve their
                 splendor, it is essential that we take care of them correctly.
-                Ken's Tree Service offers top-notch structural pruning services
+                American Tree Experts Land offers top-notch structural pruning services
                 specifically designed to safeguard your trees' health and
                 integrity - ensuring they remain strong and beautiful for many
                 years to come.
@@ -138,7 +137,7 @@ const StructuralPruning = () => {
               <div className="w-full h-64 sm:h-80 md:h-96 mt-6 md:mt-8 overflow-hidden shadow-lg">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d112577.66100994803!2d-82.772991!3d28.144908!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c28cfd6f0942df%3A0xf4297f0ce0bf24b7!2sTarpon%20Springs%2C%20FL!5e0!3m2!1sen!2sus!4v1753449185853!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100613.45388092705!2d-87.69936316810865!3d37.996484913892644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8871d5133156772d%3A0xb52e4939112ac99d!2sEvansville%2C%20IN!5e0!3m2!1sen!2sus!4v1753881151623!5m2!1sen!2sus"
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -159,8 +158,8 @@ const StructuralPruning = () => {
                   <h1 className="text-sm sm:text-md md:text-lg font-bold text-white text-center">
                     Contact Us Today for More Info!
                   </h1>
-                  <a href="tel:812-213-5997" className="text-white text-xl sm:text-2xl md:text-3xl font-bold mt-2">
-                    (812) 213-5997
+                  <a href="tel:812-457-3433" className="text-white text-xl sm:text-2xl md:text-3xl font-bold mt-2">
+                    812-457-3433
                   </a>
                 </div>
               </div>
@@ -263,22 +262,22 @@ const StructuralPruning = () => {
           </div>
           <div className="lg:w-7/12">
             <h1 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4">
-              Trust Ken's Tree Service Company for All of Your Tree Maintenance Needs
+              Trust American Tree Experts Land for All of Your Tree Maintenance Needs
             </h1>
             <img src="/divider.png" alt="Divider" className="mb-4 md:mb-6 h-2 w-24 md:w-32" />
             <div className="space-y-3 md:space-y-4 text-gray-700 text-sm md:text-md">
               <p>
-                At Ken's Tree Service Company, we understand the importance of proper tree care and maintenance. Our team of Arborists provides comprehensive structural pruning services for residential and commercial clients.
+                At American Tree Experts Land Company, we understand the importance of proper tree care and maintenance. Our team of Arborists provides comprehensive structural pruning services for residential and commercial clients.
               </p>
               <p>
                 Our arborists have years of experience in pruning trees of all shapes and sizes. We use the most advanced techniques and equipment to ensure that the work is done correctly and safely. Whether you have young, old, or dying trees, our arborists will develop a tailored plan to suit your specific needs and goals.
               </p>
               <p className="font-bold text-md md:text-lg">
-                At Ken's Tree Service Company, we aim to offer great service, superior results, and complete customer satisfaction. Contact us at{" "}
-                <a href="tel:812-213-5997" className="text-green-800 hover:text-black transition-colors duration-300">
-                  812-213-5997
+                At American Tree Experts Land Company, we aim to offer great service, superior results, and complete customer satisfaction. Contact us at{" "}
+                <a href="tel:812-457-3433" className="text-green-800 hover:text-black transition-colors duration-300">
+                  812-457-3433
                 </a>{" "}
-                for a free quote on structural pruning services in Tarpon Spring, FL.
+                for a free quote on structural pruning services in Evansville, IN.
               </p>
             </div>
           </div>

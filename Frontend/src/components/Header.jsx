@@ -86,23 +86,20 @@ const Header = () => {
     };
 
     const servicesItems = [
-        { name: "TREE REMOVAL", path: "/services/tree-removal-tarpon-springs-fl/" },
-        { name: "TREE TRIMMING & PRUNING", path: "/services/tree-trimming-pruning-tarpon-springs-fl/" },
-        { name: "DEEP ROOT FERTILIZATION", path: "/services/deep-root-fertilization-tarpon-springs-fl/" },
-        { name: "STRUCTURAL PRUNING", path: "/services/structural-pruning-tarpon-springs-fl/" },
-        { name: "LAND CLEARING", path: "/services/land-clearing-tarpon-springs-fl/" },
-        { name: "STORM CLEAN UP", path: "/services/storm-clean-up-tarpon-springs-fl/" },
-        { name: "COMMERCIAL TREE SERVICES", path: "/services/commercial-tree-services-tarpon-springs-fl/" }
+        { name: "TREE REMOVAL", path: "/services/tree-removal/" },
+        { name: "TREE TRIMMING & PRUNING", path: "/services/tree-trimming-pruning/" },
+        { name: "STRUCTURAL PRUNING", path: "/services/structural-pruning/" },
+        { name: "LAND CLEARING", path: "/services/land-clearing/" },
+        { name: "STORM CLEAN UP", path: "/services/storm-clean-up/" },
+        { name: "COMMERCIAL TREE SERVICES", path: "/services/commercial-tree-services/" }
     ];
 
     const serviceAreasItems = [
-        { name: "TARPON SPRINGS, FL", path: "/service-areas/" },
-        { name: "CLEARWATER, FL", path: "/service-areas/tree-service-clearwater-fl/" },
-        { name: "DUNEDIN, FL", path: "/service-areas/tree-service-dunedin-fl/" },
-        { name: "NEW PORT RICHEY, FL", path: "/service-areas/tree-service-new-port-richey-fl/" },
-        { name: "OLDSMAR, FL", path: "/service-areas/tree-service-oldsmar-fl/" },
-        { name: "PALM HARBOR, FL", path: "/service-areas/tree-service-palm-harbor-fl/" },
-        { name: "SAFETY HARBOR, FL", path: "/service-areas/tree-service-safety-harbor-fl/" }
+        { name: "EVANSVILLE, IN ", path: "/service-areas/tree-service-evansville-in/" },
+        { name: "NEWBURGH, IN", path: "/service-areas/tree-service-newburgh-in/" },
+        { name: "BOONVILLE, IN", path: "/service-areas/tree-service-boonville-in/" },
+        { name: "HENDERSON, KY", path: "/service-areas/tree-service-henderson-ky/" },
+        { name: "WARRICK COUNTY", path: "/service-areas/tree-service-warrick-county/" }
     ];
 
     const aboutUsItems = [
@@ -148,7 +145,7 @@ const Header = () => {
                         className="flex items-center space-x-1 hover:text-green-600 transition-colors duration-200"
                     >
                         <FaLocationDot className="text-green-600" />
-                        <p>Tarpon Springs, Florida 34688</p>
+                        <p>Evansville, IN</p>
                     </a>
 
                     <a
@@ -167,7 +164,7 @@ const Header = () => {
                     <a href="/">
                         <img 
                             src="/logo.png" 
-                            alt="Ken's Tree Service" 
+                            alt="American Tree Experts Land Logo" 
                             className="h-16 lg:h-20 w-fit object-contain" 
                         />
                     </a>
@@ -177,9 +174,9 @@ const Header = () => {
                     <div className="hidden md:flex items-center space-x-2">
                         <FaPhoneVolume className="text-green-600 text-lg lg:text-xl" />
                         <div>
-                            <a href="tel:+17279345804" className="hover:text-green-600 transition-colors duration-200">
+                            <a href="tel:812-457-3433" className="hover:text-green-600 transition-colors duration-200">
                                 <p className="text-xs lg:text-sm">CALL FOR MORE INFORMATION</p>
-                                <p className="text-sm lg:text-lg font-bold">812-213-5997</p>
+                                <p className="text-sm lg:text-lg font-bold">812-457-3433</p>
                             </a>
                         </div>
                     </div>
