@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaPlus, FaChevronLeft, FaChevronRight, FaTimes, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 
 const services = [
@@ -14,10 +14,21 @@ const services = [
 const ClearWater = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const images = [
-    { src: "/Tree-Removal-Clearwater-FL-400x284.jpg", alt: "Tree Removal Clearwater FL", title:"Tree Services, Clearwater, FL 1"},
-    { src: "/Tree-Services-Clearwater-FL-400x284.jpg", alt: "Tree Services Clearwater FL", title:"Tree Services, Clearwater, FL 2"}
+    { src: "/Tree-Removal-Clearwater-FL-400x284.jpg", alt: "Tree Removal Clearwater FL", title: "Tree Services, Clearwater, FL 1" },
+    { src: "/Tree-Services-Clearwater-FL-400x284.jpg", alt: "Tree Services Clearwater FL", title: "Tree Services, Clearwater, FL 2" }
   ];
 
   const openLightbox = (index) => {
@@ -48,19 +59,21 @@ const ClearWater = () => {
         <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition-colors"
+            className="absolute top-4 right-4 text-white text-2xl sm:text-3xl hover:text-gray-300 transition-colors"
+            aria-label="Close lightbox"
           >
             <FaTimes />
           </button>
 
           <button
             onClick={() => navigate('prev')}
-            className="absolute left-4 text-white text-3xl hover:text-gray-300 transition-colors"
+            className="absolute left-2 sm:left-4 text-white text-2xl sm:text-3xl hover:text-gray-300 transition-colors"
+            aria-label="Previous image"
           >
-            <FaChevronLeft size={40} />
+            <FaChevronLeft size={isMobile ? 30 : 40} />
           </button>
 
-          <div className="max-w-4xl w-full mx-16">
+          <div className="max-w-4xl w-full mx-4 sm:mx-8 lg:mx-16">
             <img
               src={images[currentImageIndex].src}
               alt={images[currentImageIndex].alt}
@@ -70,51 +83,52 @@ const ClearWater = () => {
 
           <button
             onClick={() => navigate('next')}
-            className="absolute right-4 text-white text-3xl hover:text-gray-300 transition-colors"
+            className="absolute right-2 sm:right-4 text-white text-2xl sm:text-3xl hover:text-gray-300 transition-colors"
+            aria-label="Next image"
           >
-            <FaChevronRight size={40} />
+            <FaChevronRight size={isMobile ? 30 : 40} />
           </button>
         </div>
       )}
 
       {/* Hero Section */}
-      <section className="relative w-full mb-12">
-        <div className="h-70 w-full">
+      <section className="relative w-full mb-8 sm:mb-12">
+        <div className="h-48 sm:h-60 md:h-70 w-full">
           <div className="absolute inset-0 bg-[url('/hero-img.jpg')] bg-cover bg-center">
             <div className="absolute inset-0 bg-gradient-to-b from-[#000000b3] to-[#0000008c]"></div>
           </div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white text-center px-4 uppercase">
-              TREE SERVICE clearwater FL
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center px-4 uppercase">
+              TREE SERVICE CLEARWATER FL
             </h1>
           </div>
         </div>
       </section>
 
-      {/* Main Content Container with side margins */}
-      <div className="w-10/12 mx-auto mb-20 px-4 sm:px-6 lg:px-8">
+      {/* Main Content Container */}
+      <div className="w-full px-4 sm:px-6 lg:w-10/12 lg:mx-auto mb-12 lg:mb-20">
         {/* Main Content */}
-        <div className="mt-12 mx-4 sm:mx-8 lg:mx-20 flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
           {/* Left Side - Main Content */}
           <div className="lg:w-2/3">
-            <h1 className="text-3xl font-bold text-gray-800 mb-6">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">
               Your Trusted Tree Service Company in Clearwater, FL
             </h1>
 
-            <p className="text-lg font-semibold text-gray-700 mb-6">
+            <p className="text-base sm:text-lg font-semibold text-gray-700 mb-4 sm:mb-6">
               Ken's Tree Service has been a proud family tree care business for over two decades and counting! We are arborists, so you can trust us to provide excellent tree care services that will keep your trees looking healthy and beautiful. Additionally, our membership in ISA & TCIA demonstrates the commitment we have to provide reliable service. Get in touch with us today at (727) 934-5804 to receive a free estimate.
             </p>
 
-            <p className="text-gray-600 mb-8">
+            <p className="text-gray-600 mb-6 sm:mb-8">
               Trees are essential to the environment and can be a great source of beauty, shade, and oxygen. Properly caring for trees is essential in preventing potential hazards from occurring due to overgrowth or damaged branches. This is why professional tree care services are necessary to protect your property's value and safety.
             </p>
 
-            <p className="mb-8">
+            <p className="mb-6 sm:mb-8">
               Ken's Tree Service has been providing quality tree care services to the Clearwater, FL area for over 22 years. Our team of experts are members of the International Society of Arboriculture and Tree Care Industry Association, so you can trust that your trees will receive excellent care. We offer a range of services, such as:
             </p>
 
             {/* Image Gallery */}
-            <div className="flex gap-4 md:gap-8 mt-2 mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 mt-2 mb-8 sm:mb-12">
               {images.map((image, index) => (
                 <div
                   key={index}
@@ -127,129 +141,131 @@ const ClearWater = () => {
                     src={image.src}
                     alt={image.alt}
                     title={image.title}
-                    className="w-full h-64 md:h-80 object-cover border-4 border-black shadow-xl shadow-[#333] group-hover:opacity-80 transition-opacity"
+                    className="w-full h-48 sm:h-56 md:h-64 lg:h-80 object-cover border-4 border-black shadow-lg sm:shadow-xl shadow-[#333] group-hover:opacity-80 transition-opacity"
                   />
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="bg-[#afb236] bg-opacity-50 rounded-full p-3">
-                      <FaPlus className="text-white text-2xl" />
+                    <div className="bg-[#afb236] bg-opacity-50 rounded-full p-2 sm:p-3">
+                      <FaPlus className="text-white text-xl sm:text-2xl" />
                     </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-12">
-              <h2 className="text-2xl font-extrabold mb-6 text-gray-800 border-b pb-2">
+            <div className="mt-8 sm:mt-12">
+              <h2 className="text-xl sm:text-2xl font-extrabold mb-4 sm:mb-6 text-gray-800 border-b pb-2">
                 Tree Services in Clearwater, FL
               </h2>
 
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 <div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-800">Tree Trimming & Pruning</h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-800">Tree Trimming & Pruning</h3>
+                  <p className="text-gray-600 text-sm sm:text-base">
                     Tree pruning and trimming are essential practices to keep trees healthy and looking good. Our arborists will assess your tree's condition and carefully prune branches to shape or train them for optimal growth. We use ANSI A300 industry standards to ensure safe and beautiful results.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-800">Structural Pruning</h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-800">Structural Pruning</h3>
+                  <p className="text-gray-600 text-sm sm:text-base">
                     Structural pruning is the process of removing or reducing the length of branches competing with the leader and shaping the tree for optimal growth. We understand how to properly perform this service, ensuring that your trees stay healthy and look their best.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-800">Tree Removal</h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-800">Tree Removal</h3>
+                  <p className="text-gray-600 text-sm sm:text-base">
                     Tree removal can be a tricky process requiring specialized techniques and equipment. Our certified arborists have the training and experience to remove trees safely without damaging your property.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-800">Land Clearing</h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-800">Land Clearing</h3>
+                  <p className="text-gray-600 text-sm sm:text-base">
                     Whether for construction or landscaping, our land clearing services efficiently remove trees, stumps, and brush with minimal environmental impact.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-800">Storm Clean Up</h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-800">Storm Clean Up</h3>
+                  <p className="text-gray-600 text-sm sm:text-base">
                     After severe weather, our team quickly and safely removes storm debris. We help restore your property while following all safety protocols.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-800">Deep Root Fertilization</h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-800">Deep Root Fertilization</h3>
+                  <p className="text-gray-600 text-sm sm:text-base">
                     Our deep root fertilization promotes healthy growth by delivering nutrients directly to the root zone. This essential service helps trees resist disease and environmental stress.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-800">Commercial Tree Services</h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-800">Commercial Tree Services</h3>
+                  <p className="text-gray-600 text-sm sm:text-base">
                     From routine maintenance to emergency services, we provide comprehensive tree care for commercial properties with minimal business disruption.
                   </p>
                 </div>
               </div>
 
-              <div className="mt-10 bg-blue-50">
-                <h3 className="text-xl font-bold mb-4 text-gray-800">Trust Ken's Tree Service for Professional Tree Care Services</h3>
-                <p className="text-gray-600 mb-4">
+              <div className="mt-8 sm:mt-10 bg-blue-50 p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-800">Trust Ken's Tree Service for Professional Tree Care Services</h3>
+                <p className="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4">
                   At Ken's Tree Service, our professional arborists have been providing top-notch services in ClearWater, FL for over two decades. With unmatched expertise and a passion for delivering outstanding results every single time, we are the team to call when you require quality tree care services. 
                 </p>
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-sm sm:text-base">
                   We understand that your trees are a valuable investment and pride ourselves in providing reliable and cost-effective services. Don't hesitate to contact us at
                   {" "}
-                  <a href="tel:812-213-5997" className="text-[#245b3c]">
+                  <a href="tel:812-213-5997" className="text-[#245b3c] font-medium hover:underline">
                     (812) 213-5997
                   </a>{" "}
                   to learn more about how we can help keep your property looking its best.
                 </p>
               </div>
 
-              <div className="w-full h-96 mt-8 overflow-hidden shadow-lg">
+              <div className="w-full h-64 sm:h-80 md:h-96 mt-6 sm:mt-8 overflow-hidden shadow-lg">
                 <iframe
                   className="w-full h-full"
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d225474.84361223507!2d-82.762635!3d27.992537!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2f1fde274bb19%3A0x75a9dfd1d23c92fb!2sClearwater%2C%20FL!5e0!3m2!1sen!2sus!4v1753730279495!5m2!1sen!2sus"
-                  allowfullscreen=""
+                  allowFullScreen=""
                   loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Clearwater, FL Map"
+                ></iframe>
               </div>
             </div>
           </div>
 
           {/* Right Side - Sidebar */}
-          <div className="pt-10 lg:w-1/4 lg-h-full space-y-6">
-            <div className="bg-white shadow-md shadow-[#0000004d] overflow-hidden transform hover:shadow-xl transition-shadow duration-300">
-              <div className="relative h-60 w-full">
+          <div className="pt-6 lg:pt-10 lg:w-1/3 lg:pl-4 space-y-6">
+            <div className="bg-white shadow-md sm:shadow-lg shadow-[#0000004d] overflow-hidden transform hover:shadow-xl transition-shadow duration-300">
+              <div className="relative h-48 sm:h-56 md:h-60 w-full">
                 <div className="absolute inset-0 bg-[url('/map-bg.jpg')] bg-cover bg-center">
                   <div className="absolute inset-0 bg-[#1e4d32e6]">
                   </div>
                 </div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <h1 className="text-md md:text-lg font-bold text-white text-center px-4">
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+                  <h1 className="text-sm sm:text-base md:text-lg font-bold text-white text-center">
                     Contact Us Today for More Info!
                   </h1>
-                  <a href="tel:812-213-5997" className="text-white text-xl md:text-3xl font-bold mb-4">
+                  <a href="tel:812-213-5997" className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4 hover:underline">
                     (812) 213-5997
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-md  hover:shadow-lg transition-shadow duration-300">
-              <h3 className="text-md flex items-center font-bold bg-[#1e4d32] w-full text-white mb-4 px-5 py-2">
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+              <h3 className="text-sm sm:text-base flex items-center font-bold bg-[#1e4d32] w-full text-white mb-3 px-4 py-2">
                 <FaMapMarkerAlt className="mr-2 text-green-600" />
                 Service Areas
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-1 px-2 pb-2">
                 {services.map((service, index) => (
                   <li key={index}>
                     <a
                       href={service.path}
-                      className={`block px-3 rounded transition ${location.pathname === service.path
+                      className={`block px-3 py-2 rounded transition text-sm sm:text-base ${window.location.pathname === service.path
                         ? "bg-green-100 text-green-700 font-medium"
                         : "text-gray-700 hover:bg-green-50 hover:text-green-600"
                         }`}

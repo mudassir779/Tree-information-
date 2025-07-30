@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 import { FaPlus, FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 
-
 const ITEMS_PER_PAGE = 12;
+
 const PhotoGallery = () => {
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
     const images = [
         { src: "/21731412_799992886827845_2161480800557884949_o.jpg", alt: "21731412 799992886827845 2161480800557884949 o - Ken's Tree Service", title: "Photo Gallery 1" },
@@ -31,11 +32,28 @@ const PhotoGallery = () => {
 
     const [currentPage, setCurrentPage] = useState(1);
 
-    const totalPages = Math.ceil(images.length / ITEMS_PER_PAGE);
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const getItemsPerPage = () => {
+        if (windowWidth < 640) return 4;    // Mobile
+        if (windowWidth < 768) return 6;    // Small tablet
+        if (windowWidth < 1024) return 8;   // Tablet
+        return ITEMS_PER_PAGE;              // Desktop
+    };
+
+    const itemsPerPage = getItemsPerPage();
+    const totalPages = Math.ceil(images.length / itemsPerPage);
 
     const currentImages = images.slice(
-        (currentPage - 1) * ITEMS_PER_PAGE,
-        currentPage * ITEMS_PER_PAGE
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
     );
 
     const goToPage = (page) => {
@@ -43,7 +61,9 @@ const PhotoGallery = () => {
     };
 
     const openLightbox = (index) => {
-        setCurrentImageIndex(index);
+        // Calculate the actual index in the full images array
+        const actualIndex = (currentPage - 1) * itemsPerPage + index;
+        setCurrentImageIndex(actualIndex);
         setLightboxOpen(true);
         document.body.style.overflow = 'hidden';
     };
@@ -63,88 +83,119 @@ const PhotoGallery = () => {
         setCurrentImageIndex(newIndex);
     };
 
+    // Handle keyboard navigation in lightbox
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (!lightboxOpen) return;
+            
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                navigate('prev');
+            } else if (e.key === 'ArrowRight') {
+                navigate('next');
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [lightboxOpen, currentImageIndex]);
+
     return (
-        <div>
+        <div className="min-h-screen bg-gray-100">
             {/* Lightbox */}
             {lightboxOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
                     <button
                         onClick={closeLightbox}
-                        className="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition-colors"
+                        className="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition-colors focus:outline-none"
+                        aria-label="Close lightbox"
                     >
                         <FaTimes />
                     </button>
 
                     <button
                         onClick={() => navigate('prev')}
-                        className="absolute left-4 text-white text-3xl hover:text-gray-300 transition-colors"
+                        className="absolute left-4 text-white text-3xl hover:text-gray-300 transition-colors focus:outline-none md:left-8"
+                        aria-label="Previous image"
                     >
-                        <FaChevronLeft size={40} />
+                        <FaChevronLeft size={windowWidth < 768 ? 30 : 40} />
                     </button>
 
-                    <div className="max-w-4xl w-full mx-16">
+                    <div className="max-w-4xl w-full mx-4 md:mx-16">
                         <img
                             src={images[currentImageIndex].src}
                             alt={images[currentImageIndex].alt}
                             className="max-h-[80vh] w-full object-contain"
+                            loading="lazy"
                         />
+                        <div className="text-white text-center mt-2 text-sm md:text-base">
+                            {images[currentImageIndex].title}
+                        </div>
                     </div>
 
                     <button
                         onClick={() => navigate('next')}
-                        className="absolute right-4 text-white text-3xl hover:text-gray-300 transition-colors"
+                        className="absolute right-4 text-white text-3xl hover:text-gray-300 transition-colors focus:outline-none md:right-8"
+                        aria-label="Next image"
                     >
-                        <FaChevronRight size={40} />
+                        <FaChevronRight size={windowWidth < 768 ? 30 : 40} />
                     </button>
                 </div>
             )}
+
             {/* Hero Section */}
-            <section className="relative w-full mb-12">
-                <div className="h-70 w-full">
+            <section className="relative w-full mb-8 md:mb-12">
+                <div className="h-48 sm:h-64 md:h-80 w-full">
                     <div className="absolute inset-0 bg-[url('/hero-img.jpg')] bg-cover bg-center">
                         <div className="absolute inset-0 bg-gradient-to-b from-[#000000b3] to-[#0000008c]"></div>
                     </div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <h1 className="text-4xl md:text-5xl font-bold text-white text-center px-4 uppercase">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center px-4 uppercase">
                             Photo Gallery
                         </h1>
                     </div>
                 </div>
             </section>
 
-            <div className="w-full py-10">
-                <div className="w-11/12 md:w-9/12 mx-auto py-10">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 pb-20 border-b-2 border-b-[#666]">
+            <div className="w-full py-6 md:py-10 px-4 sm:px-6">
+                <div className="w-full max-w-6xl mx-auto py-6 md:py-10">
+                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 pb-10 md:pb-20 border-b-2 border-b-[#666]">
                         {currentImages.map((image, index) => (
                             <div
                                 key={index}
-                                className="relative group cursor-pointer"
+                                className="relative group cursor-pointer transition-transform hover:scale-[1.02]"
                                 onClick={() => openLightbox(index)}
+                                tabIndex="0"
+                                onKeyDown={(e) => e.key === 'Enter' && openLightbox(index)}
+                                aria-label={`View ${image.title}`}
                             >
                                 <img
-                                    fetchpriority="high"
+                                    loading="lazy"
                                     decoding="async"
                                     src={image.src}
                                     alt={image.alt}
                                     title={image.title}
-                                    className="w-full h-60 md:h-64 lg:h-72 object-cover border-4 border-black shadow-xl shadow-[#333] group-hover:opacity-80 transition-opacity"
+                                    className="w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover border-4 border-black shadow-lg shadow-[#333] group-hover:opacity-80 transition-opacity"
                                 />
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <div className="bg-[#afb236] bg-opacity-50 rounded-full p-3">
-                                        <FaPlus className="text-white text-2xl" />
+                                    <div className="bg-[#afb236] bg-opacity-50 rounded-full p-2 sm:p-3">
+                                        <FaPlus className="text-white text-xl sm:text-2xl" />
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
+
                     {/* Pagination */}
-                    <div className="mt-2 flex justify-end">
-                        <div className="flex border border-[#444] divide-x divide-[#444] text-sm">
+                    <div className="mt-6 flex justify-center sm:justify-end">
+                        <div className="flex border border-[#444] divide-x divide-[#444] text-xs sm:text-sm">
                             {/* Prev button – hidden on first page */}
                             {currentPage > 1 && (
                                 <button
                                     onClick={() => goToPage(currentPage - 1)}
-                                    className="px-4 py-2 bg-[#222] text-white hover:bg-white hover:text-black transition-colors"
+                                    className="px-3 sm:px-4 py-2 bg-[#222] text-white hover:bg-white hover:text-black transition-colors focus:outline-none"
+                                    aria-label="Previous page"
                                 >
                                     Prev
                                 </button>
@@ -155,10 +206,11 @@ const PhotoGallery = () => {
                                 <button
                                     key={num}
                                     onClick={() => goToPage(num + 1)}
-                                    className={`px-4 py-2 hover:cursor-pointer hover:bg-white ${currentPage === num + 1
+                                    className={`px-3 sm:px-4 py-2 hover:cursor-pointer hover:bg-white ${currentPage === num + 1
                                             ? "bg-[#222] text-[#afb236] font-semibold"
                                             : "bg-[#222] text-white hover:text-black"
-                                        } transition-colors`}
+                                        } transition-colors focus:outline-none`}
+                                    aria-label={`Go to page ${num + 1}`}
                                 >
                                     {num + 1}
                                 </button>
@@ -168,18 +220,18 @@ const PhotoGallery = () => {
                             {currentPage < totalPages && (
                                 <button
                                     onClick={() => goToPage(currentPage + 1)}
-                                    className="px-4 py-2 bg-[#222] text-white hover:bg-white hover:text-black hover:cursor-pointer transition-colors"
+                                    className="px-3 sm:px-4 py-2 bg-[#222] text-white hover:bg-white hover:text-black hover:cursor-pointer transition-colors focus:outline-none"
+                                    aria-label="Next page"
                                 >
                                     Next
                                 </button>
                             )}
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default PhotoGallery
+export default PhotoGallery;

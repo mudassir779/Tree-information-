@@ -3,11 +3,11 @@ import { useLocation } from "react-router-dom";
 const services = [
   { name: "Tree Removal", path: "/services/tree-removal-tarpon-springs-fl/" },
   { name: "Tree Trimming & Pruning", path: "/services/tree-trimming-pruning-tarpon-springs-fl/" },
-  { name: "Deep Root Fertilization", path: "/services/deep-root-fertilization-tarpon-springs-fl/"},
+  { name: "Deep Root Fertilization", path: "/services/deep-root-fertilization-tarpon-springs-fl/" },
   { name: "Structural Pruning", path: "/services/structural-pruning-tarpon-springs-fl/" },
   { name: "Land Clearing", path: "/services/land-clearing-tarpon-springs-fl/" },
   { name: "Storm Clean Up", path: "/services/storm-clean-up-tarpon-springs-fl/" },
-  { name: "Commercial Tree Services", path: "/services/commercial-tree-services-tarpon-springs-fl/",},
+  { name: "Commercial Tree Services", path: "/services/commercial-tree-services-tarpon-springs-fl/" },
 ];
 
 const DeepRootFertilization = () => {
@@ -15,34 +15,33 @@ const DeepRootFertilization = () => {
 
   return (
     <div className="w-full">
-      {/* Hero Section - Full Width */}
-      <section className="relative mb-12 w-full">
-        <div className="h-70 w-full">
+      {/* Hero Section */}
+      <section className="relative mb-12">
+        <div className="h-[350px] md:h-[450px] relative w-full">
           <div className="absolute inset-0 bg-[url('/hero-img.jpg')] bg-cover bg-center">
-            <div className="absolute inset-0 bg-gradient-to-b from-[#000000b3] to-[#0000008c]"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50"></div>
           </div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white text-center px-4">
+          <div className="absolute inset-0 flex items-center justify-center px-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center">
               Deep Root Fertilization Tarpon Springs FL
             </h1>
           </div>
         </div>
       </section>
 
-      {/* Main Content Container with side margins */}
-      <div className="w-10/12 mx-auto pt-10 sm:px-6 lg:px-8">
-        {/* Main Content */}
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Left Content */}
-          <div className="lg:w-2/3 pr-10">
-            <h2 className="text-3xl font-extrabold text-gray-800 mb-6">
+      {/* Main Content */}
+      <div className="w-11/12 max-w-screen-xl mx-auto px-4 lg:px-0 py-10">
+        <div className="flex flex-col lg:flex-row gap-10">
+          {/* Left Main Content */}
+          <div className="lg:w-2/3">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-6">
               Your Top Choice for Tree Service in Tarpon Springs, FL
             </h2>
 
             <p className="text-md text-justify font-semibold text-gray-700 mb-6">
-              Let Ken's Tree Service take care of your lawn's health. Our deep root fertilization service in Tarpon Springs, FL will give you a lush and vibrant yard to enjoy. With years of experience and premium products, we guarantee you results.
+              Let Ken's Tree Service take care of your lawn's health. Our deep root fertilization service in Tarpon Springs, FL will give you a lush and vibrant yard to enjoy.
               Call us at{" "}
-              <a href="tel:812-213-5997" className="text-[#245b3c]">
+              <a href="tel:812-213-5997" className="text-green-700 underline">
                 812-213-5997
               </a>{" "}
               for your free estimate.
@@ -50,79 +49,39 @@ const DeepRootFertilization = () => {
 
             <div className="space-y-4 mb-8 text-gray-700">
               <p>
-                From food and materials to symbols of strength, protection, and stability - trees are a powerful gift from nature that bring beauty and shade to our landscapes. However, like all living things they need the proper nutrients to stay healthy with vivid foliage; which is why we must take care of them.
+                Trees are powerful gifts from nature that bring beauty and shade. However, they need proper nutrients to stay healthy—this is where deep root fertilization comes in.
               </p>
-
               <p>
-                Deep root fertilization does exactly that. Utilizing specialized techniques and premium products, this service provides trees with the necessary nutrition to remain strong and vibrant for years to come. Whether you want to give your trees a boost or make sure they maintain their strength, deep root fertilization can be an invaluable part of your tree care program.
+                Utilizing specialized techniques and premium products, this service provides trees with essential nutrition, ensuring they remain strong and vibrant for years.
               </p>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-800 mb-3">
-              What is Deep Root Fertilization
-            </h2>
-
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">What is Deep Root Fertilization</h2>
             <div className="space-y-4 mb-8 text-gray-700">
               <p>
-                Deep root fertilization is a type of tree care that helps promote
-                robust and healthy trees and shrubs. It involves applying
-                fertilizer to the roots of plants, either through injection into
-                the soil or directly onto their roots. This service provides
-                essential nutrients and aerates the soil, making it easier for
-                trees to absorb them.
+                Deep root fertilization involves injecting fertilizer directly into the root zone, aerating soil and improving nutrient absorption. This strengthens resistance to disease and pests while supporting robust root development.
               </p>
-
-              <p className="mb-10">
-                Deep root fertilization can help make trees and shrubs more
-                resistant to diseases and insect infestations. It also helps
-                promote healthy root growth, enabling trees to access the
-                essential minerals they need for growth and vitality. With deep
-                root fertilization, you can ensure that your trees and shrubs will
-                stay strong and vibrant.
-              </p>
-
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                Difference Between Deep Root Fertilization and Surface Fertilization
-              </h3>
-
               <p>
-                Surface fertilization is the traditional way of applying
-                fertilizer to trees. It involves spreading a slow-release granular
-                fertilizer around the base of the tree or shrub, usually in late
-                winter or early fall. While this method can help provide essential
-                nutrients for your small plants and grass, it does not guarantee
-                that the fertilizer will reach its roots.
+                Unlike surface fertilization, which may not reach tree roots, deep root techniques deliver nutrients precisely where they're needed most.
               </p>
 
-              <div className="my-10 group overflow-hidden shadow-lg">
+              <div className="overflow-hidden rounded shadow-md my-6">
                 <img
                   src="/47300128_1070645999762531_1703345697010483200_n.jpg"
-                  alt="Deep root fertilization process"
-                  className="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  alt="Deep root fertilization"
+                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
 
-              <p className="mt-4">
-                In contrast, deep root fertilization is a specifically designed
-                technique for increasing the nutrient uptake of trees. It involves
-                injecting liquid or granular fertilizer into the soil and directly
-                onto the roots. This process ensures that nutrients are delivered
-                where it matters most - at their source - so your trees can get
-                all the nutrients they need.
-              </p>
-
               <p>
-                Moreover, while it is possible to carry out a conventional
-                fertilizing job without professional help, deep root fertilization
-                requires an Arborist due to its intricate equipment and
-                specialized techniques.
+                Deep root fertilization requires trained professionals and specialized equipment to ensure proper application and tree health benefits.
               </p>
 
-              <div className="w-full h-96 mt-10 overflow-hidden shadow-lg">
+              <div className="w-full h-96 mt-10 overflow-hidden rounded shadow-md">
                 <iframe
                   className="w-full h-full"
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d112577.66100994803!2d-82.772991!3d28.144908!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c28cfd6f0942df%3A0xf4297f0ce0bf24b7!2sTarpon%20Springs%2C%20FL!5e0!3m2!1sen!2sus!4v1753449185853!5m2!1sen!2sus"
-                  allowFullScreen=""
+                  allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
@@ -131,37 +90,35 @@ const DeepRootFertilization = () => {
           </div>
 
           {/* Right Sidebar */}
-          <div className="pt-10 lg:w-1/4 lg-h-full space-y-6">
-            <div className="bg-white shadow-md shadow-[#0000004d] overflow-hidden transform hover:shadow-xl transition-shadow duration-300">
-              <div className="relative h-60 w-full">
-                <div className="absolute inset-0 bg-[url('/map-bg.jpg')] bg-cover bg-center">
-                  <div className="absolute inset-0 bg-[#1e4d32e6]">
-                  </div>
-                </div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <h1 className="text-md md:text-lg font-bold text-white text-center px-4">
-                    Contact Us Today for More Info!
-                  </h1>
-                  <a href="tel:812-213-5997" className="text-white text-xl md:text-3xl font-bold mb-4">
-                    (812) 213-5997
-                  </a>
-                </div>
+          <div className="lg:w-1/3 space-y-6">
+            {/* Call to Action Card */}
+            <div className="relative h-60 rounded overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+              <div className="absolute inset-0 bg-[url('/map-bg.jpg')] bg-cover bg-center">
+                <div className="absolute inset-0 bg-[#1e4d32e6]"></div>
+              </div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center text-white">
+                <h3 className="text-lg font-bold mb-2">Contact Us Today for More Info!</h3>
+                <a href="tel:812-213-5997" className="text-2xl font-extrabold">
+                  (812) 213-5997
+                </a>
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-md  hover:shadow-lg transition-shadow duration-300">
-              <h3 className="text-md font-bold bg-[#1e4d32] w-full text-white mb-4 px-5 py-2">
+            {/* Services List */}
+            <div className="bg-white rounded shadow-md overflow-hidden">
+              <h3 className="bg-[#1e4d32] text-white px-5 py-2 text-md font-bold">
                 Our Services
               </h3>
-              <ul className="space-y-2">
+              <ul className="divide-y divide-gray-100">
                 {services.map((service, index) => (
                   <li key={index}>
                     <a
                       href={service.path}
-                      className={`block px-3 rounded transition ${location.pathname === service.path
-                        ? "bg-green-100 text-green-700 font-medium"
-                        : "text-gray-700 hover:bg-green-50 hover:text-green-600"
-                        }`}
+                      className={`block px-5 py-2 text-sm md:text-base transition ${
+                        location.pathname === service.path
+                          ? "bg-green-100 text-green-700 font-semibold"
+                          : "text-gray-700 hover:bg-green-50 hover:text-green-700"
+                      }`}
                     >
                       {service.name}
                     </a>
@@ -173,168 +130,93 @@ const DeepRootFertilization = () => {
         </div>
       </div>
 
-      {/* Do I Need It Section - Full Width */}
-      <div className="w-full bg-gradient-to-b from-[#f8faec] to-[#bcc49b] py-20 mt-10">
-        <div className="w-10/12 mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-[#245B3C] text-lg font-bold uppercase">Do I Need It?</p>
-          <h1 className="text-center text-4xl font-bold">
-            Signs Your Tree Needs Deep Root Fertilization
-          </h1>
-          <div className="flex justify-center my-5">
-            <img decoding="async" src="/divider.png" alt="divider" title="divider" />
-          </div>
-          <p className="text-center max-w-full mx-auto font-semibold">
-            Trees can be very resilient, but sometimes they need a little extra
-            care. Here are some signs that your trees could benefit from deep
-            root fertilization:
+      {/* Do I Need It Section */}
+      <section className="w-full bg-gradient-to-b from-[#f8faec] to-[#bcc49b] py-20">
+        <div className="w-11/12 max-w-screen-xl mx-auto text-center px-4">
+          <p className="text-lg font-bold uppercase text-[#245B3C]">Do I Need It?</p>
+          <h2 className="text-3xl sm:text-4xl font-bold">Signs Your Tree Needs Deep Root Fertilization</h2>
+          <img src="/divider.png" alt="divider" className="mx-auto my-4" />
+          <p className="font-medium max-w-2xl mx-auto">
+            Trees are resilient, but even they need extra help. Watch for these common signs that it's time for deep root fertilization.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-10">
-            {/* Row 1 */}
-            <div className="h-full bg-white border-2 border-[#B0B694] p-4 hover:shadow-xl transition-shadow duration-300">
-              <img
-                src="/yellow_leaves.PNG"
-                alt="Yellowing leaves"
-                className="rounded-full h-24 w-24 border-6 border-black shadow-sm shadow-black mx-auto mt-4 object-cover"
-              />
-              <h3 className="text-lg font-bold text-center mt-4">Yellowing or Discolored Leaves</h3>
-              <p className="text-center mt-3">
-                A sign of nutrient deficiency that deep root fertilization can address.
-              </p>
-            </div>
-
-            <div className="h-full bg-white border-2 border-[#B0B694] p-4 hover:shadow-xl transition-shadow duration-300">
-              <img
-                src="/twigs.PNG"
-                alt="Weakened branches"
-                className="rounded-full h-24 w-24 border-6 border-black shadow-sm shadow-black mx-auto mt-4 object-cover"
-              />
-              <h3 className="text-lg font-bold text-center mt-4">Weakened Branches and Twigs</h3>
-              <p className="text-center mt-3">
-                Indicates poor nutrient absorption that fertilization can improve.
-              </p>
-            </div>
-
-            <div className="h-full bg-white border-2 border-[#B0B694] p-4 hover:shadow-xl transition-shadow duration-300">
-              <img
-                src="/development.PNG"
-                alt="Stunted growth"
-                className="rounded-full h-24 w-24 border-6 border-black shadow-sm shadow-black mx-auto mt-4 object-cover"
-              />
-              <h3 className="text-lg font-bold text-center mt-4">Poor Growth or Stunted Development</h3>
-              <p className="text-center mt-3">
-                Shows the tree isn't getting essential nutrients from the soil.
-              </p>
-            </div>
-
-            {/* Row 2 */}
-            <div className="h-full bg-white border-2 border-[#B0B694] p-4 hover:shadow-xl transition-shadow duration-300">
-              <img
-                src="/leaf_drop.PNG"
-                alt="Early leaf drop"
-                className="rounded-full h-24 w-24 border-6 border-black shadow-sm shadow-black mx-auto mt-4 object-cover"
-              />
-              <h3 className="text-lg font-bold text-center mt-4">Early Leaf Drop</h3>
-              <p className="text-center mt-3">
-                Premature leaf loss often signals nutritional stress.
-              </p>
-            </div>
-
-            <div className="h-full bg-white border-2 border-[#B0B694] p-4 hover:shadow-xl transition-shadow duration-300">
-              <img
-                src="/pests.PNG"
-                alt="Pest infestation"
-                className="rounded-full h-24 w-24 border-6 border-black shadow-sm shadow-black mx-auto mt-4 object-cover"
-              />
-              <h3 className="text-lg font-bold text-center mt-4">Insect and Pest Infestations</h3>
-              <p className="text-center mt-3">
-                Healthy trees resist pests better with proper fertilization.
-              </p>
-            </div>
-
-            <div className="h-full bg-white border-2 border-[#B0B694] p-4 hover:shadow-xl transition-shadow duration-300">
-              <img
-                src="/star.PNG"
-                alt="Disease signs"
-                className="rounded-full h-24 w-24 border-6 border-black shadow-sm shadow-black mx-auto mt-4 object-cover"
-              />
-              <h3 className="text-lg font-bold text-center mt-4">Signs of Disease</h3>
-              <p className="text-center mt-3">
-                Proper nutrition helps trees fight off diseases naturally.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+            {[
+              { src: "/yellow_leaves.PNG", title: "Yellowing or Discolored Leaves", text: "A sign of nutrient deficiency." },
+              { src: "/twigs.PNG", title: "Weakened Branches and Twigs", text: "Poor nutrient absorption weakens trees." },
+              { src: "/development.PNG", title: "Stunted Growth", text: "Lack of essential nutrients." },
+              { src: "/leaf_drop.PNG", title: "Early Leaf Drop", text: "Often caused by nutritional stress." },
+              { src: "/pests.PNG", title: "Pest Infestations", text: "Healthy trees resist pests better." },
+              { src: "/star.PNG", title: "Signs of Disease", text: "Well-fed trees fight disease naturally." },
+            ].map((item, idx) => (
+              <div key={idx} className="bg-white border-2 border-[#B0B694] p-4 rounded hover:shadow-xl transition">
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  className="rounded-full h-24 w-24 mx-auto mt-2 border-4 border-black shadow"
+                />
+                <h4 className="text-lg font-bold mt-4">{item.title}</h4>
+                <p className="mt-2">{item.text}</p>
+              </div>
+            ))}
           </div>
 
-          <p className="text-center max-w-full font-bold mx-auto mt-8">
-            If you're seeing any of these signs, it's time to give your trees the nutrition they need with deep root fertilization. The benefits are clear: healthier, better-looking trees and a lush, vibrant lawn. Grass roots also benefit from deep root fertilization, as it can help promote a healthy and robust lawn.
+          <p className="font-bold text-md max-w-xl mx-auto mt-10">
+            If your trees show these symptoms, it's time to nourish them from the ground up. Let Ken's Tree Service restore your trees and lawn.
           </p>
         </div>
-      </div>
+      </section>
 
-      {/* How It's Done Section */}
-      <div className="w-10/12 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-20 mt-16 mb-16">
-          <div className="relative lg:w-5/12 group shadow-lg shadow-black">
-            <div className="absolute w-full h-full top-5 -left-5 bg-[#afb593] z-0"></div>
+      {/* How It’s Done Section */}
+      <section className="w-11/12 max-w-screen-xl mx-auto py-20 px-4">
+        <div className="flex flex-col lg:flex-row gap-10">
+          <div className="relative lg:w-1/2 shadow-md group">
+            <div className="absolute top-5 -left-5 w-full h-full bg-[#afb593] z-0"></div>
             <img
               src="/truckkk.jpg"
-              alt="Deep root fertilization equipment"
-              className="relative w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 z-10"
+              alt="Equipment"
+              className="relative z-10 w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
             />
           </div>
-          <div className="lg:w-full">
-            <h1 className="text-2xl font-bold text-gray-800 mb-4">
-              How is Deep Root Fertilization Done?
-            </h1>
-            <img src="/divider.png" alt="Divider" title="divider" className="mb-6" />
+          <div className="lg:w-1/2">
+            <h2 className="text-2xl font-bold mb-4">How is Deep Root Fertilization Done?</h2>
+            <img src="/divider.png" alt="Divider" className="mb-4" />
             <div className="space-y-4 text-gray-700">
               <p>
-                At Ken's Tree Service, our experienced Arborists use specialized equipment to safely and effectively deliver the fertilizer directly onto the roots of your trees. First, they will assess the condition of the soil and determine what type and amount of fertilizer are needed for optimal results.
+                Our certified Arborists assess your soil and tree condition to formulate the right nutrient blend. We inject liquid or granular fertilizer directly into the root zone.
               </p>
               <p>
-                Nutrient content, environmental conditions, and tree species are all taken into consideration when formulating a fertilizer mix. Our team will also take into account any insect or disease issues that may be present to provide the best possible solution for your trees.
-              </p>
-              <p>
-                The arborist then injects liquid fertilizer into holes that have been drilled into the soil. Depending on your needs, granular fertilizer can also be applied directly to the tree's root system. The entire process is designed to maximize nutrient absorption and help keep your trees looking their best.
+                This ensures maximum absorption while improving resistance to pests, diseases, and environmental stressors.
               </p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* CTA Section */}
-      <div className="w-full bg-[#90a99557] py-16">
-        <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-lg max-w-8/12 mx-auto text-center">
-            <h1 className="text-3xl font-extrabold text-gray-800 mb-4">
-              Choose Ken's Tree Service for Professional Deep Root Fertilization Services in Tarpon Springs, FL
-            </h1>
-            <img
-              src="/divider.png"
-              alt="Divider"
-              className="mx-auto mb-6"
-            />
-            <div className="space-y-4 text-gray-700  mx-auto">
-              <p>
-                When it comes to deep root fertilization services, you can depend on Ken's Tree Service. Our team of Arborists is highly trained and experienced in using the latest technologies and techniques to ensure that your trees are healthy and vibrant.
-              </p>
-              <p>
-                We offer a wide range of tree services, including insect and disease management, tree removal, pruning and trimming, and more. Our team also provides emergency assistance for storm-damaged trees on your property.
-              </p>
-              <p className="font-bold text-md">
-                Contact us at{" "}
-                <a href="tel:812-213-5997" className="text-green-800 hover:text-black transition-colors duration-300">
-                  812-213-5997
-                </a>{" "}
-                to get started on deep root fertilization for your trees in Tarpon Springs, FL. We look forward to helping you keep your trees healthy and beautiful.
-              </p>
-            </div>
-            <button className="my-6 bg-[#afb236] hover:bg-[#908927] hover:rounded text-white font-bold py-3 px-8 rounded-3xl shadow-md transition-colors duration-300 transform hover:scale-105">
-              REQUEST A FREE ESTIMATE
-            </button>
+      <section className="w-full bg-[#90a99557] py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-extrabold text-gray-800 mb-4">
+            Choose Ken's Tree Service for Professional Deep Root Fertilization in Tarpon Springs, FL
+          </h2>
+          <img src="/divider.png" alt="Divider" className="mx-auto mb-6" />
+          <div className="space-y-4 text-gray-700">
+            <p>
+              Our expert Arborists use the latest tools and techniques to keep your trees thriving. We also offer pruning, removal, and emergency services.
+            </p>
+            <p className="font-bold">
+              Call us at{" "}
+              <a href="tel:812-213-5997" className="text-green-800 underline hover:text-black">
+                812-213-5997
+              </a>{" "}
+              for a free estimate.
+            </p>
           </div>
+          <button className="mt-6 bg-[#afb236] hover:bg-[#908927] text-white font-bold py-3 px-8 rounded-full shadow-md transition hover:scale-105">
+            REQUEST A FREE ESTIMATE
+          </button>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
