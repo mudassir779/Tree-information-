@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
-
+import React, {  useState } from 'react';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 const AddBlog = () => {
+  const backendLink = useSelector((state) => state.prod.link);
+  
+ 
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -18,6 +22,19 @@ const AddBlog = () => {
     'Personal Development'
   ];
 
+// const getCategories = async () => {
+//   try {
+//     const response = await axios.get(`${backendLink}/api/category/get-category`);
+//     if (response.data.success) {
+//       setCategories(response.data.categories);
+//     } else {
+//       console.error('Failed to fetch categories');
+//     }
+//   } catch (error) {
+//     console.error('Error fetching categories:', error);
+//   }
+// };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -32,12 +49,40 @@ const AddBlog = () => {
       image: e.target.files[0]
     }));
   };
-
-  const handleSubmit = (e) => {
+ const handleSubmit = async (e) => {
+ 
     e.preventDefault();
-    console.log('Form submitted:', formData);
+
+    try{
+      const form = new FormData();
+      form.append('title', formData.title);
+      form.append('description', formData.description);
+      form.append('category', formData.category);
+      form.append('image', formData.image);
+
+      const response = await axios.post(`${backendLink}/api/blog/add-blog`, form);
+      if (response.data.success) {
+        alert('Blog added successfully!');
+        setFormData({
+          title: '',
+          description: '',
+          category: '',
+          image: null
+        });
+      } else {
+        alert(response.data.message || 'Failed to add blog');
+      }
+    }catch(error){
+      console.error('Error:', error);
+      alert('An error occurred while adding the blog');
+    }
+    
     // Add your form submission logic here
   };
+
+  // useEffect(() => {
+  //   getCategories();
+  // }, []);
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md">
