@@ -18,22 +18,22 @@ import ServiceArea from "./Pages/ServiceArea.jsx"
 import TarponSpring from "./Pages/TarponSpring.jsx"
 import ClearWater from "./Pages/ClearWater.jsx"
 import Dunedin from "./Pages/Dunedin.jsx"
-import NewPortRichey from "./Pages/NewPortRichey.JSX"
+import NewPortRichey from "./Pages/NewPortRichey.jsx"
 import Oldsmar from "./Pages/Oldsmar.jsx"
 import PalmHarbor from "./Pages/PalmHarbor.jsx"
-import SafetyHarbor from "./Pages/SafetyHarbor.JSX"
+import SafetyHarbor from "./Pages/SafetyHarbor.jsx"
 import AdminLogin from "./Pages/AdminPanel/AdminLogin.jsx"
 import MainLayout from "./layouts/MainLayout.jsx"
 import AdminLayout from "./layouts/AdminLayouts.jsx"
-import AdminDashboard from "./components/AdminComponents/AdminDashboard.jsx"
-import Dashboard from "./components/AdminComponents/Dashboard.jsx"
-import AddBlog from "./components/AdminComponents/AddBlog.jsx"
-import EditBlogs from "./components/AdminComponents/EditBlogs.jsx"
-import UpdateBlog from "./components/AdminComponents/UpdateBlog.jsx"
-import DeleteCategory from "./components/AdminComponents/DeleteCategory.jsx"
-import AddCategory from "./components/AdminComponents/AddCategory.jsx"
+import AdminDashboard from "./components/Admin/AdminDashboard.jsx"
+import Dashboard from "./components/Admin/Dashboard.jsx"
+import AddBlog from "./components/Admin/AddBlog.jsx"
+import EditBlogs from "./components/Admin/EditBlogs.jsx"
+import UpdateBlog from "./components/Admin/UpdateBlog.jsx"
+import DeleteCategory from "./components/Admin/DeleteCategory.jsx"
+import AddCategory from "./components/Admin/AddCategory.jsx"
 import PhotoGallery from "./Pages/PhotoGallery.jsx"
-
+import JobRequests from "./components/Admin/JobRequests.jsx"
 function App() {
   return (
     <div className="">
@@ -64,22 +64,23 @@ function App() {
             <Route path="/service-areas/tree-service-palm-harbor-fl/" element={<PalmHarbor />} />
             <Route path="/service-areas/tree-service-safety-harbor-fl/" element={<SafetyHarbor />} />
           </Route>
-          <Route path="/photo-gallery" element={<PhotoGallery/>} />
+          <Route path="/photo-gallery" element={<PhotoGallery />} />
           <Route path="/contact-us" element={<ContactUS />} />
           <Route path="/blog" element={<Blogs />} />
           <Route path="/privacy-policy" element={<PrivacyPolicies />} />
         </Route>
 
 
-        <Route element={<AdminLayout />}>
-          <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
+          <Route element={<AdminLayout />}>
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          <Route index element={<Dashboard />} />
-          <Route path="/admin-dashboard/add-blogs" element={<AddBlog />} />
+          <Route path="/admin-dashboard/dashboard" element={<Dashboard />} />
+          <Route path="/admin-dashboard/add-blog" element={<AddBlog />} />
           <Route path="/admin-dashboard/edit-blogs" element={<EditBlogs />} />
-          <Route path="/admin-dashboard/update-blogs/:id" element={<UpdateBlog />} />
-          <Route path="/admin-dashboard/delete-category" element={<DeleteCategory />} />
+          <Route path="/admin-dashboard/update-blog/:id" element={<UpdateBlog />} />
           <Route path="/admin-dashboard/add-category" element={<AddCategory />} />
+          <Route path="/admin-dashboard/delete-category" element={<DeleteCategory />} />
+          <Route path="/admin-dashboard/job-requests" element={<JobRequests />} />
         </Route>
 
       </Routes>

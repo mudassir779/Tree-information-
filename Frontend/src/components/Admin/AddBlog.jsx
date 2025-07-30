@@ -1,39 +1,41 @@
-import React, {  useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+
 const AddBlog = () => {
-  const backendLink = useSelector((state) => state.prod.link);
   
- 
+  const backendLink = useSelector((state) => state.prod.link);
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     category: '',
     image: null
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [categories, setCategories] = useState([]);
 
-  const categories = [
-    'Technology',
-    'Travel',
-    'Food',
-    'Lifestyle',
-    'Health & Wellness',
-    'Business',
-    'Personal Development'
-  ];
+  console.log("category id ", categories);
 
-// const getCategories = async () => {
-//   try {
-//     const response = await axios.get(`${backendLink}/api/category/get-category`);
-//     if (response.data.success) {
-//       setCategories(response.data.categories);
-//     } else {
-//       console.error('Failed to fetch categories');
-//     }
-//   } catch (error) {
-//     console.error('Error fetching categories:', error);
-//   }
-// };
+  // Fetch all categories from the backend
+  const getAllCategories = async () => {
+    try {
+      const response = await axios.get(`${backendLink}/api/category/get-category`);
+      if (response.data.success && Array.isArray(response.data.category)) {
+        setCategories(response.data.category);
+      } else {
+        console.error('Unexpected response structure:', response.data);
+        setError('Failed to load categories');
+      }
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+      setError('Failed to load categories');
+    }
+  };
+
+  useEffect(() => {
+    getAllCategories();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,19 +51,33 @@ const AddBlog = () => {
       image: e.target.files[0]
     }));
   };
- const handleSubmit = async (e) => {
- 
-    e.preventDefault();
 
-    try{
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    console.log('Submitting form data:', formData); // Log form data for debugging
+
+    try {
       const form = new FormData();
       form.append('title', formData.title);
       form.append('description', formData.description);
-      form.append('category', formData.category);
+      form.append('category', formData.category); // Ensure this is correct
       form.append('image', formData.image);
+      console.log('Form data prepared:', formData.category); // Log form data for debugging
 
-      const response = await axios.post(`${backendLink}/api/blog/add-blog`, form);
-      if (response.data.success) {
+      const backendUrl = backendLink.endsWith('/') 
+        ? backendLink.slice(0, -1) 
+        : backendLink;
+
+      const response = await axios.post(`${backendUrl}/api/blog/add-blog`, form, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        },
+      });
+
+      if (response.data.message === 'Blog added successfully') {
         alert('Blog added successfully!');
         setFormData({
           title: '',
@@ -70,24 +86,26 @@ const AddBlog = () => {
           image: null
         });
       } else {
-        alert(response.data.message || 'Failed to add blog');
+        setError(response.data.message || 'Failed to add blog');
       }
-    }catch(error){
+    } catch (error) {
       console.error('Error:', error);
-      alert('An error occurred while adding the blog');
+      setError(error.response?.data?.message || 'An error occurred while adding the blog');
+    } finally {
+      setLoading(false);
     }
-    
-    // Add your form submission logic here
   };
-
-  // useEffect(() => {
-  //   getCategories();
-  // }, []);
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">Add New Blog Post</h1>
       
+      {error && (
+        <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md">
+          {error}
+        </div>
+      )}
+
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
@@ -132,8 +150,8 @@ const AddBlog = () => {
             required
           >
             <option value="">Select a category</option>
-            {categories.map((category) => (
-              <option key={category} value={category}>{category}</option>
+            {categories && categories.map((category) => (
+              <option key={category._id} value={category.title}>{category.title}</option>
             ))}
           </select>
         </div>
@@ -161,9 +179,12 @@ const AddBlog = () => {
         
         <button
           type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out"
+          disabled={loading}
+          className={`w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out ${
+            loading ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
         >
-          Publish Blog Post
+          {loading ? 'Publishing...' : 'Publish Blog Post'}
         </button>
       </form>
     </div>

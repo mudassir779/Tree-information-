@@ -25,7 +25,7 @@ export const addCategory = async (req, res) => {
 
 export const getCategory = async (req, res) => {
   try {
-    const category = await Category.find();
+    const category = await Category.find().populate("blogs");
     res.status(200).json({
       success: true,
       category,

@@ -1,20 +1,27 @@
-import Blog from "../Model/BlogModel.js";
-import Category from "../Model/CategoryModel.js";
-import fs from 'fs';
+import multer from 'multer';
 import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url'; // Add this import
+import Blog from '../Model/BlogModel.js';
+import Category from '../Model/CategoryModel.js';
+
+// Get __dirname equivalent in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export const addBlog = async (req, res) => {
   try {
     const { title, description, category } = req.body;
 
-
+    // Check required fields first
     if (!title || !description || !category) {
-      const oldFilePath = path.join(__dirname, '../public/images', file.filename);
-      fs.unlink(oldFilePath, (err) => {
-        if (err) {
-          console.error('Error deleting old file:', err);
-        }
-      })
+      // If there's a file but other fields are missing, delete the uploaded file
+      if (req.file) {
+        const filePath = path.join(__dirname, '../public/uploads', req.file.filename);
+        fs.unlink(filePath, (err) => {
+          if (err) console.error('Error deleting file:', err);
+        });
+      }
       return res.status(400).json({ message: 'All fields are required' });
     }
 
@@ -23,7 +30,14 @@ export const addBlog = async (req, res) => {
     }
 
     const existingCat = await Category.findOne({ title: category });
+    // console.log("the exat cate", existingCat)
+    
     if (!existingCat) {
+      // Delete the uploaded file if category doesn't exist
+      const filePath = path.join(__dirname, '../public/uploads', req.file.filename);
+      fs.unlink(filePath, (err) => {
+        if (err) console.error('Error deleting file:', err);
+      });
       return res.status(400).json({ message: 'Category does not exist' });
     }
 
@@ -36,6 +50,7 @@ export const addBlog = async (req, res) => {
       title,
       description,
       image: req.file.filename,
+      category: existingCat._id
     });
 
     await newBlog.save();
@@ -44,6 +59,13 @@ export const addBlog = async (req, res) => {
 
     return res.status(201).json({ message: 'Blog added successfully', blog: newBlog });
   } catch (error) {
+    // Delete the uploaded file if error occurs
+    if (req.file) {
+      const filePath = path.join(__dirname, '../public/uploads', req.file.filename);
+      fs.unlink(filePath, (err) => {
+        if (err) console.error('Error deleting file:', err);
+      });
+    }
     console.error('Error adding blog:', error);
     return res.status(500).json({ message: 'Internal server error' });
   }
@@ -53,7 +75,7 @@ export const addBlog = async (req, res) => {
 
 export const getAllBlog = async (req, res) => {
   try {
-    const blog = await Blog.find().sort({ createdAt: -1 });
+    const blog = await Blog.find().sort({ createdAt: -1 }).populate('category');
     res.status(200).json({
       success: true,
       blog,
