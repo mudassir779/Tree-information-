@@ -4,7 +4,7 @@ import path from 'path';
 // Configure Multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, './public/upload'); // Ensure this folder exists
+    cb(null, './public/uploads'); // Ensure this folder exists
   },
   filename: (req, file, cb) => {
     const newFileName = Date.now() + path.extname(file.originalname);
