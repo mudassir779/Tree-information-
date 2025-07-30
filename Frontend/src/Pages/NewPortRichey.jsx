@@ -3,9 +3,9 @@ import { FaPlus, FaChevronLeft, FaChevronRight, FaTimes, FaMapMarkerAlt, FaPhone
 
 const services = [
   { name: "Tarpon Springs", path: "/service-areas/" },
-  { name: "Clear Water", path: "/service-areas/tree-service-clearwater-fl/" },
+  { name: "Clear Water", path: "/service-areas/tree-service-evansville-in/" },
   { name: "Dunedin", path: "/service-areas/tree-service-dunedin-fl/" },
-  { name: "New Port Richey", path: "/service-areas/tree-service-new-port-richey-fl/" },
+  { name: "Newburgh", path: "/service-areas/tree-service-new-port-richey-fl/" },
   { name: "Oldsmar", path: "/service-areas/tree-service-oldsmar-fl/" },
   { name: "Palm Harbor", path: "/service-areas/tree-service-palm-harbor-fl/" },
   { name: "Safety Harbor", path: "/service-areas/tree-service-safety-harbor-fl/" },
@@ -16,8 +16,8 @@ const NewPortRichey = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [
-    { src: "/Tree-Removal-New-Port-Richey-FL-400x284.jpg", alt: "Tree Removal New Port Richey FL", title: "Tree Services, New Port Richey, FL 1"},
-    { src: "/Tree-Services-New-Port-Richey-FL-400x284.jpg", alt: "Tree Services New Port Richey FL", title: "Tree Services, New Port Richey, FL 2" }
+    { src: "/Tree-Removal-New-Port-Richey-FL-400x284.jpg", alt: "Tree Removal Newburgh IN", title: "Tree Services, Newburgh, IN 1"},
+    { src: "/Tree-Services-New-Port-Richey-FL-400x284.jpg", alt: "Tree Services Newburgh IN", title: "Tree Services, Newburgh, IN 2" }
   ];
 
   const openLightbox = (index) => {
@@ -88,7 +88,7 @@ const NewPortRichey = () => {
           </div>
           <div className="absolute inset-0 flex items-center justify-center">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center px-4 uppercase">
-              TREE SERVICE new port richey FL
+              TREE SERVICE Newburgh IN
             </h1>
           </div>
         </div>
@@ -102,7 +102,7 @@ const NewPortRichey = () => {
             {/* Left Side - Main Content */}
             <div className="lg:w-2/3">
               <h1 className="text-xl sm:text-2xl font-extrabold text-gray-800 mb-4 sm:mb-6">
-                Experienced Tree Services Professionals in New Port Richey, FL
+                Experienced Tree Services Professionals in Newburgh, IN
               </h1>
 
               <p className="text-sm sm:text-base font-bold text-gray-700 mb-4 sm:mb-6">
@@ -116,7 +116,7 @@ const NewPortRichey = () => {
               </p>
 
               <p className="mb-6 sm:mb-8 text-sm sm:text-base">
-                Ken's Tree Service has been providing quality tree care services to the New Port Richey, FL area for over 22 years. Our team of experts are members of the International Society of Arboriculture and Tree Care Industry Association, so you can trust that your trees will receive excellent care.
+                Ken's Tree Service has been providing quality tree care services to the Newburgh, IN area for over 22 years. Our team of experts are members of the International Society of Arboriculture and Tree Care Industry Association, so you can trust that your trees will receive excellent care.
               </p>
 
               {/* Image Gallery */}
@@ -146,7 +146,7 @@ const NewPortRichey = () => {
 
               <div className="mt-8 sm:mt-12">
                 <h2 className="text-xl sm:text-2xl font-extrabold mb-4 sm:mb-6 text-gray-800 border-b pb-2">
-                  Tree Services in New Port Richey, FL
+                  Tree Services in Newburgh, IN
                 </h2>
 
                 <div className="space-y-6 sm:space-y-8">
@@ -203,7 +203,7 @@ const NewPortRichey = () => {
                 <div className="mt-8 sm:mt-10 bg-blue-50 p-4 sm:p-6">
                   <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-800">Trust Ken's Tree Service</h3>
                   <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">
-                    At Ken's Tree Service, our professional arborists have been providing top-notch services in New Port Richey, FL for over two decades. With unmatched expertise and a passion for delivering outstanding results every single time, we are the team to call when you require quality tree care services. 
+                    At Ken's Tree Service, our professional arborists have been providing top-notch services in Newburgh, IN for over two decades. With unmatched expertise and a passion for delivering outstanding results every single time, we are the team to call when you require quality tree care services. 
                   </p>
                   <p className="text-gray-600 text-sm sm:text-base">
                     We understand that your trees are a valuable investment and pride ourselves in providing reliable and cost-effective services. Don't hesitate to contact us at

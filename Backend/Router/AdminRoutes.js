@@ -1,5 +1,5 @@
 import express from 'express'
-import { loginAdmin } from '../Controller/AdminController';
+import { loginAdmin } from '../Controller/AdminController.js';
 
 
 
