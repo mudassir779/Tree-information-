@@ -315,8 +315,8 @@ const LandClearing = () => {
             <img
               loading="lazy"
               decoding="async"
-              src="/contact-us-img.jpg"
-              alt="contact us"
+              src="/Tree-Services.jpg"
+              alt="contact us for tree services"
               className="relative w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 z-10"
             />
           </div>

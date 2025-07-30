@@ -239,7 +239,7 @@ const StormCleanUp = () => {
           <div className="lg:w-5/12 group shadow-lg shadow-black">
             <div className="relative">
               <div className="hidden lg:block absolute w-full h-full top-3 -left-3 bg-[#afb593] z-0"></div>
-              <img loading="lazy" decoding="async" src="/contact-us-img.jpg" alt="contact us" className="relative w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 z-10" />
+              <img loading="lazy" decoding="async" src="/Tree-Services.jpg" alt="tree service" className="relative w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 z-10" />
             </div>
           </div>
           <div className="lg:w-7/12 pb-5">

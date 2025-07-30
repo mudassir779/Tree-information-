@@ -1018,13 +1018,13 @@ const Home = () => {
           <div className="flex flex-col lg:flex-row gap-10">
             {/* Image on left - moves to top on mobile */}
             <div className="w-full lg:w-1/2">
-              <div className="shadow-xl shadow-black w-full h-full">
+              <div className="shadow-xl shadow-black rounded-2xl w-full h-full">
                 <img
-                  className="rounded-2xl w-full h-auto"
+                  className="rounded-2xl w-full h-full"
                   loading="lazy"
                   decoding="async"
-                  src="/contact-us-img.jpg"
-                  alt="contact us"
+                  src="/Tree-Services.jpg"
+                  alt="contact us for tree services"
                   title="contact-us-img"
                 />
               </div>

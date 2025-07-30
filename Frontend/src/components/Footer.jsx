@@ -144,7 +144,7 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/service-areas/tree-service-boonvile-in/" className="text-gray-700 hover:text-green-600 transition-colors">
+                                    <Link to="/service-areas/tree-service-boonville-in/" className="text-gray-700 hover:text-green-600 transition-colors">
                                         Boonville, IN
                                     </Link>
                                 </li>
