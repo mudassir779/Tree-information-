@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 const Blogs = () => {
   const backendLink = useSelector((state) => state.prod.link);
   const [blogPosts, setBlogPosts] = useState([]);
-  console.log("the blog posts are", blogPosts);
 
   // const blogPosts = [
   //   {
@@ -108,7 +107,7 @@ const Blogs = () => {
 
   return (
     // <div className="max-w-4xl mx-auto px-4 py-8">
-    <div className="w-full">
+    <div className="w-full mb-20">
       {/* Main Content Container with side margins */}
       <div className="w-10/12 mx-auto pt-10 px-4 sm:px-6 lg:px-8">
         {/* Main Content */}

@@ -1,4 +1,4 @@
-import User from "../Model/UserModel.js";
+import User from "../Model/AdminModel.js";
 import Blog from "../Model/BlogModel.js";
 import Category from "../Model/CategoryModel.js";
 import bcrypt from "bcrypt";
@@ -23,17 +23,24 @@ export const loginAdmin = async (req, res) => {
 
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-        res.cookie('Tree-Project', token, {
-            httpOnly: true,
-            secure:true, // Set to true if using HTTPS
-            sameSite: 'None',
-            maxAge: 1000 * 60 * 60, // 1 hour
-        });
+        // res.cookie('Tree-Project', token, {
+        //     httpOnly: true,
+        //     secure: false, // Set to true if using HTTPS
+        //     sameSite: 'None',
+        //     maxAge: 1000 * 60 * 60, // 1 hour
+        // });
 
-        return res.status(200).json({ message: 'Login successful' });
+        return res.status(200).json({
+            message: 'Login successful', user:
+            {
+                id: user.id,
+                username: user.username,
+                token,
+                email: user.email
+            }
+        });
     } catch (error) {
-        console.error('Error in loginAdmin:', error);
-        return res.status(500).json({ message: 'Internal server error' });
+        return res.status(500).json({ message: 'Internal server error', error: error.message });
     }
 };
 
@@ -44,7 +51,7 @@ export const adminLogout = (req, res) => {
     try {
         res.clearCookie('Tree-Project', {
             httpOnly: true,
-            secure: true,
+            secure: false,
             sameSite: 'None',
         });
         return res.status(200).json({ message: 'Logout successful' });
@@ -56,7 +63,7 @@ export const adminLogout = (req, res) => {
 
 
 
-export const deleteBlog = async(req,res)=>{
+export const deleteBlog = async (req, res) => {
     try {
         const { id } = req.params;
         const blog = await Blog.findByIdAndDelete(id);
@@ -78,15 +85,13 @@ export const deleteBlog = async(req,res)=>{
 
 
 
-export const updateBlog = async(req,res)=>{
+export const updateBlog = async (req, res) => {
     try {
         const { id } = req.params;
         const { title, description } = req.body;
-       
-        
-        // 
+
         await Blog.findByIdAndUpdate(id, { title, description })
-        return res.status(200).json({ message: 'Blog updated successfully'});
+        return res.status(200).json({ message: 'Blog updated successfully' });
     } catch (error) {
         console.error('Error updating blog:', error);
         return res.status(500).json({ message: 'Internal server error' });

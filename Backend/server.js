@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import connectDB from './Config/Database.js';
-import userRoutes from './Router/UserRoutes.js';
 import blogRoutes from './Router/BlogRoutes.js';
 import categoryRoutes from './Router/CategoryRoutes.js';
 import adminRoutes from './Router/AdminRoutes.js';
@@ -15,8 +14,10 @@ app.use(express.json());
 
 // Fixed CORS configuration - remove trailing slash from origin
 app.use(cors({
-    origin:'http://localhost:5173',
-    withCredentials: true
+    origin:`${process.env.FrontEnd_URL}`,
+    withCredentials: true,
+    credentials: true,
+    accessControlAllowCredentials: true
 }));
 
 // accept form data
@@ -30,7 +31,6 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
-app.use('/api/user', userRoutes);
 app.use('/api/blog', blogRoutes);
 app.use('/api/category', categoryRoutes);
 app.use('/api/admin', adminRoutes);

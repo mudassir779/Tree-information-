@@ -1,8 +1,10 @@
-// src/pages/admin/AdminDashboard.jsx
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 const AdminDashboard = () => {
+  const navigate = useNavigate();
+  const { logout } = useAuth();
   const [stats, setStats] = useState({
     totalBlogs: 0,
     totalCategories: 0,
@@ -12,9 +14,7 @@ const AdminDashboard = () => {
   });
 
   useEffect(() => {
-    // In a real app, you would fetch these stats from your API
     const fetchStats = async () => {
-      // Simulate API call
       setTimeout(() => {
         setStats({
           totalBlogs: 24,
@@ -28,35 +28,40 @@ const AdminDashboard = () => {
     fetchStats();
   }, []);
 
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  }
+
   return (
     <div>
       <h1 className="text-2xl font-bold mb-6">Dashboard Overview</h1>
-      
+
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <StatCard 
-          title="Total Blogs" 
-          value={stats.totalBlogs} 
-          icon="📝" 
+        <StatCard
+          title="Total Blogs"
+          value={stats.totalBlogs}
+          icon="📝"
           link="/admin-dashboard/edit-blogs"
         />
-        <StatCard 
-          title="Total Categories" 
-          value={stats.totalCategories} 
-          icon="🏷️" 
+        <StatCard
+          title="Total Categories"
+          value={stats.totalCategories}
+          icon="🏷️"
           link="/admin-dashboard/add-category"
         />
-        <StatCard 
-          title="Pending Jobs" 
-          value={stats.pendingJobs} 
-          icon="⏳" 
+        <StatCard
+          title="Pending Jobs"
+          value={stats.pendingJobs}
+          icon="⏳"
           link="/admin-dashboard/job-requests"
           color="yellow"
         />
-        <StatCard 
-          title="Completed Jobs" 
-          value={stats.completedJobs} 
-          icon="✅" 
+        <StatCard
+          title="Completed Jobs"
+          value={stats.completedJobs}
+          icon="✅"
           link="/admin-dashboard/job-requests"
           color="green"
         />
@@ -66,51 +71,57 @@ const AdminDashboard = () => {
       <div className="bg-white p-4 rounded-lg shadow mb-6">
         <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
-          <QuickAction 
-            icon="✍️" 
-            title="Add New Blog" 
+          <QuickAction
+            icon="✍️"
+            title="Add New Blog"
             link="/admin-dashboard/add-blog"
           />
-          <QuickAction 
-            icon="🏷️" 
-            title="Add Category" 
+          <QuickAction
+            icon="🏷️"
+            title="Add Category"
             link="/admin-dashboard/add-category"
           />
-          <QuickAction 
-            icon="📋" 
-            title="View Job Requests" 
+          <QuickAction
+            icon="📋"
+            title="View Job Requests"
             link="/admin-dashboard/job-requests"
           />
-          <QuickAction 
-            icon="📝" 
-            title="Edit Blogs" 
+          <QuickAction
+            icon="📝"
+            title="Edit Blogs"
             link="/admin-dashboard/edit-blogs"
           />
         </div>
+      </div>
+
+      <div className='w-1/4 mx-auto flex justify-center'>
+        <button
+          className="group relative w-full flex hover:cursor-pointer justify-center py-2 px-4 border border-transparent text-xl font-bold rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+          onClick={ handleLogout }>Logout</button>
       </div>
 
       {/* Recent Activity */}
       <div className="bg-white p-4 rounded-lg shadow">
         <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
         <div className="space-y-3">
-          <ActivityItem 
-            icon="📝" 
-            title="New blog created" 
+          <ActivityItem
+            icon="📝"
+            title="New blog created"
             time="2 minutes ago"
           />
-          <ActivityItem 
-            icon="💼" 
-            title="New job request received" 
+          <ActivityItem
+            icon="💼"
+            title="New job request received"
             time="15 minutes ago"
           />
-          <ActivityItem 
-            icon="✅" 
-            title="Job marked as completed" 
+          <ActivityItem
+            icon="✅"
+            title="Job marked as completed"
             time="1 hour ago"
           />
-          <ActivityItem 
-            icon="🏷️" 
-            title="New category added" 
+          <ActivityItem
+            icon="🏷️"
+            title="New category added"
             time="2 hours ago"
           />
         </div>

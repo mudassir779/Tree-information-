@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import axios from "axios";
-import {useDispatch} from "react-redux";
-import { login } from '../../Features/auth';
+import { useAuth } from '../../context/AuthContext';
+
 
 const AdminLogin = () => {
-    const dispatch = useDispatch();
     const backendLink = useSelector((state) => state.prod.link);
     const [formData, setFormData] = useState({ email: '', password: '' });
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
+    const { login } = useAuth();
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-        console.log("name is",name + "value is ",value)
+        setFormData(prev => ({ ...prev, [name]: value })); 
     };
 
     const handleLogin = async (e) => {
@@ -25,9 +25,13 @@ const AdminLogin = () => {
         setError('');
 
         try {
-            const response = await axios.post(`${backendLink}/api/admin-login`, formData);
-            dispatch(login(response.data));
-            navigate('/adminpanel');
+            const response = await axios.post(`${backendLink}/api/admin/admin-login`, formData, {
+                withCredentials:true
+            });
+            if(response.status==200){
+                await login(response.data.user.username, response.data.user.token);
+                navigate('/admin-dashboard');
+            }
         } catch (error) {
             setError(error.response.data.message);
         } finally {
