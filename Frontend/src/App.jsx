@@ -1,5 +1,6 @@
 import Blogs from "./components/Blogs.jsx"
 import { Route, Routes } from "react-router-dom"
+import ProtectedRoutes from "./utils/ProtectedRoutes.jsx"
 
 import Home from "./Pages/Home.jsx"
 import ContactUS from "./Pages/ContactUs.jsx"
@@ -52,8 +53,8 @@ function App() {
             <Route path="/services/commercial-tree-services/" element={<CommercialTreeServices />} />
           </Route>
           <Route path="/service-areas" element={<ServiceArea />}>
-            <Route index element={<Evansville/>} />
-            <Route path="/service-areas/tree-service-evansville-in/" element={<Evansville/>} />
+            <Route index element={<Evansville />} />
+            <Route path="/service-areas/tree-service-evansville-in/" element={<Evansville />} />
             <Route path="/service-areas/tree-service-newburgh-in/" element={<Newburgh />} />
             <Route path="/service-areas/tree-service-boonville-in/" element={<Boonville />} />
             <Route path="/service-areas/tree-service-henderson-ky/" element={<Henderson />} />
@@ -67,7 +68,11 @@ function App() {
 
 
         <Route path="/admin-login" element={<AdminLogin />} />
-          <Route element={<AdminLayout />}>
+        <Route element={
+          <ProtectedRoutes>
+            <AdminLayout />
+          </ProtectedRoutes>
+        }>
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/admin-dashboard/dashboard" element={<Dashboard />} />
           <Route path="/admin-dashboard/add-blog" element={<AddBlog />} />
