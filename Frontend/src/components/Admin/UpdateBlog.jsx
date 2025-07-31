@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+
 
 const UpdateBlog = () => {
+  const backendLink = useSelector((state) => state.prod.link);
   const { id } = useParams();
   const navigate = useNavigate();
   const [blog, setBlog] = useState(null);
@@ -11,51 +15,58 @@ const UpdateBlog = () => {
   const [category, setCategory] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    // Simulate fetching blog data from API
-    const fetchBlog = async () => {
-      try {
-        await new Promise(resolve => setTimeout(resolve, 500));
-        // Mock data - in a real app, you would fetch by ID
-        const mockBlog = {
-          id: id,
-          title: 'Getting Started with React',
-          content: 'This is the blog content...',
-          category: 'technology',
-          date: '2023-05-15',
-          views: 1245
-        };
-        setBlog(mockBlog);
-        setTitle(mockBlog.title);
-        setContent(mockBlog.content);
-        setCategory(mockBlog.category);
-      } catch (error) {
-        console.error('Failed to fetch blog:', error);
-        setError('Failed to load blog');
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchBlog();
-  }, [id]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError('');
-
+  const getCategories = async () => {
     try {
-      // In a real app, you would call your API to update the blog
-      await new Promise(resolve => setTimeout(resolve, 800));
-      console.log({ id, title, content, category });
-      navigate('/admin-dashboard/edit-blogs');
+      const response = await axios.get(`${backendLink}/api/category/get-category`);
+      setCategories(response.data.category);
     } catch (err) {
-      setError('Failed to update blog. Please try again.');
-    } finally {
-      setIsSubmitting(false);
+      console.error("Error fetching categories:", err);
+      setError('Failed to load categories');
     }
   };
+
+  const getBlogById = async () => {
+    try {
+      const response = await axios.get(`${backendLink}/api/blog/get-blogs/${id}`);
+      // setBlog(response.data.blog);
+      setTitle(response.data.blog.title);
+      setContent(response.data.blog.description);
+      setCategory(response.data.blog.category._id);
+    } catch (err) {
+      console.error("Error fetching blog:", err);
+      setError('Failed to load blog');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getBlogById();
+    getCategories();
+  }, [id]);
+
+
+
+  const updateBlog = async (e) => {
+    try {
+      e.preventDefault();
+      const response = await axios.put(`${backendLink}/api/blog/update-blog/${id}`, {
+        title,
+        description: content,
+        category
+      });
+      alert("Blog updated successfully:", response.data);
+      navigate('/admin-dashboard/edit-blogs');
+    } catch (error) {
+      console.error("Error updating blog:", error);
+      setError('Failed to update blog');
+    }
+  };
+
+ 
 
   if (loading) {
     return (
@@ -89,7 +100,7 @@ const UpdateBlog = () => {
       
       {error && <div className="mb-4 p-3 bg-red-100 text-red-700 rounded">{error}</div>}
       
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow">
+      <form onSubmit={updateBlog} className="bg-white p-6 rounded-lg shadow">
         <div className="mb-4">
           <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
             Blog Title
@@ -111,14 +122,17 @@ const UpdateBlog = () => {
           <select
             id="category"
             value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={(e) => {
+              setCategory(e.target.value);
+            }}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           >
-            <option value="technology">Technology</option>
-            <option value="business">Business</option>
-            <option value="health">Health</option>
-            <option value="education">Education</option>
+            {categories.map((cat) => (
+              <option key={cat._id} value={cat._id}>
+                {cat.title}
+              </option>
+            ))}
           </select>
         </div>
 

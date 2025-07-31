@@ -1,25 +1,26 @@
-import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const Blogs = () => {
+const CategoryBlogs = () => {
   const navigate = useNavigate();
   const backendLink = useSelector((state) => state.prod.link);
-  const [blogPosts, setBlogPosts] = useState([]);
+  const [categoryPosts, setCategoryPosts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [recentPost, SetrecentPost] = useState([]);
+  const { id } = useParams();
 
-  const getBlogPosts = async () => {
+  const getCategoryPosts = async () => {
     try {
-      const response = await axios.get(`${backendLink}/api/blog/get-blogs`);
-      setBlogPosts(response.data.blog);
+      const response = await axios.get(`${backendLink}/api/category/get-category/${id}`);
+      setCategoryPosts(response.data.blogs);
+      console.log(response.data.blogs);
     } catch (error) {
       console.error("Error fetching blog posts:", error);
-      setBlogPosts([]);
+      setCategoryPosts([]);
     }
   };
 
@@ -46,7 +47,7 @@ const Blogs = () => {
   };
 
   useEffect(() => {
-    getBlogPosts();
+    getCategoryPosts();
     getCategory();
     getRecentPosts();
   }, []);
@@ -65,13 +66,16 @@ const Blogs = () => {
             </h1>
 
             <div className="space-y-12">
-              {blogPosts &&
-                blogPosts.map((post) => (
+              {categoryPosts &&
+                categoryPosts.map((post) => (
                   <article
                     key={post._id}
                     className="border-b border-gray-200 pb-8 last:border-0 last:pb-0"
                   >
-                    <div className="mb-6 overflow-hidden" onClick={() => navigate(`/blog/${post._id}`)}>
+                    <div
+                      className="mb-6 overflow-hidden"
+                      onClick={() => navigate(`/blog/${post._id}`)}
+                    >
                       <img
                         src={backendLink + "/" + post.image}
                         alt={post.title}
@@ -89,6 +93,11 @@ const Blogs = () => {
                     <div className="flex items-center text-sm text-gray-500 mb-4">
                       <span>{post.dated}</span>
                       <span className="mx-2">|</span>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-2 py-1 bg-gray-100 rounded-md text-gray-600 hover:bg-green-100 hover:text-green-700 transition-colors">
+                          {post.category.title}
+                        </span>
+                      </div>
                     </div>
 
                     <h2 className="text-gray-600 mb-4 leading-relaxed">
@@ -128,9 +137,10 @@ const Blogs = () => {
                 {/* recent post */}
                 {recentPost &&
                   recentPost.slice(0, 5).map((item, key) => (
-                    <div key={key}
-                    className={`block px-3 font-semibold rounded transition text-green-700 hover:cursor-pointer hover:bg-green-100 hover:text-green-600`}
-                    onClick={() => navigate(`/blog/${item._id}`)}
+                    <div
+                      key={key}
+                      className={`block px-3 font-semibold rounded transition text-green-700 hover:cursor-pointer hover:bg-green-100 hover:text-green-600`}
+                      onClick={() => navigate(`/blog/${item._id}`)}
                     >
                       {item.title}
                     </div>
@@ -166,4 +176,4 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+export default CategoryBlogs;

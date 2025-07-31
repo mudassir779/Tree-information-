@@ -33,6 +33,8 @@ import Boonville from "./Pages/Boonville.jsx"
 import Henderson from "./Pages/Henderson.jsx"
 import WarrickCounty from "./Pages/WarrickCounty.jsx"
 import JobRequests from "./components/Admin/JobRequests.jsx"
+import BlogDescription from "./Pages/BlogDescription.jsx"
+import CategoryBlogs from "./Pages/CategoryBlogs.jsx"
 function App() {
   return (
     <div className="">
@@ -63,6 +65,8 @@ function App() {
           <Route path="/photo-gallery" element={<PhotoGallery />} />
           <Route path="/contact-us" element={<ContactUS />} />
           <Route path="/blog" element={<Blogs />} />
+          <Route path="/blog/:id" element={<BlogDescription />} />
+          <Route path="/category/:id" element={<CategoryBlogs />} />
           <Route path="/privacy-policy" element={<PrivacyPolicies />} />
         </Route>
 

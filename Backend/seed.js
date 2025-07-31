@@ -1,6 +1,6 @@
 import connectDB from "./Config/Database.js";
 import bcrypt from "bcrypt";
-import User from "./Model/UserModel.js";
+import User from "./Model/AdminModel.js";
 
 const register = async () => {
     try {

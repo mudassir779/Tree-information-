@@ -15,8 +15,6 @@ const AddBlog = () => {
   const [error, setError] = useState('');
   const [categories, setCategories] = useState([]);
 
-  console.log("category id ", categories);
-
   // Fetch all categories from the backend
   const getAllCategories = async () => {
     try {
