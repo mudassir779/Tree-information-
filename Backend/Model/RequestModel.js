@@ -32,7 +32,7 @@ const RequestSchema = new mongoose.Schema({
         Tree_Maintenance_Planning: { type: Boolean, default: false },
 
         Job_Size: { type: String, default: ' ' },
-        Job_Details: { type: String, default: ' ' },
+        Job_Details: { type: String},
     },
     Availability: {
         Day: { type: Date },
