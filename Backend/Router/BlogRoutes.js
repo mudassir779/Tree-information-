@@ -1,5 +1,5 @@
 import express from 'express'
-import { addBlog, deleteBlog, getAllBlog , getBlogById, getDescription, updateBlog } from '../Controller/BlogController.js';
+import { addBlog, deleteBlog, getAllBlog , getBlogById, getDescription, getImages, updateBlog } from '../Controller/BlogController.js';
 import { upload } from '../MiddleWares/Multer.js';
 
 
@@ -11,6 +11,7 @@ router.get('/get-description/:id',getDescription)
 router.delete('/delete-blog/:id',deleteBlog)
 router.get('/get-blogs/:id',getBlogById)
 router.put('/update-blog/:id',updateBlog)
+router.get('/get-images',getImages)
 
 
 export default router

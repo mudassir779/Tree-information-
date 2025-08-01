@@ -157,3 +157,21 @@ export const deleteBlog  = async(req, res) => {
     return res.status(500).json({ message: 'Internal server error' });
   }
 }
+
+
+
+export const getImages = async (req, res) => {
+  try {
+    
+    const image = await Blog.find({image});
+    if (!image) {
+      return res.status(404).json({ message: "image is not found" });
+    }
+    res.status(200).json({
+      success: true,
+      image
+    })
+  } catch (err) {
+    console.log(err);
+  }
+};
