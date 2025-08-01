@@ -8,7 +8,8 @@ const RequestSchema = new mongoose.Schema({
         Email: {
             type: String,
             required: true,
-            unique: true
+            unique: true,
+            match: [/^\S+@\S+\.\S+$/, 'Invalid email format']
         },
         Phone: { type: String, required: true }
     },
@@ -37,7 +38,11 @@ const RequestSchema = new mongoose.Schema({
         Day: { type: Date },
         Another_Day: { type: Date },
         Arrival_time: { type: String, default: ' ' },
-        Images: { type: Array, default: [] },
+    },
+    Images: { type: [String], default: [] },
+    Status: {
+        type: String, enum: ["Pending", "In-Progress", "Completed"],
+        default: "Pending"
     }
 }, {
     timestamps: true

@@ -1,8 +1,6 @@
 import express from 'express'
 import { addCategory, getCategory ,categoryById,deleteCategory,updateCategory} from '../Controller/CategoryController.js';
 
-
-
 const router = express.Router()
 
 router.post('/add-category',addCategory)

@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import axios from 'axios';
 
 const AdminDashboard = () => {
+  const backendLink = useSelector((state) => state.prod.link);
   const navigate = useNavigate();
   const { logout } = useAuth();
   const [stats, setStats] = useState({
@@ -13,12 +16,16 @@ const AdminDashboard = () => {
     completedJobs: 0,
   });
 
+  
+
   useEffect(() => {
     const fetchStats = async () => {
+      const response = await axios.get(`${backendLink}/api/dashboard/`);
+      console.log(response.data);
       setTimeout(() => {
         setStats({
-          totalBlogs: 24,
-          totalCategories: 8,
+          totalBlogs: response.data.blogCount,
+          totalCategories: response.data.categoryCount,
           pendingJobs: 5,
           inProgressJobs: 3,
           completedJobs: 12,
