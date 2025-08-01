@@ -115,7 +115,7 @@ const Evansville = () => {
             </h1>
 
             <p className="text-base sm:text-lg font-semibold text-gray-700 mb-4 sm:mb-6">
-              American Tree Experts Land has been a proud family tree care business for over two decades and counting! We are arborists, so you can trust us to provide excellent tree care services that will keep your trees looking healthy and beautiful. Additionally, our membership in ISA & TCIA demonstrates the commitment we have to provide reliable service. Get in touch with us today at (727) 934-5804 to receive a free estimate.
+              American Tree Experts Land has been a proud family tree care business for over two decades and counting! We are arborists, so you can trust us to provide excellent tree care services that will keep your trees looking healthy and beautiful. Additionally, our membership in ISA & TCIA demonstrates the commitment we have to provide reliable service. Get in touch with us today at 812-457-3433 to receive a free estimate.
             </p>
 
             <p className="text-gray-600 mb-6 sm:mb-8">
