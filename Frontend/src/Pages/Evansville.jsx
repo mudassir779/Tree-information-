@@ -111,7 +111,6 @@ const Evansville = () => {
           <div className="lg:w-2/3">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">
               Your Trusted Tree Service Company in Evansville, IN 
-
             </h1>
 
             <p className="text-base sm:text-lg font-semibold text-gray-700 mb-4 sm:mb-6">

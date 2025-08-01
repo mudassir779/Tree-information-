@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useLocation, Link } from "react-router-dom";
+import { useParams, useLocation, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { FaCalendarAlt, FaPhone, FaArrowRight } from "react-icons/fa";
@@ -14,6 +14,7 @@ const BlogDescription = () => {
   const [loading, setLoading] = useState(true);
   const backendLink = useSelector((state) => state.prod.link);
   const { id } = useParams();
+  const navigate = useNavigate();
   const location = useLocation();
 
   const getDescriptionById = async () => {
@@ -53,7 +54,21 @@ const BlogDescription = () => {
   }, [id]);
 
   return (
-    <div className="bg-gray-50 min-h-screen py-12">
+    <div className="bg-gray-50 min-h-screen pb-12">
+      {/* Hero Section */}
+      <section className="relative w-full mb-8 sm:mb-12">
+        <div className="h-48 sm:h-60 md:h-70 w-full">
+          <div className="absolute inset-0 bg-[url('/hero-img.jpg')] bg-cover bg-center">
+            <div className="absolute inset-0 bg-gradient-to-b from-[#000000b3] to-[#0000008c]"></div>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center px-4 uppercase">
+              {loading ? <Skeleton width={300} /> : description?.title}
+            </h1>
+          </div>
+        </div>
+      </section>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Breadcrumbs */}
         <nav className="flex mb-8" aria-label="Breadcrumb">
@@ -166,19 +181,14 @@ const BlogDescription = () => {
               <div className="p-4">
                 <ul className="space-y-3">
                   {recentPosts.slice(0, 5).map((item, key) => (
-                    <li key={key}>
-                      <Link
-                        to={item.path}
-                        className={`flex items-center px-3 py-2 rounded-md transition ${
-                          location.pathname === item.path
-                            ? "bg-green-50 text-green-700"
-                            : "text-gray-700 hover:bg-green-50 hover:text-green-600"
-                        }`}
-                      >
-                        <FaArrowRight className="mr-2 text-green-600 flex-shrink-0" />
-                        <span className="font-medium line-clamp-2">{item.title}</span>
-                      </Link>
-                    </li>
+                    <div
+                      key={key}
+                      className={`flex items-center px-3 font-semibold rounded transition text-green-700 hover:cursor-pointer hover:bg-green-100 hover:text-green-600`}
+                      onClick={() => navigate(`/blog/${item._id}`)}
+                    >
+                      <FaArrowRight className="mr-2 text-green-600 flex-shrink-0" />
+                      <span className="font-medium line-clamp-2">{item.title}</span>
+                    </div>
                   ))}
                 </ul>
               </div>
@@ -195,11 +205,10 @@ const BlogDescription = () => {
                     <li key={index}>
                       <Link
                         to={`/category/${category._id}`}
-                        className={`flex items-center px-3 py-2 rounded-md transition ${
-                          location.pathname === `/category/${category._id}`
+                        className={`flex items-center px-3 py-2 rounded-md transition ${location.pathname === `/category/${category._id}`
                             ? "bg-green-50 text-green-700"
                             : "text-gray-700 hover:bg-green-50 hover:text-green-600"
-                        }`}
+                          }`}
                       >
                         <IoIosArrowForward className="mr-2 text-green-600 flex-shrink-0" />
                         <span className="font-medium">{category.title}</span>
