@@ -1,22 +1,30 @@
 import { useState, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { FaCalendarAlt, FaPhone, FaArrowRight } from "react-icons/fa";
+import { IoIosArrowForward } from "react-icons/io";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const BlogDescription = () => {
   const [categories, setCategories] = useState([]);
   const [recentPosts, setRecentPosts] = useState([]);
   const [description, setDescription] = useState(null);
+  const [loading, setLoading] = useState(true);
   const backendLink = useSelector((state) => state.prod.link);
   const { id } = useParams();
   const location = useLocation();
 
   const getDescriptionById = async () => {
     try {
+      setLoading(true);
       const response = await axios.get(`${backendLink}/api/blog/get-description/${id}`);
       setDescription(response.data.blog);
     } catch (err) {
       console.error("Error fetching blog description:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -45,68 +53,162 @@ const BlogDescription = () => {
   }, [id]);
 
   return (
-    <div className="container mx-auto mb-20 px-4">
-      <div className="flex flex-col lg:flex-row gap-8">
-        <div className="lg:w-2/3">
-          {description && (
-            <div>
-              <img src={`${backendLink}/${description.image}`} alt={description.title} className="w-full h-auto" />
-              <h2 className="text-2xl font-semibold my-4">{description.title}</h2>
-              <p className="text-gray-600 mb-4">{description.content}</p>
-              <span className="text-sm text-gray-500">
-                Posted on: {new Date(description.createdAt).toLocaleDateString()}
-              </span>
-              <div className="mt-6">
-                <p className="text-gray-700">{description.description}</p>
+    <div className="bg-gray-50 min-h-screen py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        {/* Breadcrumbs */}
+        <nav className="flex mb-8" aria-label="Breadcrumb">
+          <ol className="inline-flex items-center space-x-1 md:space-x-3">
+            <li className="inline-flex items-center">
+              <Link
+                to="/"
+                className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-green-600"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <div className="flex items-center">
+                <IoIosArrowForward className="text-gray-400 mx-1" />
+                <Link
+                  to="/blog"
+                  className="ml-1 text-sm font-medium text-gray-700 hover:text-green-600 md:ml-2"
+                >
+                  Blog
+                </Link>
+              </div>
+            </li>
+            <li aria-current="page">
+              <div className="flex items-center">
+                <IoIosArrowForward className="text-gray-400 mx-1" />
+                <span className="ml-1 text-sm font-medium text-gray-500 md:ml-2">
+                  {loading ? <Skeleton width={150} /> : description?.title}
+                </span>
+              </div>
+            </li>
+          </ol>
+        </nav>
+
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Main Content */}
+          <div className="lg:w-2/3">
+            {loading ? (
+              <div className="space-y-6">
+                <Skeleton height={400} className="rounded-lg" />
+                <Skeleton count={4} />
+                <Skeleton width="70%" />
+              </div>
+            ) : description ? (
+              <article className="bg-white rounded-xl shadow-md overflow-hidden">
+                <img
+                  src={`${backendLink}/${description.image}`}
+                  alt={description.title}
+                  className="w-full h-64 sm:h-80 md:h-96 object-cover"
+                />
+                <div className="p-6 sm:p-8">
+                  <div className="flex items-center text-sm text-gray-500 mb-4">
+                    <FaCalendarAlt className="mr-2" />
+                    <span>
+                      Posted on: {new Date(description.createdAt).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </span>
+                  </div>
+                  <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{description.title}</h1>
+                  <div className="prose max-w-none text-gray-700 mb-6">
+                    <p className="text-lg leading-relaxed">{description.content}</p>
+                  </div>
+                  <div
+                    className="prose max-w-none text-gray-700"
+                    dangerouslySetInnerHTML={{ __html: description.description }}
+                  />
+                </div>
+              </article>
+            ) : (
+              <div className="bg-white rounded-xl shadow-md p-8 text-center">
+                <h2 className="text-xl font-semibold text-gray-800">Blog post not found</h2>
+                <p className="text-gray-600 mt-2">The requested blog post could not be loaded.</p>
+                <Link
+                  to="/blog"
+                  className="mt-4 inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
+                >
+                  Back to Blog
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Sidebar */}
+          <div className="lg:w-1/3 space-y-6">
+            {/* Contact Card */}
+            <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-xl shadow-lg overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-bold text-white mb-3">Contact Us Today!</h3>
+                <div className="flex items-center justify-center">
+                  <FaPhone className="text-white mr-2" />
+                  <a
+                    href="tel:812-457-3433"
+                    className="text-2xl font-bold text-white hover:text-gray-200 transition-colors"
+                  >
+                    812-457-3433
+                  </a>
+                </div>
+                <p className="text-green-100 mt-3">We're here to answer your questions</p>
               </div>
             </div>
-          )}
-        </div>
 
-        <div className="lg:w-1/4 space-y-6">
-          <div className="bg-white shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 p-4">
-            <h3 className="text-lg font-bold text-center text-gray-800">Contact Us Today!</h3>
-            <a href="tel:812-457-3433" className="block text-center text-xl text-green-600 font-bold mt-2">812-457-3433</a>
-          </div>
+            {/* Recent Posts */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden">
+              <div className="bg-green-600 px-5 py-3">
+                <h3 className="text-lg font-bold text-white">Recent Posts</h3>
+              </div>
+              <div className="p-4">
+                <ul className="space-y-3">
+                  {recentPosts.slice(0, 5).map((item, key) => (
+                    <li key={key}>
+                      <Link
+                        to={item.path}
+                        className={`flex items-center px-3 py-2 rounded-md transition ${
+                          location.pathname === item.path
+                            ? "bg-green-50 text-green-700"
+                            : "text-gray-700 hover:bg-green-50 hover:text-green-600"
+                        }`}
+                      >
+                        <FaArrowRight className="mr-2 text-green-600 flex-shrink-0" />
+                        <span className="font-medium line-clamp-2">{item.title}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
 
-          <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
-            <h3 className="text-md font-bold bg-green-600 text-white mb-4 px-5 py-2">Recent Posts</h3>
-            <ul className="space-y-2">
-              {recentPosts.slice(0, 5).map((item, key) => (
-                <li key={key}>
-                  <a
-                    href={item.path}
-                    className={`block px-3 font-semibold rounded transition ${
-                      location.pathname === item.path
-                        ? "bg-green-100 text-green-700"
-                        : "text-gray-700 hover:bg-green-50 hover:text-green-600"
-                    }`}
-                  >
-                    {item.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
-            <h3 className="text-md font-bold bg-green-600 text-white mb-4 px-5 py-2">Categories</h3>
-            <ul className="space-y-2">
-              {categories.map((category, index) => (
-                <li key={index}>
-                  <a
-                    href={`/category/${category._id}`}
-                    className={`block px-3 font-semibold rounded transition ${
-                      location.pathname === `/category/${category._id}`
-                        ? "bg-green-100 text-green-700"
-                        : "text-gray-700 hover:bg-green-50 hover:text-green-600"
-                    }`}
-                  >
-                    {category.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {/* Categories */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden">
+              <div className="bg-green-600 px-5 py-3">
+                <h3 className="text-lg font-bold text-white">Categories</h3>
+              </div>
+              <div className="p-4">
+                <ul className="space-y-2">
+                  {categories.map((category, index) => (
+                    <li key={index}>
+                      <Link
+                        to={`/category/${category._id}`}
+                        className={`flex items-center px-3 py-2 rounded-md transition ${
+                          location.pathname === `/category/${category._id}`
+                            ? "bg-green-50 text-green-700"
+                            : "text-gray-700 hover:bg-green-50 hover:text-green-600"
+                        }`}
+                      >
+                        <IoIosArrowForward className="mr-2 text-green-600 flex-shrink-0" />
+                        <span className="font-medium">{category.title}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

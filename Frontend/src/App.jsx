@@ -35,6 +35,8 @@ import WarrickCounty from "./Pages/WarrickCounty.jsx"
 import JobRequests from "./components/Admin/JobRequests.jsx"
 import BlogDescription from "./Pages/BlogDescription.jsx"
 import CategoryBlogs from "./Pages/CategoryBlogs.jsx"
+import SiteMap from "./Pages/SiteMap.jsx"
+import Testimonial from "./Pages/Testimonial.jsx"
 function App() {
   return (
     <div className="">
@@ -44,7 +46,7 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/testimonials" element={<h1>Testimonials</h1>} />
+          <Route path="/testimonials" element={<Testimonial/>} />
           <Route path="/services" element={<Services />}>
             <Route index element={<TreeRemoval />} />
             <Route path="/services/tree-removal/" element={<TreeRemoval />} />
@@ -68,6 +70,7 @@ function App() {
           <Route path="/blog/:id" element={<BlogDescription />} />
           <Route path="/category/:id" element={<CategoryBlogs />} />
           <Route path="/privacy-policy" element={<PrivacyPolicies />} />
+          <Route path="/sitemap" element={<SiteMap   />} />
         </Route>
 
 
