@@ -4,18 +4,18 @@ const PrivacyPolicy = () => {
   return (
     <div className="privacy-policy bg-gray-50">
       {/* Hero Section with Image */}
-      <div className="relative h-48 sm:h-64 md:h-80 w-full">
-        <div className="absolute inset-0 bg-gray-800 overflow-hidden">
-          <img 
-            src="/truck.jpeg" 
-            className="w-full h-full object-cover opacity-70" 
-            alt="American Tree Experts Land Truck" 
-          />
-        </div>
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center px-4">Privacy Policy</h1>
-        </div>
-      </div>
+      <section className="relative w-full mb-8 sm:mb-12">
+              <div className="h-48 sm:h-60 md:h-70 w-full">
+                <div className="absolute inset-0 bg-[url('/hero-img.jpg')] bg-cover bg-center">
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#000000b3] to-[#0000008c]"></div>
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center px-4 uppercase">
+                    Privacy Policy
+                  </h1>
+                </div>
+              </div>
+            </section>
 
       {/* Content Container */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 text-gray-700">

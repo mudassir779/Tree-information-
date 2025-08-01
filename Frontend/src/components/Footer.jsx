@@ -190,15 +190,13 @@ const Footer = () => {
                             <div className="border-t-2 border-gray-300 w-12 md:w-16 mb-3 md:mb-4"></div>
                             <div className="w-full h-40 sm:h-48">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d900640.4512516966!2d-82.686871!3d28.142629!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c28d77d54fea53%3A0xb5b559b2b13495d4!2sKen&#39;s%20Tree%20Service%2C%20Inc!5e0!3m2!1sen!2sus!4v1753296642078!5m2!1sen!2sus"
-                                    width="100%"
-                                    height="100%"
-                                    style={{ border: 0 }}
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3141.2020490645464!2d-87.4793165!3d38.0656754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886e2ad3f420ed75%3A0xd5397d7cfad2e97d!2sAmerican%20Tree%20Experts%20%26%20Landscaping!5e0!3m2!1sen!2sus!4v1754077737958!5m2!1sen!2sus"
                                     allowFullScreen=""
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
                                     className="rounded"
-                                    title="Ken's Tree Service Location"
+                                    // title="Ken's Tree Service Location"
+                                    title="American Tree Experts & Landscaping Location"
                                 />
                             </div>
                         </div>

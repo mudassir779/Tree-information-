@@ -950,7 +950,7 @@ const Home = () => {
             <div className="w-full lg:w-1/2 flex items-center justify-center p-5 lg:p-10">
               <div className="w-full h-96 lg:h-full">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d225160.11281292414!2d-82.686871!3d28.142629!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c28d77d54fea53%3A0xb5b559b2b13495d4!2sKen&#39;s%20Tree%20Service%2C%20Inc!5e0!3m2!1sen!2sus!4v1753428384528!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3141.2020490645464!2d-87.4793165!3d38.0656754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886e2ad3f420ed75%3A0xd5397d7cfad2e97d!2sAmerican%20Tree%20Experts%20%26%20Landscaping!5e0!3m2!1sen!2sus!4v1754077737958!5m2!1sen!2sus"
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
