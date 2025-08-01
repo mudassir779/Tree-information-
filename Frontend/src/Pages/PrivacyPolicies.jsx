@@ -246,7 +246,7 @@ const PrivacyPolicy = () => {
           <ul className="space-y-2 leading-relaxed">
             <li><strong>By email:</strong> Thetreexperts@gmail.com</li>
             <li><strong>By visiting this page on our website:</strong> http://www.americantreesexpert.com/</li>
-            <li><strong>By phone number:</strong> (727) 934-5804</li>
+            <li><strong>By phone number:</strong> 812-457-3433</li>
             <li><strong>By mail:</strong> Evansville, IN</li>
           </ul>
         </section>
