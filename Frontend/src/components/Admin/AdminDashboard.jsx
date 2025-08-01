@@ -12,11 +12,10 @@ const AdminDashboard = () => {
     totalBlogs: 0,
     totalCategories: 0,
     pendingJobs: 0,
-    inProgressJobs: 0,
     completedJobs: 0,
   });
 
-  
+
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -26,9 +25,8 @@ const AdminDashboard = () => {
         setStats({
           totalBlogs: response.data.blogCount,
           totalCategories: response.data.categoryCount,
-          pendingJobs: 5,
-          inProgressJobs: 3,
-          completedJobs: 12,
+          pendingJobs: response.data.pendingCount,
+          completedJobs: response.data.completedCount
         });
       }, 500);
     };
@@ -104,7 +102,7 @@ const AdminDashboard = () => {
       <div className='w-1/4 mx-auto flex justify-center'>
         <button
           className="group relative w-full flex hover:cursor-pointer justify-center py-2 px-4 border border-transparent text-xl font-bold rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
-          onClick={ handleLogout }>Logout</button>
+          onClick={handleLogout}>Logout</button>
       </div>
 
       {/* Recent Activity */}

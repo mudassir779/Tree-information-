@@ -67,7 +67,11 @@ const addRequest = async (req, res) => {
 const getRequests = async (req, res) => {
   try {
     const requests = await Request.find();
-    res.status(200).json(requests);
+
+    res.status(200).json({
+      message: "Requests fetched successfully",
+      requests: requests,
+    });
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error", error: error.message });
   }
@@ -86,4 +90,18 @@ const deleteRequest = async (req, res) => {
   }
 }
 
-export { addRequest, getRequests, deleteRequest };
+const updateRequest = async (req, res) => {
+  const { id } = req.params;
+  const { Status } = req.body;
+  try {
+    const updatedRequest = await Request.findByIdAndUpdate(id, { Status }, { new: true });
+    if (!updatedRequest) {
+      return res.status(404).json({ message: "Request not found" });
+    }
+    res.status(200).json({ message: "Request updated successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Internal Server Error", error: error.message });
+  }
+}
+
+export { addRequest, getRequests, deleteRequest, updateRequest };

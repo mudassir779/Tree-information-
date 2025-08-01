@@ -6,11 +6,14 @@ const getData = async (req, res) => {
     try {
         const blogCount = await Blog.countDocuments();
         const categoryCount = await Category.countDocuments();
-        const pendingCount = await Category.find({status:"Pending"}).countDocuments();
+        const pendingCount = await Request.find({ "Status": "Pending" }).countDocuments();
+        const completedCount = await Request.find({ "Status": "Completed" }).countDocuments();
+
         res.status(200).json({
             blogCount,
             categoryCount,
-            pendingCount
+            pendingCount,
+            completedCount,
         });
     } catch (err) {
         res.status(500).json({ message: "Internal Server Error", error: err.message });
