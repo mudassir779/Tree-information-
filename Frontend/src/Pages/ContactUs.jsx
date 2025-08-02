@@ -1,21 +1,113 @@
 import { useState } from "react";
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 const ContactUs = () => {
+  const backendLink = useSelector((state) => state.prod.link);
   const [formData, setFormData] = useState({
     Contact_Details: {
-      Fname : '',
-      Lname : '',
-      Company : '',
-      Email : '',
-      Phone : ''
+      First_name: '',
+      Last_name: '',
+      Company: '',
+      Email: '',
+      Phone: ''
+    },
+    Address: {
+      Street1: '',
+      Street2: '',
+      City: '',
+      State: '',
+      Zip: ''
     },
     Service_details: {
-      PropertyType : '',
-      Job_Details : ''
+      PropertyType: '',
+      Tree_Removal: false,
+      Tree_Trimming: false,
+      Palm_Trimming: false,
+      Hurricane_Preparation: false,
+      Root_Health: false,
+      Tree_Maintenance_Planning: false,
+      Job_Size: '',
+      Job_Details: ''
     },
-    Images : []
-    
+    Availability: {
+      Day: '',
+      Another_Day: '',
+      Arrival_time: {
+        Any_time: false,
+        Morning: false,
+        Afternoon: false
+      }
+    },
+    Images: []
   })
+
+  const handleChange = (e) => {
+    const { name, value, files, type, checked } = e.target;
+
+    if (type === "file") {
+      setFormData((prev) => ({
+        ...prev,
+        Images: [...prev.Images, ...Array.from(files)],
+      }));
+      return;
+    }
+
+    const keys = name.split(".");
+    if (keys.length === 2) {
+      const [parent, child] = keys;
+      setFormData((prev) => ({
+        ...prev,
+        [parent]: {
+          ...prev[parent],
+          [child]: type === "checkbox" ? checked : value,
+        },
+      }));
+    } else if (keys.length === 3) {
+      const [parent, nested, key] = keys;
+      setFormData((prev) => ({
+        ...prev,
+        [parent]: {
+          ...prev[parent],
+          [nested]: {
+            ...prev[parent][nested],
+            [key]: type === "checkbox" ? checked : value,
+          },
+        },
+      }));
+    }
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const data = new FormData();
+
+      data.append("Contact_Details", JSON.stringify(formData.Contact_Details));
+      data.append("Address", JSON.stringify(formData.Address));
+      data.append("Service_details", JSON.stringify(formData.Service_details));
+      data.append("Availability", JSON.stringify(formData.Availability));
+      data.append("Status", formData.Status || "Pending");
+
+      formData.Images.forEach((file) => {
+        data.append("Images", file); // multiple files with same key 'Images'
+      });
+
+      const response = await axios.post(`${backendLink}/api/request/add-request`, data, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
+      console.log(response.data);
+      alert('Form submitted successfully');
+    } catch (error) {
+      console.error(error);
+      alert("Failed to Submit form");
+    }
+  };
+
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -94,16 +186,25 @@ const ContactUs = () => {
               Fill out the form below and we'll get back to you as soon as possible.
             </p>
 
-            <form className="space-y-6 text-sm sm:text-base">
+            <form className="space-y-6 text-sm sm:text-base" onSubmit={handleSubmit}>
               {/* Contact Details */}
               <div>
                 <h2 className="text-xl font-semibold text-gray-800 mb-4">Contact details</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {["First name", "Last name"].map((label, i) => (
+                  {["First_name", "Last_name"].map((field, i) => (
                     <div key={i}>
-                      <label htmlFor={label} className="block text-gray-700 mb-1">{label}</label>
-                      <input type="text" id={label.toLowerCase()} placeholder={label}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
+                      <label htmlFor={field} className="block text-gray-700 mb-1">
+                        {field.replace("_", " ")}
+                      </label>
+                      <input
+                        type="text"
+                        id={field}
+                        name={`Contact_Details.${field}`}
+                        value={formData.Contact_Details[field]}
+                        onChange={handleChange}
+                        placeholder={field.replace("_", " ")}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600"
+                      />
                     </div>
                   ))}
                 </div>
@@ -112,7 +213,13 @@ const ContactUs = () => {
               {/* Company */}
               <div>
                 <label htmlFor="company" className="block text-gray-700 mb-1">Company name (if applicable)</label>
-                <input type="text" id="company" placeholder="Company name"
+                <input
+                  type="text"
+                  id="company"
+                  name="Contact_Details.Company"
+                  value={formData.Contact_Details.Company}
+                  onChange={handleChange}
+                  placeholder="Company name"
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
               </div>
 
@@ -120,12 +227,24 @@ const ContactUs = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="email" className="block text-gray-700 mb-1">Email</label>
-                  <input type="email" id="email" placeholder="Email"
+                  <input
+                    type="email"
+                    id="email"
+                    name="Contact_Details.Email"
+                    value={formData.Contact_Details.Email}
+                    onChange={handleChange}
+                    placeholder="Email"
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-gray-700 mb-1">Phone number</label>
-                  <input type="tel" id="phone" placeholder="Phone number"
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="Contact_Details.Phone"
+                    value={formData.Contact_Details.Phone}
+                    onChange={handleChange}
+                    placeholder="Phone number"
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
                 </div>
               </div>
@@ -134,13 +253,20 @@ const ContactUs = () => {
               <div>
                 <h3 className="font-semibold text-gray-800 mb-2">Address</h3>
                 <div className="space-y-4">
-                  {["Street 1", "Street 2"].map((street, i) => (
-                    <input key={i} type="text" placeholder={street}
+                  <div>
+                    <label htmlFor="Street1" className="block text-gray-700 mb-1">Street 1</label>
+                    <input id="Street1" type="text" name="Address.Street1" value={formData.Address.Street1} onChange={handleChange} placeholder='Street 1'
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
-                  ))}
+                  </div>
+                  <div>
+                    <label htmlFor="Street2" className="block text-gray-700 mb-1">Street 2</label>
+                    <input id="Street2" type="text" name="Address.Street2" value={formData.Address.Street2} onChange={handleChange} placeholder='Street 2'
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
+                  </div>
+
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {["City", "State", "ZIP code"].map((field, i) => (
-                      <input key={i} type="text" placeholder={field}
+                    {["City", "State", "Zip"].map((field, i) => (
+                      <input key={i} type="text" name={`Address.${field}`} value={formData.Address[field]} onChange={handleChange} placeholder={field}
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
                     ))}
                   </div>
@@ -150,55 +276,65 @@ const ContactUs = () => {
               {/* Service Details */}
               <div>
                 <h2 className="text-xl font-semibold text-gray-800 mb-4">Service Details</h2>
-
-                <label htmlFor="propertyType" className="block text-gray-700 mb-1">Property Type</label>
-                <select id="propertyType" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600">
-                  <option>Choose an option</option>
-                  <option>Residential</option>
-                  <option>Estate</option>
-                  <option>HOA</option>
-                  <option>Apartment</option>
-                  <option>Mobile</option>
-                  <option>Golf</option>
-                  <option>Management</option>
-                  <option>Municipal</option>
-                  <option>Church</option>
-                  <option>Other</option>
+                <label htmlFor="Service_details.PropertyType" className="block text-gray-700 mb-1">Property Type</label>
+                <select id="Service_details.PropertyType" name="Service_details.PropertyType" value={formData.Service_details.PropertyType} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600">
+                  <option value="">Choose an option</option>
+                  <option value="Residential">Residential</option>
+                  <option value="Estate or large residential">Estate or large residential (2 acres or larger)</option>
+                  <option value="HOA Condo/Townhomes">HOA Condo/Townhomes</option>
+                  <option value="Apartment complex">Apartment complex</option>
+                  <option value="Mobile home Community">Mobile home Community</option>
+                  <option value="Golf course">Golf course</option>
+                  <option value="Propery Management">Propery Management</option>
+                  <option value="Municipal">Municipal</option>
+                  <option value="Church">Church</option>
+                  <option value="Other">Other</option>
                 </select>
 
                 {/* Checkboxes */}
                 <div className="mt-4 space-y-2">
                   <label htmlFor="serviceType" className="block text-gray-700 mb-1">Service Type</label>
-                  {[
-                    "Tree Removal",
-                    "Tree Trimming",
-                    "Palm Trimming",
-                    "Hurricane Preparation",
-                    "Root Health/Management",
-                    "Commercial or Estate Tree Maintenance Planning",
-                  ].map((service, i) => (
-                    <div className="flex items-center gap-2 ml-1.5" key={i}>
-                      <input type="checkbox" id={`service_${i}`} />
-                      <label htmlFor={`service_${i}`}>{service}</label>
-                    </div>
-                  ))}
+                  <div className="flex items-center gap-2 ml-1.5">
+                    <input type="checkbox" id={`Service_details.Tree_Removal`} name="Service_details.Tree_Removal" checked={formData.Service_details.Tree_Removal} onChange={handleChange} />
+                    <label htmlFor={`Service_details.Tree_Removal`}>Tree Removal</label>
+                  </div>
+                  <div className="flex items-center gap-2 ml-1.5">
+                    <input type="checkbox" id={`Service_details.Tree_Trimming`} name="Service_details.Tree_Trimming" checked={formData.Service_details.Tree_Trimming} onChange={handleChange} />
+                    <label htmlFor={`Service_details.Tree_Trimming`}>Tree Trimming</label>
+                  </div>
+                  <div className="flex items-center gap-2 ml-1.5">
+                    <input type="checkbox" id={`Service_details.Palm_Trimming`} name="Service_details.Palm_Trimming" checked={formData.Service_details.Palm_Trimming} onChange={handleChange} />
+                    <label htmlFor={`Service_details.Palm_Trimming`}>Palm Trimming</label>
+                  </div>
+                  <div className="flex items-center gap-2 ml-1.5">
+                    <input type="checkbox" id={`Service_details.Hurricane_Preparation`} name="Service_details.Hurricane_Preparation" checked={formData.Service_details.Hurricane_Preparation} onChange={handleChange} />
+                    <label htmlFor={`Service_details.Hurricane_Preparation`}>Hurricane Preparation</label>
+                  </div>
+                  <div className="flex items-center gap-2 ml-1.5">
+                    <input type="checkbox" id={`Service_details.Root_Health`} name="Service_details.Root_Health" checked={formData.Service_details.Root_Health} onChange={handleChange} />
+                    <label htmlFor={`Service_details.Root_Health`}>Root Health/Management</label>
+                  </div>
+                  <div className="flex items-center gap-2 ml-1.5">
+                    <input type="checkbox" id={`Service_details.Tree_Maintenance_Planning`} name="Service_details.Tree_Maintenance_Planning" checked={formData.Service_details.Tree_Maintenance_Planning} onChange={handleChange} />
+                    <label htmlFor={`Service_details.Tree_Maintenance_Planning`}>Commercial or Estate Tree Maintenance Planning</label>
+                  </div>
                 </div>
 
                 {/* Job Size */}
                 <div className="mt-4">
-                  <label htmlFor="jobSize" className="block text-gray-700 mb-1">Approximate Job Size (optional)</label>
-                  <select id="jobSize" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600">
-                    <option>Choose an option</option>
-                    <option>Small - Less than 10 palm trees or 2 small trees</option>
-                    <option>Medium - 3-5 medium/large trims or 1 removal</option>
-                    <option>Large - 6+ trims or 2+ large removals</option>
+                  <label htmlFor="Service_details.Job_Size" className="block text-gray-700 mb-1">Approximate Job Size (optional)</label>
+                  <select id="Service_details.Job_Size" name="Service_details.Job_Size" value={formData.Service_details.Job_Size} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600">
+                    <option value="">Choose an option</option>
+                    <option value="Small">Small - Less than 10 palm trees or 2 small to medium size trees to be trimmed</option>
+                    <option value="Medium">Medium - 3-5 medium/large trims or 1 medium size removal</option>
+                    <option value="Large">Large - 6+ medium/large trims or 2 medium/large removals</option>
                   </select>
                 </div>
 
                 {/* Details */}
                 <div className="mt-4">
-                  <label htmlFor="details" className="block text-gray-700 mb-1">Additional Details (optional)</label>
-                  <textarea id="details" rows="3"
+                  <label htmlFor="Service_details.Job_Details" className="block text-gray-700 mb-1">Additional Details (optional)</label>
+                  <textarea id="Service_details.Job_Details" name="Service_details.Job_Details" value={formData.Service_details.Job_Details} onChange={handleChange} placeholder="Enter details" rows="3"
                     className="border p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-600"></textarea>
                 </div>
               </div>
@@ -206,18 +342,24 @@ const ContactUs = () => {
               {/* Availability */}
               <div>
                 <h2 className="text-xl font-semibold text-gray-800 mb-4">Your Availability</h2>
-                <label className="block text-gray-700 mb-1">Best day for assessment (optional)</label>
-                <input type="date" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
+                <label htmlFor="Availability.Day" className="block text-gray-700 mb-1">Best day for assessment (optional)</label>
+                <input type="date" name="Availability.Day" value={formData.Availability.Day} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
 
-                <label className="block text-gray-700 mb-1 mt-4">Alternate day (optional)</label>
-                <input type="date" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
+                <label htmlFor="Availability.Another_Day" className="block text-gray-700 mb-1 mt-4">Alternate day (optional)</label>
+                <input type="date" name="Availability.Another_Day" value={formData.Availability.Another_Day} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
 
                 <label className="block text-gray-700 mb-1 mt-4">Preferred arrival times (optional)</label>
                 <div className="space-y-2 mt-2">
-                  {["Any time", "Morning", "Afternoon"].map((time, i) => (
+                  {["Any_time", "Morning", "Afternoon"].map((time, i) => (
                     <div className="flex items-center gap-2 ml-1.5" key={i}>
-                      <input type="checkbox" id={`arrival_${i}`} />
-                      <label htmlFor={`arrival_${i}`}>{time}</label>
+                      <input
+                        type="checkbox"
+                        id={`Availability.Arrival_time.${time}`}
+                        name={`Availability.Arrival_time.${time}`}
+                        checked={formData.Availability.Arrival_time[time]}
+                        onChange={handleChange}
+                      />
+                      <label htmlFor={`Availability.Arrival_time.${time}`}>{time.replace("_", " ")}</label>
                     </div>
                   ))}
                 </div>
@@ -237,13 +379,39 @@ const ContactUs = () => {
                       />
                     </svg>
                     <div className="flex text-sm text-gray-600 justify-center">
-                      <label htmlFor="file-upload" className="relative cursor-pointer bg-white rounded-md font-medium text-green-600 hover:text-green-500">
+                      <label htmlFor="Images" className="relative cursor-pointer bg-white rounded-md font-medium text-green-600 hover:text-green-500">
                         <span>Upload a file</span>
-                        <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple />
+                        <input id="Images" name="Images" onChange={handleChange} type="file" className="sr-only" multiple />
                       </label>
                       <p className="pl-1">or drag and drop</p>
                     </div>
                     <p className="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                    {formData.Images.length > 0 && (
+                      <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4">
+                        {formData.Images.map((file, idx) => (
+                          <div key={idx} className="relative w-full h-32 overflow-hidden border rounded-md">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setFormData((prev) => {
+                                  const updatedImages = prev.Images.filter((_, i) => i !== idx);
+                                  return { ...prev, Images: updatedImages };
+                                });
+                              }}
+                              className="absolute top-1 right-1 bg-black/60 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm hover:bg-red-600 transition"
+                            >
+                              &times;
+                            </button>
+                            <img
+                              src={URL.createObjectURL(file)}
+                              alt={`Upload ${idx}`}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
                   </div>
                 </div>
               </div>

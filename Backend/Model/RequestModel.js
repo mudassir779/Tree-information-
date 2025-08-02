@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 
 const RequestSchema = new mongoose.Schema({
     Contact_Details: {
-        Fname: { type: String, required: true },
-        Lname: { type: String, required: true },
+        First_name: { type: String, required: true },
+        Last_name: { type: String, required: true },
         Company: { type: String, default: ' ' },
         Email: {
             type: String,
@@ -37,7 +37,11 @@ const RequestSchema = new mongoose.Schema({
     Availability: {
         Day: { type: Date },
         Another_Day: { type: Date },
-        Arrival_time: { type: String, default: ' ' },
+        Arrival_time: {
+            Any_time: { type: Boolean, default: false },
+            Morning: { type: Boolean, default: false },
+            Afternoon: { type: Boolean, default: false }
+        },
     },
     Images: { type: [String], default: [] },
     Status: {
