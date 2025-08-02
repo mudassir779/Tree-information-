@@ -31,7 +31,7 @@ const JobRequests = () => {
         const formattedJobs = data.requests.map((req) => ({
           id: req._id,
           title: req.Service_details?.PropertyType || 'Unknown Service',
-          client: `${req.Contact_Details.Fname} ${req.Contact_Details.Lname}`,
+          client: `${req.Contact_Details.First_name} ${req.Contact_Details.Last_name}`,
           email: req.Contact_Details.Email,
           status: req.Status.toLowerCase().replace('_', '-'),
           date: new Date(req.createdAt).toISOString().split('T')[0],
