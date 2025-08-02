@@ -7,6 +7,7 @@ import adminRoutes from './Router/AdminRoutes.js';
 import requestRoutes from './Router/RequestRoutes.js';
 import path from 'path';
 import dashboardRoutes from './Router/DashboardRoutes.js';
+import testimonialRoutes from './Router/TestimonialRoutes.js';
 
 let app = express();
 connectDB();
@@ -37,6 +38,7 @@ app.use('/api/category', categoryRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/request', requestRoutes);
 app.use('/api/dashboard/', dashboardRoutes);
+app.use('/api/testimonials', testimonialRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
