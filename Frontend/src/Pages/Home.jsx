@@ -1,62 +1,30 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const Home = () => {
+  const backendLink = useSelector((state) => state.prod.link);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [reviews, setReviews] = useState([]);
   const navigate = useNavigate();
 
-  const reviews = [
-    {
-      id: 1,
-      name: "CYNTHIA CONCIATU",
-      initial: "C",
-      color: "bg-purple-600",
-      rating: 5,
-      text: "American Tree Experts came by yesterday to prune my grand live oak. The Arborist is familiar with HOA and and County pruning requirements and planned the project accordingly. Job done... read more",
-    },
-    {
-      id: 2,
-      name: "MICHELLE LAMMERS",
-      initial: "M",
-      color: "bg-orange-600",
-      rating: 5,
-      text: "Another great experience with American Tree Experts. We had a limb that failed and it took out our fence panel. Vince came out the next day to give us an... read more",
-    },
-    {
-      id: 3,
-      name: "CASSANDRA ARMSTRONG",
-      initial: "C",
-      color: "bg-teal-600",
-      rating: 5,
-      text: "The entire experience with American Tree Experts was simple, fast, and effective. Vincent shared his experience and knowledge with us to ensure we understood the job at hand. The day-of crew and... read more",
-      hasProfileImage: true,
-    },
-    {
-      id: 4,
-      name: "DAVID KING",
-      initial: "D",
-      color: "bg-blue-600",
-      rating: 5,
-      text: "American Tree Experts did a fantastic job. They were punctual and efficient.",
-    },
-    {
-      id: 5,
-      name: "BRANDY NORDMARK",
-      initial: "B",
-      color: "bg-blue-700",
-      rating: 5,
-      text: "They were quick to give me an estimate, completed the work right away. I needed this for an insurance issue and they were mindful of the insurance companies requests... read more",
-    },
-    {
-      id: 6,
-      name: "ERIC JOHNSON",
-      initial: "E",
-      color: "bg-gray-500",
-      rating: 5,
-      text: "Professional and prompt with service. I will be using American Tree Experts again.",
-    },
-  ];
+  const getReviews = async () => {
+    try {
+      const response = await axios.get(`${backendLink}/api/testimonials/get-testimonials`);
+      setReviews(response.data);
+    } catch (error) {
+      console.error("Error fetching reviews:", error);
+    }
+  };
+
+  useEffect(() => {
+    getReviews();
+  }, []);
+
+  
 
   const nextSlide = () => {
     const isMobile = window.innerWidth < 768;
@@ -79,7 +47,7 @@ const Home = () => {
   const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, index) => (
       <span key={index} className="text-yellow-400 text-lg">
-        ★
+        {index < rating ? "★" : "☆"}
       </span>
     ));
   };
@@ -558,7 +526,7 @@ const Home = () => {
 
                         {/* Review Text */}
                         <p className="text-gray-700 text-xs md:text-sm leading-relaxed mb-3 md:mb-4">
-                          {review.text}
+                          {review.content}
                         </p>
 
                         {/* Google Logo */}

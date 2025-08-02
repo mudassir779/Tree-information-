@@ -3,6 +3,20 @@ import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
+import { 
+  FiLogOut, 
+  FiPlus, 
+  FiEdit2, 
+  FiTag, 
+  FiList, 
+  FiFileText,
+  FiCheckCircle,
+  FiClock,
+  FiBook,
+  FiLayers,
+  FiSettings
+} from 'react-icons/fi';
+import { FaChartLine } from 'react-icons/fa';
 
 const AdminDashboard = () => {
   const backendLink = useSelector((state) => state.prod.link);
@@ -14,121 +28,161 @@ const AdminDashboard = () => {
     pendingJobs: 0,
     completedJobs: 0,
   });
-
-
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchStats = async () => {
-      const response = await axios.get(`${backendLink}/api/dashboard/`);
-      console.log(response.data);
-      setTimeout(() => {
+      try {
+        const response = await axios.get(`${backendLink}/api/dashboard/`);
         setStats({
           totalBlogs: response.data.blogCount,
           totalCategories: response.data.categoryCount,
           pendingJobs: response.data.pendingCount,
           completedJobs: response.data.completedCount
         });
-      }, 500);
+      } catch (error) {
+        console.error("Failed to fetch dashboard stats:", error);
+      } finally {
+        setLoading(false);
+      }
     };
     fetchStats();
-  }, []);
+  }, [backendLink]);
 
   const handleLogout = () => {
     logout();
     navigate('/');
-  }
+  };
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-6">Dashboard Overview</h1>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+        <div>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800">Admin Dashboard</h1>
+          <p className="text-gray-600 mt-1">Overview of your content and activities</p>
+        </div>
+        <button
+          onClick={handleLogout}
+          className="flex items-center mt-4 md:mt-0 px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+        >
+          <FiLogOut className="mr-2" />
+          Logout
+        </button>
+      </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <StatCard
           title="Total Blogs"
           value={stats.totalBlogs}
-          icon="📝"
+          icon={<FiBook className="text-2xl" />}
           link="/admin-dashboard/edit-blogs"
+          loading={loading}
+          color="blue"
         />
         <StatCard
-          title="Total Categories"
+          title="Categories"
           value={stats.totalCategories}
-          icon="🏷️"
+          icon={<FiLayers className="text-2xl" />}
           link="/admin-dashboard/add-category"
+          loading={loading}
+          color="purple"
         />
         <StatCard
           title="Pending Jobs"
           value={stats.pendingJobs}
-          icon="⏳"
+          icon={<FiClock className="text-2xl" />}
           link="/admin-dashboard/job-requests"
-          color="yellow"
+          loading={loading}
+          color="orange"
         />
         <StatCard
           title="Completed Jobs"
           value={stats.completedJobs}
-          icon="✅"
+          icon={<FiCheckCircle className="text-2xl" />}
           link="/admin-dashboard/job-requests"
+          loading={loading}
           color="green"
         />
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-white p-4 rounded-lg shadow mb-6">
-        <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
-          <QuickAction
-            icon="✍️"
-            title="Add New Blog"
-            link="/admin-dashboard/add-blog"
-          />
-          <QuickAction
-            icon="🏷️"
-            title="Add Category"
-            link="/admin-dashboard/add-category"
-          />
-          <QuickAction
-            icon="📋"
-            title="View Job Requests"
-            link="/admin-dashboard/job-requests"
-          />
-          <QuickAction
-            icon="📝"
-            title="Edit Blogs"
-            link="/admin-dashboard/edit-blogs"
-          />
+      <div className="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+        <div className="p-6">
+          <h2 className="text-xl font-semibold text-gray-800 mb-6">Quick Actions</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <QuickAction
+              icon={<FiPlus className="text-xl" />}
+              title="Add New Blog"
+              link="/admin-dashboard/add-blog"
+              description="Create a new blog post"
+            />
+            <QuickAction
+              icon={<FiTag className="text-xl" />}
+              title="Add Category"
+              link="/admin-dashboard/add-category"
+              description="Create new content category"
+            />
+            <QuickAction
+              icon={<FiList className="text-xl" />}
+              title="Job Requests"
+              link="/admin-dashboard/job-requests"
+              description="View service requests"
+            />
+            <QuickAction
+              icon={<FiEdit2 className="text-xl" />}
+              title="Edit Blogs"
+              link="/admin-dashboard/edit-blogs"
+              description="Manage existing content"
+            />
+          </div>
         </div>
       </div>
 
-      <div className='w-1/4 mx-auto flex justify-center'>
-        <button
-          className="group relative w-full flex hover:cursor-pointer justify-center py-2 px-4 border border-transparent text-xl font-bold rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
-          onClick={handleLogout}>Logout</button>
+      {/* Analytics Section */}
+      <div className="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+        <div className="p-6">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-semibold text-gray-800">Performance Analytics</h2>
+            <button className="text-sm text-blue-600 hover:text-blue-800">
+              View Full Report
+            </button>
+          </div>
+          <div className="bg-gray-50 rounded-lg p-8 flex items-center justify-center">
+            <div className="text-center">
+              <FaChartLine className="mx-auto text-4xl text-gray-400 mb-4" />
+              <h3 className="text-lg font-medium text-gray-700">Analytics Coming Soon</h3>
+              <p className="text-gray-500 mt-1">We're working on detailed analytics for your dashboard</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Recent Activity */}
-      <div className="bg-white p-4 rounded-lg shadow">
-        <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
-        <div className="space-y-3">
-          <ActivityItem
-            icon="📝"
-            title="New blog created"
-            time="2 minutes ago"
-          />
-          <ActivityItem
-            icon="💼"
-            title="New job request received"
-            time="15 minutes ago"
-          />
-          <ActivityItem
-            icon="✅"
-            title="Job marked as completed"
-            time="1 hour ago"
-          />
-          <ActivityItem
-            icon="🏷️"
-            title="New category added"
-            time="2 hours ago"
-          />
+      <div className="bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="p-6">
+          <h2 className="text-xl font-semibold text-gray-800 mb-6">Recent Activity</h2>
+          <div className="space-y-4">
+            <ActivityItem
+              icon={<FiFileText className="text-blue-500" />}
+              title="New blog post published"
+              time="2 hours ago"
+              action="View Post"
+            />
+            <ActivityItem
+              icon={<FiCheckCircle className="text-green-500" />}
+              title="Job request completed"
+              time="Yesterday"
+              action="View Job"
+            />
+            <ActivityItem
+              icon={<FiSettings className="text-purple-500" />}
+              title="System settings updated"
+              time="2 days ago"
+              action="Review Changes"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -136,23 +190,45 @@ const AdminDashboard = () => {
 };
 
 // Reusable Stat Card Component
-const StatCard = ({ title, value, icon, link, color = 'blue' }) => {
+const StatCard = ({ title, value, icon, link, loading, color = 'blue' }) => {
   const colorClasses = {
-    blue: 'bg-blue-100 text-blue-600',
-    green: 'bg-green-100 text-green-600',
-    yellow: 'bg-yellow-100 text-yellow-600',
-    red: 'bg-red-100 text-red-600',
+    blue: {
+      bg: 'bg-blue-50',
+      text: 'text-blue-600',
+      border: 'border-blue-100'
+    },
+    purple: {
+      bg: 'bg-purple-50',
+      text: 'text-purple-600',
+      border: 'border-purple-100'
+    },
+    orange: {
+      bg: 'bg-orange-50',
+      text: 'text-orange-600',
+      border: 'border-orange-100'
+    },
+    green: {
+      bg: 'bg-green-50',
+      text: 'text-green-600',
+      border: 'border-green-100'
+    }
   };
 
   return (
     <Link to={link}>
-      <div className={`${colorClasses[color]} p-4 rounded-lg shadow hover:shadow-md transition-shadow`}>
-        <div className="flex justify-between items-center">
+      <div className={`${colorClasses[color].bg} p-6 rounded-lg border ${colorClasses[color].border} hover:shadow-md transition-all`}>
+        <div className="flex justify-between items-start">
           <div>
-            <p className="text-sm font-medium">{title}</p>
-            <p className="text-2xl font-bold">{value}</p>
+            <p className="text-sm font-medium text-gray-500 mb-1">{title}</p>
+            {loading ? (
+              <div className="h-8 w-16 bg-gray-200 rounded animate-pulse"></div>
+            ) : (
+              <p className={`text-3xl font-bold ${colorClasses[color].text}`}>{value}</p>
+            )}
           </div>
-          <span className="text-2xl">{icon}</span>
+          <div className={`p-3 rounded-full ${colorClasses[color].bg} ${colorClasses[color].text}`}>
+            {icon}
+          </div>
         </div>
       </div>
     </Link>
@@ -160,26 +236,36 @@ const StatCard = ({ title, value, icon, link, color = 'blue' }) => {
 };
 
 // Reusable Quick Action Component
-const QuickAction = ({ icon, title, link }) => {
+const QuickAction = ({ icon, title, link, description }) => {
   return (
     <Link to={link}>
-      <div className="flex flex-col items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
-        <span className="text-2xl mb-2">{icon}</span>
-        <p className="text-sm font-medium text-center">{title}</p>
+      <div className="flex items-start p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all">
+        <div className={`p-3 rounded-full bg-blue-50 text-blue-600 mr-4`}>
+          {icon}
+        </div>
+        <div>
+          <h3 className="font-medium text-gray-800">{title}</h3>
+          <p className="text-sm text-gray-500 mt-1">{description}</p>
+        </div>
       </div>
     </Link>
   );
 };
 
 // Reusable Activity Item Component
-const ActivityItem = ({ icon, title, time }) => {
+const ActivityItem = ({ icon, title, time, action }) => {
   return (
-    <div className="flex items-start p-2 hover:bg-gray-50 rounded transition-colors">
-      <span className="text-xl mr-3 mt-1">{icon}</span>
-      <div>
-        <p className="font-medium">{title}</p>
-        <p className="text-sm text-gray-500">{time}</p>
+    <div className="flex items-start p-3 hover:bg-gray-50 rounded-lg transition-colors">
+      <div className="p-2 rounded-full bg-gray-100 mr-4">
+        {icon}
       </div>
+      <div className="flex-1">
+        <h3 className="font-medium text-gray-800">{title}</h3>
+        <p className="text-sm text-gray-500 mt-1">{time}</p>
+      </div>
+      <button className="text-sm text-blue-600 hover:text-blue-800">
+        {action}
+      </button>
     </div>
   );
 };
