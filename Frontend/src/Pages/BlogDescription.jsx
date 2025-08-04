@@ -53,6 +53,23 @@ const BlogDescription = () => {
     getCategories();
   }, [id]);
 
+  // Function to format the description content with proper HTML structure
+  const formatDescription = (content) => {
+    if (!content) return "";
+
+    // Convert newlines to paragraphs
+    let formatted = content.replace(/\n\n/g, "</p><p>");
+    
+    // Convert bold text (surrounded by **) to strong tags
+    formatted = formatted.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+    
+    // Convert headings (lines that end with :)
+    formatted = formatted.replace(/([^\n]+:)\n/g, "<h3 class='text-xl font-bold mt-6 mb-3'>$1</h3>");
+    
+    // Wrap the whole content in paragraphs
+    return `<p>${formatted}</p>`;
+  };
+
   return (
     <div className="bg-gray-50 min-h-screen pb-12">
       {/* Hero Section */}
@@ -129,14 +146,23 @@ const BlogDescription = () => {
                         day: "numeric",
                       })}
                     </span>
+                    {description.category && (
+                      <span className="ml-4">
+                        Category: {description.category.title}
+                      </span>
+                    )}
                   </div>
-                  <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{description.title}</h1>
+                  <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                    {description.title}
+                  </h1>
                   <div className="prose max-w-none text-gray-700 mb-6">
                     <p className="text-lg leading-relaxed">{description.content}</p>
                   </div>
                   <div
                     className="prose max-w-none text-gray-700"
-                    dangerouslySetInnerHTML={{ __html: description.description }}
+                    dangerouslySetInnerHTML={{ 
+                      __html: formatDescription(description.description) 
+                    }}
                   />
                 </div>
               </article>
