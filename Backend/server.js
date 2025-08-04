@@ -49,4 +49,4 @@ if (process.env.NODE_ENV !== "production") {
     });
 }
 // For Vercel Deployment
-export const handler = serverless(app);
+export default serverless(app);
