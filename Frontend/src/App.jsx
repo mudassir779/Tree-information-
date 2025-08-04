@@ -22,7 +22,6 @@ import AdminLogin from "./Pages/AdminPanel/AdminLogin.jsx"
 import MainLayout from "./layouts/MainLayout.jsx"
 import AdminLayout from "./layouts/AdminLayouts.jsx"
 import AdminDashboard from "./components/Admin/AdminDashboard.jsx"
-import Dashboard from "./components/Admin/Dashboard.jsx"
 import AddBlog from "./components/Admin/AddBlog.jsx"
 import EditBlogs from "./components/Admin/EditBlogs.jsx"
 import UpdateBlog from "./components/Admin/UpdateBlog.jsx"
@@ -81,7 +80,6 @@ function App() {
           </ProtectedRoutes>
         }>
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          <Route path="/admin-dashboard/dashboard" element={<Dashboard />} />
           <Route path="/admin-dashboard/add-blog" element={<AddBlog />} />
           <Route path="/admin-dashboard/edit-blogs" element={<EditBlogs />} />
           <Route path="/admin-dashboard/update-blog/:id" element={<UpdateBlog />} />

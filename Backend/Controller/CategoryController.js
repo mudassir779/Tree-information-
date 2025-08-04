@@ -68,7 +68,6 @@ export const deleteCategory = async (req, res) => {
     }
     return res.status(200).json({ message: "Category deleted successfully" });
   } catch (error) {
-    console.error("Error in deleteCategory:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 }

@@ -25,8 +25,8 @@ const Evansville = () => {
   }, []);
 
   const images = [
-    { src: "/Tree-Removal-Clearwater-FL-400x284.jpg", alt: "Tree Removal Evansville IN", title: "Tree Services, Evansville, IN  1" },
-    { src: "/Tree-Services-Clearwater-FL-400x284.jpg", alt: "Tree Services Evansville IN", title: "Tree Services, Evansville, IN  2" }
+    { src: "/4.jpg", alt: "Tree Removal Evansville IN", title: "Tree Services, Evansville, IN  1" },
+    { src: "/5.jpg", alt: "Tree Services Evansville IN", title: "Tree Services, Evansville, IN  2" }
   ];
 
   const openLightbox = (index) => {

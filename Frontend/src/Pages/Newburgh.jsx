@@ -14,7 +14,7 @@ const Newburgh = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [
-    { src: "/Tree-Removal-New-Port-Richey-FL-400x284.jpg", alt: "Tree Removal Newburgh IN", title: "Tree Services, Newburgh, IN 1"},
+    { src: "/1.1.jpg", alt: "Tree Removal Newburgh IN", title: "Tree Services, Newburgh, IN 1"},
     { src: "/Tree-Services-New-Port-Richey-FL-400x284.jpg", alt: "Tree Services Newburgh IN", title: "Tree Services, Newburgh, IN 2" }
   ];
 

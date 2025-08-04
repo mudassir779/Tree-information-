@@ -15,7 +15,7 @@ const Henderson = () => {
 
   const images = [
     { src: "/Tree-Removal-Palm-Harbor-FL-400x284.jpg", alt: "Tree Removal Henderson KY", title: "Tree Services, Henderson, KY 1" },
-    { src: "/Tree-Services-Dunedin-FL.jpg", alt: "Tree Services Henderson KY", title: "Tree Services, Henderson, KY 2" }
+    { src: "/3.jpg", alt: "Tree Services Henderson KY", title: "Tree Services, Henderson, KY 2" }
   ];
 
   const openLightbox = (index) => {

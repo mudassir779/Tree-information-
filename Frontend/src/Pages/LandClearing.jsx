@@ -233,9 +233,9 @@ const LandClearing = () => {
               <img 
                 loading="lazy" 
                 decoding="async" 
-                src="/51133961_1109307649229699_599557342664589312_n.jpg" 
+                src="/2.jpg" 
                 alt="rock-excavation" 
-                className="w-full h-48 md:h-60 object-cover"
+                className="w-full h-48 md:h-60 object-bottom object-cover"
               />
               <div className="p-4 md:p-6">
                 <h3 className="text-lg md:text-xl font-bold text-center">
