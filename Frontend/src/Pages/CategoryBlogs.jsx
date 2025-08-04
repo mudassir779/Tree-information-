@@ -12,7 +12,7 @@ const CategoryBlogs = () => {
   const [categories, setCategories] = useState([]);
   const [recentPost, SetrecentPost] = useState([]);
   const { id } = useParams();
- 
+
   const getCategoryPosts = async () => {
     try {
       const response = await axios.get(`${backendLink}/api/category/get-category/${id}`);
@@ -61,7 +61,7 @@ const CategoryBlogs = () => {
           {/* Left Content */}
           <div className="lg:w-2/3">
             <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-              Latest Blog Posts
+              {id.toUpperCase().replace(/-/g, " ")}
             </h1>
 
             <div className="space-y-12">
@@ -156,11 +156,10 @@ const CategoryBlogs = () => {
                   <li key={index}>
                     <a
                       href={`/category/${category.slug}`}
-                      className={`block px-3 font-semibold rounded transition ${
-                        location.pathname === `/category/${category.slug}`
-                          ? "bg-green-100 text-green-700 font-medium"
-                          : "text-gray-700 hover:bg-green-50 hover:text-green-600"
-                      }`}
+                      className={`block px-3 font-semibold rounded transition ${location.pathname === `/category/${category.slug}`
+                        ? "bg-green-100 text-green-700 font-medium"
+                        : "text-gray-700 hover:bg-green-50 hover:text-green-600"
+                        }`}
                     >
                       {category.title}
                     </a>

@@ -184,7 +184,7 @@ const BlogDescription = () => {
                     <div
                       key={key}
                       className={`flex items-center px-3 font-semibold rounded transition text-green-700 hover:cursor-pointer hover:bg-green-100 hover:text-green-600`}
-                      onClick={() => navigate(`/blog/${item._id}`)}
+                      onClick={() => navigate(`/blog/${item.slug}`)}
                     >
                       <FaArrowRight className="mr-2 text-green-600 flex-shrink-0" />
                       <span className="font-medium line-clamp-2">{item.title}</span>

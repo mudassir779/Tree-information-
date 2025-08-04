@@ -20,7 +20,6 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchStats = async () => {
       const response = await axios.get(`${backendLink}/api/dashboard/`);
-      console.log(response.data);
       setTimeout(() => {
         setStats({
           totalBlogs: response.data.blogCount,
