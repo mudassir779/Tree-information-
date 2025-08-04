@@ -29,7 +29,7 @@ const AddCategory = () => {
         title: categoryName.trim(),
       });
 
-      if (response.data.success) {
+      if (response.status === 201) {
         setSuccess('Category added successfully!');
         setCategoryName('');
         // Clear success message after 3 seconds
