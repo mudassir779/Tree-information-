@@ -103,6 +103,18 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const services = formData.Service_details;
+    const atLeastOneService = services.Tree_Removal ||
+      services.Tree_Trimming ||
+      services.Palm_Trimming ||
+      services.Hurricane_Preparation ||
+      services.Root_Health ||
+      services.Tree_Maintenance_Planning;
+
+    if (!atLeastOneService) {
+      alert("Please select at least one service.");
+      return;
+    }
     try {
       const data = new FormData();
 
@@ -121,12 +133,49 @@ const ContactUs = () => {
           'Content-Type': 'multipart/form-data'
         }
       });
+      if (response.status === 201) {
+        setFormData({
+          Contact_Details: {
+            First_name: '',
+            Last_name: '',
+            Company: '',
+            Email: '',
+            Phone: ''
+          },
+          Address: {
+            Street1: '',
+            Street2: '',
+            City: '',
+            State: '',
+            Zip: ''
+          },
+          Service_details: {
+            PropertyType: '',
+            Tree_Removal: false,
+            Tree_Trimming: false,
+            Palm_Trimming: false,
+            Hurricane_Preparation: false,
+            Root_Health: false,
+            Tree_Maintenance_Planning: false,
+            Job_Size: '',
+            Job_Details: ''
+          },
+          Availability: {
+            Day: '',
+            Another_Day: '',
+            Arrival_time: {
+              Any_time: false,
+              Morning: false,
+              Afternoon: false
+            }
+          },
+          Images: []
+        });
+        alert('Form submitted successfully');
+      }
 
-      console.log(response.data);
-      alert('Form submitted successfully');
     } catch (error) {
-      console.error(error);
-      alert("Failed to Submit form");
+      alert("Failed to Submit form", error.message);
     }
   };
 

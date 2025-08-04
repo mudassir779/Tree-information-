@@ -54,10 +54,10 @@ const AboutUs = () => {
               <div className="relative w-full max-w-md group shadow-lg shadow-black">
                 <div className="absolute w-full h-full top-3 sm:top-4 -left-3 sm:-left-4 bg-[#afb593] z-0"></div>
                 <img
-                  src="/301625125_483491857119721_5793800417287341050_n.jpg"
+                  src="/4.jpg"
                   alt="Professional tree service"
                   title="Professional tree service"
-                  className="relative w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500 z-10"
+                  className="relative w-full h-96 object-cover transform group-hover:scale-105 transition-transform duration-500 z-10"
                   loading="lazy"
                 />
               </div>

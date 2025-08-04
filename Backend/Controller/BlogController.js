@@ -98,7 +98,6 @@ export const getBlogById = async (req, res) => {
   }
 }
 
-
 export const getDescription = async (req, res) => {
   const { slug } = req.params;
   try {

@@ -163,9 +163,9 @@ const Header = () => {
                 <div className="flex items-center">
                     <a href="/">
                         <img 
-                            src="/logo.png" 
+                            src="/logo.jpg" 
                             alt="American Tree Experts Land Logo" 
-                            className="h-16 lg:h-20 w-fit object-contain" 
+                            className="h-20 scale-100 lg:h-25 w-fit object-contain rounded-full shadow-lg shadow-black" 
                         />
                     </a>
                 </div>
