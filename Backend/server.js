@@ -48,5 +48,7 @@ if (process.env.NODE_ENV !== "production") {
         console.log(`Server running on port ${PORT}`);
     });
 }
+console.log("Running in", process.env.NODE_ENV);
+console.log("Vercel?", process.env.VERCEL);
 // For Vercel Deployment
 export default serverless(app);
