@@ -32,9 +32,8 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     const fetchStats = async () => {
-      try {
-        const response = await axios.get(`${backendLink}/api/dashboard/`);
-        setStats({
+      const response = await axios.get(`${backendLink}/api/dashboard/`);
+      setTimeout(() => {
           totalBlogs: response.data.blogCount,
           totalCategories: response.data.categoryCount,
           pendingJobs: response.data.pendingCount,

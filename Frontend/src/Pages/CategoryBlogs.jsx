@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const CategoryBlogs = () => {
@@ -16,8 +16,7 @@ const CategoryBlogs = () => {
   const getCategoryPosts = async () => {
     try {
       const response = await axios.get(`${backendLink}/api/category/get-category/${id}`);
-      setCategoryPosts(response.data.blogs);
-      console.log(response.data.blogs);
+      setCategoryPosts(response.data.category.blogs);
     } catch (error) {
       console.error("Error fetching blog posts:", error);
       setCategoryPosts([]);
@@ -62,7 +61,7 @@ const CategoryBlogs = () => {
           {/* Left Content */}
           <div className="lg:w-2/3">
             <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-              Latest Blog Posts
+              {id.toUpperCase().replace(/-/g, " ")}
             </h1>
 
             <div className="space-y-12">
@@ -74,7 +73,7 @@ const CategoryBlogs = () => {
                   >
                     <div
                       className="mb-6 overflow-hidden"
-                      onClick={() => navigate(`/blog/${post._id}`)}
+                      onClick={() => navigate(`/blog/${post.slug}`)}
                     >
                       <img
                         src={backendLink + "/" + post.image}
@@ -84,14 +83,14 @@ const CategoryBlogs = () => {
                     </div>
 
                     <h2
-                      onClick={() => navigate(`/blog/${post._id}`)}
+                      onClick={() => navigate(`/blog/${post.slug}`)}
                       className="text-2xl font-semibold text-gray-800 mb-2 hover:cursor-pointer hover:text-green-600 transition-colors"
                     >
                       {post.title}
                     </h2>
 
                     <div className="flex items-center text-sm text-gray-500 mb-4">
-                      <span>{post.dated}</span>
+                      <span>{post.dated.split('T')[0]}</span>
                       <span className="mx-2">|</span>
                       <div className="flex flex-wrap gap-2">
                         <span className="px-2 py-1 bg-gray-100 rounded-md text-gray-600 hover:bg-green-100 hover:text-green-700 transition-colors">
@@ -140,7 +139,7 @@ const CategoryBlogs = () => {
                     <div
                       key={key}
                       className={`block px-3 font-semibold rounded transition text-green-700 hover:cursor-pointer hover:bg-green-100 hover:text-green-600`}
-                      onClick={() => navigate(`/blog/${item._id}`)}
+                      onClick={() => navigate(`/blog/${item.slug}`)}
                     >
                       {item.title}
                     </div>
@@ -156,12 +155,11 @@ const CategoryBlogs = () => {
                 {categories.map((category, index) => (
                   <li key={index}>
                     <a
-                      href={`/category/${category._id}`}
-                      className={`block px-3 font-semibold rounded transition ${
-                        location.pathname === `/category/${category._id}`
-                          ? "bg-green-100 text-green-700 font-medium"
-                          : "text-gray-700 hover:bg-green-50 hover:text-green-600"
-                      }`}
+                      href={`/category/${category.slug}`}
+                      className={`block px-3 font-semibold rounded transition ${location.pathname === `/category/${category.slug}`
+                        ? "bg-green-100 text-green-700 font-medium"
+                        : "text-gray-700 hover:bg-green-50 hover:text-green-600"
+                        }`}
                     >
                       {category.title}
                     </a>

@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-
 
 const ContactUs = () => {
   const backendLink = useSelector((state) => state.prod.link);
@@ -43,17 +42,39 @@ const ContactUs = () => {
     Images: []
   })
 
+  const fileInputRef = useRef(null);
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const droppedFiles = Array.from(e.dataTransfer.files);
+    if (!droppedFiles.length) return;
+
+    const imageFiles = droppedFiles.filter((file) => file.type.startsWith("image/"));
+
+    setFormData((prev) => {
+      const totalFiles = [...prev.Images, ...imageFiles];
+      const limitedFiles = totalFiles.slice(0, 4); // Enforce 4-image limit
+      return { ...prev, Images: limitedFiles };
+    });
+  };
+
   const handleChange = (e) => {
     const { name, value, files, type, checked } = e.target;
 
     if (type === "file") {
-      setFormData((prev) => ({
-        ...prev,
-        Images: [...prev.Images, ...Array.from(files)],
-      }));
+      const newFiles = Array.from(files);
+      setFormData((prev) => {
+        const totalFiles = [...prev.Images, ...newFiles];
+        const limitedFiles = totalFiles.slice(0, 4); // limit to 4
+        return {
+          ...prev,
+          Images: limitedFiles,
+        };
+      });
       return;
     }
 
+    // Handle nested fields (same as before)
     const keys = name.split(".");
     if (keys.length === 2) {
       const [parent, child] = keys;
@@ -78,6 +99,7 @@ const ContactUs = () => {
       }));
     }
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -91,7 +113,7 @@ const ContactUs = () => {
       data.append("Status", formData.Status || "Pending");
 
       formData.Images.forEach((file) => {
-        data.append("Images", file); // multiple files with same key 'Images'
+        data.append("Images", file);
       });
 
       const response = await axios.post(`${backendLink}/api/request/add-request`, data, {
@@ -107,7 +129,6 @@ const ContactUs = () => {
       alert("Failed to Submit form");
     }
   };
-
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -203,6 +224,7 @@ const ContactUs = () => {
                         name={`Contact_Details.${field}`}
                         value={formData.Contact_Details[field]}
                         onChange={handleChange}
+                        required
                         placeholder={field.replace("_", " ")}
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600"
                       />
@@ -234,6 +256,7 @@ const ContactUs = () => {
                     name="Contact_Details.Email"
                     value={formData.Contact_Details.Email}
                     onChange={handleChange}
+                    required
                     placeholder="Email"
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
                 </div>
@@ -245,6 +268,7 @@ const ContactUs = () => {
                     name="Contact_Details.Phone"
                     value={formData.Contact_Details.Phone}
                     onChange={handleChange}
+                    required
                     placeholder="Phone number"
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600" />
                 </div>
@@ -278,7 +302,7 @@ const ContactUs = () => {
               <div>
                 <h2 className="text-xl font-semibold text-gray-800 mb-4">Service Details</h2>
                 <label htmlFor="Service_details.PropertyType" className="block text-gray-700 mb-1">Property Type</label>
-                <select id="Service_details.PropertyType" name="Service_details.PropertyType" value={formData.Service_details.PropertyType} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600">
+                <select id="Service_details.PropertyType" name="Service_details.PropertyType" value={formData.Service_details.PropertyType} onChange={handleChange} required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600">
                   <option value="">Choose an option</option>
                   <option value="Residential">Residential</option>
                   <option value="Estate or large residential">Estate or large residential (2 acres or larger)</option>
@@ -369,7 +393,12 @@ const ContactUs = () => {
               {/* Upload Section */}
               <div>
                 <h3 className="font-medium text-gray-700 mb-1">Upload images</h3>
-                <div className="mt-1 flex justify-center px-6 pt-5 pb-6 max-w-full md:max-w-[500px] mx-auto border-2 border-gray-300 border-dashed rounded-md">
+                <div
+                  onDrop={handleDrop}
+                  onDragOver={(e) => e.preventDefault()}
+                  className={`mt-1 flex justify-center px-6 pt-5 pb-6 max-w-full md:max-w-[500px] mx-auto border-2 border-dashed rounded-md transition ${formData.Images.length >= 4 ? "opacity-50 pointer-events-none" : "hover:border-green-500"
+                    }`}
+                >
                   <div className="space-y-1 text-center">
                     <svg className="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                       <path
@@ -382,7 +411,17 @@ const ContactUs = () => {
                     <div className="flex text-sm text-gray-600 justify-center">
                       <label htmlFor="Images" className="relative cursor-pointer bg-white rounded-md font-medium text-green-600 hover:text-green-500">
                         <span>Upload a file</span>
-                        <input id="Images" name="Images" onChange={handleChange} type="file" className="sr-only" multiple />
+                        <input
+                          id="Images"
+                          name="Images"
+                          type="file"
+                          multiple
+                          accept="image/*"
+                          onChange={handleChange}
+                          className="sr-only"
+                          disabled={formData.Images.length >= 4}
+                          ref={(ref) => (fileInputRef.current = ref)}
+                        />
                       </label>
                       <p className="pl-1">or drag and drop</p>
                     </div>
@@ -412,9 +451,9 @@ const ContactUs = () => {
                         ))}
                       </div>
                     )}
-
                   </div>
                 </div>
+
               </div>
 
               {/* Submit */}
@@ -430,7 +469,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
-      
+
     </div>
   );
 };

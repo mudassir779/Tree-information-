@@ -210,7 +210,7 @@ const BlogDescription = () => {
                     <div
                       key={key}
                       className={`flex items-center px-3 font-semibold rounded transition text-green-700 hover:cursor-pointer hover:bg-green-100 hover:text-green-600`}
-                      onClick={() => navigate(`/blog/${item._id}`)}
+                      onClick={() => navigate(`/blog/${item.slug}`)}
                     >
                       <FaArrowRight className="mr-2 text-green-600 flex-shrink-0" />
                       <span className="font-medium line-clamp-2">{item.title}</span>
@@ -230,10 +230,10 @@ const BlogDescription = () => {
                   {categories.map((category, index) => (
                     <li key={index}>
                       <Link
-                        to={`/category/${category._id}`}
-                        className={`flex items-center px-3 py-2 rounded-md transition ${location.pathname === `/category/${category._id}`
-                            ? "bg-green-50 text-green-700"
-                            : "text-gray-700 hover:bg-green-50 hover:text-green-600"
+                        to={`/category/${category.slug}`}
+                        className={`flex items-center px-3 py-2 rounded-md transition ${location.pathname === `/category/${category.slug}`
+                          ? "bg-green-50 text-green-700"
+                          : "text-gray-700 hover:bg-green-50 hover:text-green-600"
                           }`}
                       >
                         <IoIosArrowForward className="mr-2 text-green-600 flex-shrink-0" />

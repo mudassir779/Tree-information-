@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -104,7 +104,7 @@ const Blogs = () => {
                   >
                     <div 
                       className="overflow-hidden cursor-pointer"
-                      onClick={() => navigate(`/blog/${post._id}`)}
+                      onClick={() => navigate(`/blog/${post.slug}`)}
                     >
                       <img
                         src={`${backendLink}/${post.image}`}
@@ -116,7 +116,7 @@ const Blogs = () => {
                       <div className="flex items-center text-sm text-gray-500 mb-3">
                         <FaCalendarAlt className="mr-2" />
                         <span>
-                          {post.dated || new Date(post.createdAt).toLocaleDateString("en-US", {
+                          {post.dated.split('T')[0] || new Date(post.createdAt).toLocaleDateString("en-US", {
                             year: "numeric",
                             month: "long",
                             day: "numeric",
@@ -124,7 +124,7 @@ const Blogs = () => {
                         </span>
                       </div>
                       <h2
-                        onClick={() => navigate(`/blog/${post._id}`)}
+                        onClick={() => navigate(`/blog/${post.slug}`)}
                         className="text-2xl font-bold text-gray-800 mb-3 cursor-pointer hover:text-green-600 transition-colors"
                       >
                         {post.title}
@@ -133,7 +133,7 @@ const Blogs = () => {
                         {post.description.slice(0, 200)}...
                       </p>
                       <button
-                        onClick={() => navigate(`/blog/${post._id}`)}
+                        onClick={() => navigate(`/blog/${post.slug}`)}
                         className="text-green-600 font-medium hover:text-green-700 transition-colors flex items-center"
                       >
                         Read more
@@ -185,7 +185,7 @@ const Blogs = () => {
                   {recentPosts.slice(0, 5).map((post) => (
                     <li key={post._id}>
                       <div
-                        onClick={() => navigate(`/blog/${post._id}`)}
+                        onClick={() => navigate(`/blog/${post.slug}`)}
                         className="flex items-start px-3 py-2 rounded-md cursor-pointer text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
                       >
                         <FaArrowRight className="mt-1 mr-2 text-green-600 flex-shrink-0" />
@@ -196,7 +196,7 @@ const Blogs = () => {
                 </ul>
               </div>
             </div>
-
+ 
             {/* Categories */}
             <div className="bg-white rounded-xl shadow-md overflow-hidden">
               <div className="bg-green-600 px-5 py-3">
@@ -207,9 +207,9 @@ const Blogs = () => {
                   {categories.map((category) => (
                     <li key={category._id}>
                       <Link
-                        to={`/category/${category._id}`}
+                        to={`/category/${category.slug}`}
                         className={`flex items-center px-3 py-2 rounded-md transition ${
-                          window.location.pathname === `/category/${category._id}`
+                          window.location.pathname === `/category/${category.slug}`
                             ? "bg-green-50 text-green-700"
                             : "text-gray-700 hover:bg-green-50 hover:text-green-600"
                         }`}
