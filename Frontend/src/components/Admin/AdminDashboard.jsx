@@ -136,6 +136,12 @@ const AdminDashboard = () => {
               link="/admin-dashboard/edit-blogs"
               description="Manage existing content"
             />
+             <QuickAction
+              icon={<FiEdit2 className="text-xl mr-2" />}
+              title="Admin Profile"
+              link="/admin-dashboard/admin-profile"
+              description="Manage existing content"
+            />
           </div>
         </div>
       </div>

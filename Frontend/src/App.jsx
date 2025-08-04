@@ -37,6 +37,10 @@ import BlogDescription from "./Pages/BlogDescription.jsx"
 import CategoryBlogs from "./Pages/CategoryBlogs.jsx"
 import SiteMap from "./Pages/SiteMap.jsx"
 import Testimonial from "./Pages/Testimonial.jsx"
+import AdminProfile from "./Pages/AdminPanel/AdminProfile.jsx"
+import UpdateProfile from "./components/Admin/updateProfile.jsx"
+import ProfileLayout from "./layouts/ProfileLayout.jsx"
+import ChangePassword from "./components/Admin/ChangePassword.jsx"
 function App() {
   return (
     <div className="">
@@ -88,6 +92,17 @@ function App() {
           <Route path="/admin-dashboard/add-category" element={<AddCategory />} />
           <Route path="/admin-dashboard/delete-category" element={<DeleteCategory />} />
           <Route path="/admin-dashboard/job-requests" element={<JobRequests />} />
+          <Route index element={<ProfileLayout />} />
+            <Route path="/admin-dashboard/admin-profile" element={<AdminProfile />} />
+            <Route path="/update-profile" element={<UpdateProfile />} />
+            <Route path="/change-password" element={<ChangePassword />} />
+
+          <Route/>
+
+          
+          <Route/>
+          
+          
         </Route>
 
       </Routes>

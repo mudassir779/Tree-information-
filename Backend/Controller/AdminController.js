@@ -97,3 +97,128 @@ export const updateBlog = async (req, res) => {
         return res.status(500).json({ message: 'Internal server error' });
     }
 }
+
+
+
+
+export const getAdmin = async (req, res) => {
+    try {
+
+        const admin = await User.find({ username: "admin1"  }).select("-password -__v");
+        if (!admin || admin.length === 0) {
+            return res.status(404).json({ message: 'Admin not found' });
+        }
+        // Assuming you want to return the first admin found
+        // If you expect multiple admins, you might want to adjust this logic
+        const foundAdmin = admin[0];
+        if (!foundAdmin) {
+            return res.status(404).json({ message: 'Admin not found' });
+        }
+        return res.status(200).json(foundAdmin);
+    } catch (error) {
+        console.error('Error fetching admin:', error);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
+}
+
+
+export const updateProfile = async (req, res) => {
+    try {
+        const { username, email } = req.body;
+        
+        // Find the user (assuming you're using Mongoose)
+        const user = await User.findOne({ username: "admin" }); // Changed from find() to findOne()
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        // Update fields if they're provided
+        if (username) user.username = username;
+        if (email) user.email = email;
+
+        await user.save();
+        return res.status(200).json({ 
+            message: 'Profile updated successfully', 
+            user: {
+                username: user.username,
+                email: user.email
+                // Don't send sensitive data like password
+            } 
+        });
+    } catch (error) {
+        console.error('Error updating profile:', error);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
+}
+
+
+// export const changePassword = async (req, res) => {
+//     try {
+//         const { newPassword, confirmPassword } = req.body;
+//         if (newPassword !== confirmPassword) {
+//             return res.status(400).json({ message: 'Passwords do not match' });
+//         }
+//         const oldPassword = (await User.find({ username: "admin" })).password;
+
+//         const user = await User.find({ username: "admin" });
+//         if (!user) {
+//             return res.status(404).json({ message: 'User not found' });
+//         }
+
+//         const isMatch = await bcrypt.compare(oldPassword, user.password);
+//         if (!isMatch) {
+//             return res.status(401).json({ message: 'Old password is incorrect' });
+//         }
+
+//         const hashedNewPassword = await bcrypt.hash(newPassword, 10);
+//         user.password = hashedNewPassword;
+//         await user.save();
+
+//         return res.status(200).json({ message: 'Password changed successfully' });
+//     } catch (error) {
+//         console.error('Error changing password:', error);
+//         return res.status(500).json({ message: 'Internal server error' });
+//     }
+// }
+
+
+export const changePassword = async (req, res) => {
+    try {
+        const { currentPassword, newPassword, confirmPassword } = req.body;
+
+        // Validation
+        if (!currentPassword || !newPassword || !confirmPassword) {
+            return res.status(400).json({ message: 'All fields are required' });
+        }
+
+        if (newPassword !== confirmPassword) {
+            return res.status(400).json({ message: 'New passwords do not match' });
+        }
+
+        if (newPassword.length < 6) {
+            return res.status(400).json({ message: 'Password must be at least 6 characters' });
+        }
+
+        // Find user (better to use ID from authenticated session)
+        const user = await User.findOne({ username: "admin1" });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        // Verify current password
+        const isMatch = await bcrypt.compare(currentPassword, user.password);
+        if (!isMatch) {
+            return res.status(401).json({ message: 'Current password is incorrect' });
+        }
+
+        // Hash and save new password
+        const hashedNewPassword = await bcrypt.hash(newPassword, 10);
+        user.password = hashedNewPassword;
+        await user.save();
+
+        return res.status(200).json({ message: 'Password changed successfully' });
+    } catch (error) {
+        console.error('Error changing password:', error);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
+}
