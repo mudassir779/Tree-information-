@@ -61,9 +61,9 @@ const TreeTrimming = () => {
                 <img 
                   fetchpriority="high" 
                   decoding="async" 
-                  src="/trim.jpg" 
+                  src="/1.jpg" 
                   alt="Tree trimming service" 
-                  className="w-full h-auto object-cover"
+                  className="w-full h-120 object-top object-cover"
                 />
               </div>
             </div>
@@ -209,9 +209,9 @@ const TreeTrimming = () => {
             <img 
               loading="lazy" 
               decoding="async" 
-              src="/25488113_844434852383648_5012362303994108244_o.jpg" 
+              src="/1.jpg" 
               alt="Tree service professional at work" 
-              className="relative w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500 z-10"
+              className="relative w-full h-120 object-cover object-top transform group-hover:scale-105 transition-transform duration-500 z-10"
             />
           </div>
           <div className="lg:w-7/12">
@@ -277,9 +277,9 @@ const TreeTrimming = () => {
             <div className="group shadow-lg shadow-black relative">
               <div className="absolute w-full h-full top-3 sm:top-4 -left-3 sm:-left-4 bg-[#afb593] z-0"></div>
               <img
-                src="/301625125_483491857119721_5793800417287341050_n.jpg"
+                src="/4.jpg"
                 alt="Professional tree service team"
-                className="relative w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500 z-10"
+                className="relative w-full h-96 object-cover transform group-hover:scale-105 transition-transform duration-500 z-10"
               />
             </div>
           </div>

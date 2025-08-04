@@ -1,6 +1,6 @@
 import express from 'express'
 import { addRequest, deleteRequest, getRequests, updateRequest } from '../Controller/RequestController.js';
-import { upload } from '../Middlewares/Multer.js';
+import { upload } from '../MiddleWares/Multer.js';
 
 const router = express.Router()
 

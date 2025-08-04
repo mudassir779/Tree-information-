@@ -22,8 +22,12 @@ const blogSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Category",
         required: true
+    },
+    slug: {
+        type: String,
+        unique: true,
+        required: true
     }
-    
 },{
     timestamps: true
 })

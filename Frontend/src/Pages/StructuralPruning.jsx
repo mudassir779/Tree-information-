@@ -254,9 +254,9 @@ const StructuralPruning = () => {
             <div className="relative">
               <div className="hidden lg:block absolute w-full h-full top-3 -left-3 bg-[#afb593] z-0"></div>
               <img
-                src="/301616262_483491860453054_79566879866319948_n.jpg"
+                src="/4.jpg"
                 alt="Professional tree service"
-                className="relative w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 z-10"
+                className="relative w-full h-100 object-cover transform group-hover:scale-105 transition-transform duration-500 z-10"
               />
             </div>
           </div>

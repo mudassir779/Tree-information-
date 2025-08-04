@@ -1,8 +1,9 @@
 import Category from "../Model/CategoryModel.js";
+import slugify from "slugify";
 
 export const addCategory = async (req, res) => {
   try {
-    const { title } = req.body;
+    let { title, slug } = req.body;
     if (!title) {
       return res.status(400).json({ message: "Title is required" });
     }
@@ -10,16 +11,19 @@ export const addCategory = async (req, res) => {
     if (existingCategory) {
       return res.status(400).json({ message: "Category already exists" });
     }
+
+    slug = slugify(title, { lower: true });
+
     const newCategory = new Category({
       title,
+      slug
     });
     await newCategory.save();
     return res
       .status(201)
       .json({ message: "Category added successfully", category: newCategory });
   } catch (error) {
-    console.error("Error in addCategory:", error);
-    return res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error", error: error.message });
   }
 };
 
@@ -35,18 +39,14 @@ export const getCategory = async (req, res) => {
   }
 };
 
-
-
-
-export const categoryById = async (req, res) => {
+export const categoryBySlug = async (req, res) => {
   try {
-    const { id } = req.params;
-    const category = await Category.findById(id).populate("blogs");
+    const { slug } = req.params;
+    const category = await Category.findOne({slug}).populate("blogs");
+    
     res.status(200).json({
       success: true,
-      category,
-      blogs: category.blogs,
-
+      category
     });
 
   } catch (err) {
@@ -54,9 +54,6 @@ export const categoryById = async (req, res) => {
   }
 
 }
-
-
-
 
 export const deleteCategory = async (req, res) => {
   try {
@@ -71,7 +68,6 @@ export const deleteCategory = async (req, res) => {
     }
     return res.status(200).json({ message: "Category deleted successfully" });
   } catch (error) {
-    console.error("Error in deleteCategory:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 }
@@ -81,8 +77,7 @@ export const updateCategory = async (req, res) => {
   try {
     const { id } = req.params
     const { title } = req.body
-    const category = Category.findByIdAndUpdate(id, { title }, { new: true }).lean();
-    console.log(category);
+    const category = Category.findByIdAndUpdate(id, { title, slug: slugify(title) }, { new: true }).lean();
     res.status(200).json({
       success: true,
       category: category

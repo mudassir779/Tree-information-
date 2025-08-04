@@ -3,12 +3,12 @@ import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
-import { 
-  FiLogOut, 
-  FiPlus, 
-  FiEdit2, 
-  FiTag, 
-  FiList, 
+import {
+  FiLogOut,
+  FiPlus,
+  FiEdit2,
+  FiTag,
+  FiList,
   FiFileText,
   FiCheckCircle,
   FiClock,
@@ -141,52 +141,6 @@ const AdminDashboard = () => {
               title="Admin Profile"
               link="/admin-dashboard/admin-profile"
               description="Manage existing content"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Analytics Section */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden mb-8">
-        <div className="p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-gray-800">Performance Analytics</h2>
-            <button className="text-sm text-blue-600 hover:text-blue-800">
-              View Full Report
-            </button>
-          </div>
-          <div className="bg-gray-50 rounded-lg p-8 flex items-center justify-center">
-            <div className="text-center">
-              <FaChartLine className="mx-auto text-4xl text-gray-400 mb-4" />
-              <h3 className="text-lg font-medium text-gray-700">Analytics Coming Soon</h3>
-              <p className="text-gray-500 mt-1">We're working on detailed analytics for your dashboard</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Recent Activity */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden">
-        <div className="p-6">
-          <h2 className="text-xl font-semibold text-gray-800 mb-6">Recent Activity</h2>
-          <div className="space-y-4">
-            <ActivityItem
-              icon={<FiFileText className="text-blue-500" />}
-              title="New blog post published"
-              time="2 hours ago"
-              action="View Post"
-            />
-            <ActivityItem
-              icon={<FiCheckCircle className="text-green-500" />}
-              title="Job request completed"
-              time="Yesterday"
-              action="View Job"
-            />
-            <ActivityItem
-              icon={<FiSettings className="text-purple-500" />}
-              title="System settings updated"
-              time="2 days ago"
-              action="Review Changes"
             />
           </div>
         </div>

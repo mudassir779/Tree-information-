@@ -69,18 +69,18 @@ const CommercialTreeServices = () => {
                 <img 
                   loading="lazy" 
                   decoding="async" 
-                  src="/Commercial_Tree_Maintenance1.jpg" 
+                  src="/2.jpg" 
                   alt="Commercial Tree Maintenance" 
-                  className="w-full h-auto rounded shadow-md"
+                  className="w-full h-100 object-bottom object-cover rounded shadow-md"
                 />
               </div>
               <div className="flex-1">
                 <img 
                   loading="lazy" 
                   decoding="async" 
-                  src="/commercial.jpg" 
+                  src="/6.jpg" 
                   alt="Commercial Tree Service" 
-                  className="w-full h-auto rounded shadow-md"
+                  className="w-full h-100 rounded shadow-md"
                 />
               </div>
             </div>
@@ -220,7 +220,7 @@ const CommercialTreeServices = () => {
 
             {/* Tree Health Assessments */}
             <div className="bg-white rounded-sm shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 md:hover:-translate-y-2 overflow-hidden border-2 border-[#FFFFFF]">
-              <img loading="lazy" decoding="async" src="/structural-pruning.jpg" alt="Tree health assessments" className="w-full h-48 md:h-56 object-cover" />
+              <img loading="lazy" decoding="async" src="/1.1.jpg" alt="Tree health assessments" className="w-full h-48 md:h-56 object-cover" />
               <div className="p-4 md:p-6">
                 <h3 className="text-lg md:text-xl font-bold text-center text-gray-800">
                   Tree Health Assessments
@@ -303,7 +303,7 @@ const CommercialTreeServices = () => {
 
             {/* Tree Plantation */}
             <div className="bg-white rounded-sm shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 md:hover:-translate-y-2 overflow-hidden border-2 border-[#FFFFFF]">
-              <img loading="lazy" decoding="async" src="/commercial-tree-services.jpg" alt="Tree plantation services" className="w-full h-48 md:h-56 object-cover" />
+              <img loading="lazy" decoding="async" src="/tree-plantation.jpg" alt="Tree plantation services" className="w-full h-48 md:h-56 object-cover" />
               <div className="p-4 md:p-6">
                 <h3 className="text-lg md:text-xl font-bold text-center text-gray-800">
                   Tree Plantation Services

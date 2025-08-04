@@ -280,7 +280,7 @@ const TreeRemoval = () => {
             <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">
               Professional Tree Removal Services with Experienced Arborists in Evansville, IN.
             </h1>
-            <img loading="lazy" decoding="async" src="/divider-d.png" alt="divider" title="divider-d" className="mt-3 sm:mt-5 shadow-2xl w-full" />
+            <img loading="lazy" decoding="async" src="/divider-d.png" alt="divider" title="divider-d" className="mt-3 sm:mt-5 shadow-2xl" />
             <div className="space-y-3 sm:space-y-4 mt-3 sm:mt-5 text-gray-700 text-sm sm:text-base">
               <p>
                 Tree removal is a process that requires professional knowledge and experience. That's why it's important to always hire a reputable tree service company for the job. DIY tree removal may appear to be a cheaper option, but it can quickly become expensive and dangerous if things don't go as planned.

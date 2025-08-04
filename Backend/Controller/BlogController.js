@@ -1,9 +1,9 @@
-import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
-import { fileURLToPath } from 'url'; // Add this import
+import { fileURLToPath } from 'url';
 import Blog from '../Model/BlogModel.js';
 import Category from '../Model/CategoryModel.js';
+import slugify from 'slugify';
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 
 export const addBlog = async (req, res) => {
   try {
-    const { title, description, category } = req.body;
+    let { title, description, category, slug } = req.body;
 
     // Check required fields first
     if (!title || !description || !category) {
@@ -30,8 +30,7 @@ export const addBlog = async (req, res) => {
     }
 
     const existingCat = await Category.findOne({ title: category });
-    // console.log("the exat cate", existingCat)
-    
+
     if (!existingCat) {
       // Delete the uploaded file if category doesn't exist
       const filePath = path.join(__dirname, '../public/uploads', req.file.filename);
@@ -46,11 +45,13 @@ export const addBlog = async (req, res) => {
       existingCat.blogs = [];
     }
 
+    slug = slugify(title, { lower: true });
     const newBlog = new Blog({
       title,
       description,
       image: req.file.filename,
-      category: existingCat._id
+      category: existingCat._id,
+      slug
     });
 
     await newBlog.save();
@@ -66,8 +67,7 @@ export const addBlog = async (req, res) => {
         if (err) console.error('Error deleting file:', err);
       });
     }
-    console.error('Error adding blog:', error);
-    return res.status(500).json({ message: 'Internal server error' });
+    return res.status(500).json({ message: 'Internal server error', error: error.message });
   }
 };
 
@@ -81,7 +81,7 @@ export const getAllBlog = async (req, res) => {
       blog,
     });
   } catch (err) {
-    console.log(err);
+    res.status(500).json({ message: "Internal Server Error", error: err.message });
   }
 };
 
@@ -94,15 +94,14 @@ export const getBlogById = async (req, res) => {
       blog,
     });
   } catch (err) {
-    console.log(err);
+    res.status(500).json({ message: "Internal Server Error", error: err.message });
   }
 }
 
-
 export const getDescription = async (req, res) => {
-  const { id } = req.params;
+  const { slug } = req.params;
   try {
-    const blog = await Blog.findById(id);
+    const blog = await Blog.findOne({ slug });
     if (!blog) {
       return res.status(404).json({ message: "Blog not found" });
     }
@@ -111,16 +110,16 @@ export const getDescription = async (req, res) => {
       blog,
     });
   } catch (err) {
-    console.log(err);
+    res.status(500).json({ message: "Internal Server Error", error: err.message });
   }
 };
 
-
-export const updateBlog =async (req, res)=>{
-  try{
-    const {id} = req.params;
-    const {title, description ,category} = req.body;
-    const blog = await Blog.findByIdAndUpdate(id, {title, description,category},{new: true}).populate('category');
+export const updateBlog = async (req, res) => {
+  try {
+    const { id } = req.params;
+    let { title, description, category, slug } = req.body;
+    slug = slugify(title, { lower: true });
+    const blog = await Blog.findByIdAndUpdate(id, { title, description, category, slug }, { new: true }).populate('category');
     const category1 = await Category.findOne({ blogs: blog._id });
     if (category1) {
       category1.blogs.pull(blog._id);
@@ -132,14 +131,14 @@ export const updateBlog =async (req, res)=>{
 
     res.status(200).json({
       success: true,
-      blog,
+      blog
     });
-  }catch(err){
-    res.status(500).json({message: "Internal Server Error", error:err.message});
+  } catch (err) {
+    res.status(500).json({ message: "Internal Server Error", error: err.message });
   }
 }
 
-export const deleteBlog  = async(req, res) => {
+export const deleteBlog = async (req, res) => {
   try {
     const { id } = req.params;
     const blog = await Blog.findByIdAndDelete(id);
@@ -153,8 +152,7 @@ export const deleteBlog  = async(req, res) => {
     }
     return res.status(200).json({ message: 'Blog deleted successfully' });
   } catch (error) {
-    console.error('Error deleting blog:', error);
-    return res.status(500).json({ message: 'Internal server error' });
+    return res.status(500).json({ message: 'Internal server error', error: error.message });
   }
 }
 
@@ -162,8 +160,8 @@ export const deleteBlog  = async(req, res) => {
 
 export const getImages = async (req, res) => {
   try {
-    
-    const image = await Blog.find({image});
+
+    const image = await Blog.find({ image });
     if (!image) {
       return res.status(404).json({ message: "image is not found" });
     }
@@ -172,6 +170,6 @@ export const getImages = async (req, res) => {
       image
     })
   } catch (err) {
-    console.log(err);
+    return res.status(500).json({ message: 'Internal server error', error: err.message });
   }
 };

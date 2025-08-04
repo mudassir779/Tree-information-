@@ -41,9 +41,9 @@ const Footer = () => {
                         <div className="sm:col-span-2 lg:col-span-1">
                             <div className="mb-4 md:mb-6">
                                 <img
-                                    src="/logo.png"
+                                    src="/logo.jpg"
                                     alt="American Tree Experts Land Logo"
-                                    className="h-16 md:h-20 w-auto mb-3"
+                                    className="h-20 md:h-25 w-auto mb-3 rounded-full"
                                     loading="lazy"
                                 />
                             </div>
