@@ -30,7 +30,7 @@ app.use(express.json());
 // for multer
 app.use(express.static(path.join(path.resolve(), 'public/uploads')));
 
-app.get('/', (req, res) => {
+app.get('/api/', (req, res) => {
     res.send('Hello World');
 });
 
