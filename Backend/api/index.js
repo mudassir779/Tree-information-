@@ -1,14 +1,16 @@
 import express from 'express';
 import cors from 'cors';
-import connectDB from './Config/Database.js';
-import blogRoutes from './Router/BlogRoutes.js';
-import categoryRoutes from './Router/CategoryRoutes.js';
-import adminRoutes from './Router/AdminRoutes.js';
-import requestRoutes from './Router/RequestRoutes.js';
 import path from 'path';
-import dashboardRoutes from './Router/DashboardRoutes.js';
-import testimonialRoutes from './Router/TestimonialRoutes.js';
 import serverless from 'serverless-http';
+
+import blogRoutes from '../Router/BlogRoutes.js';
+import categoryRoutes from '../Router/CategoryRoutes.js';
+import adminRoutes from '../Router/AdminRoutes.js';
+import requestRoutes from '../Router/RequestRoutes.js';
+import dashboardRoutes from '../Router/DashboardRoutes.js';
+import testimonialRoutes from '../Router/TestimonialRoutes.js';
+import connectDB from '../Config/Database.js';
+
 
 let app = express();
 connectDB();
